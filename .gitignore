@@ -3,10 +3,11 @@ node_modules/
 
 # build output
 dist/
-build/
+*.tgz
 
 # os / editor
 .DS_Store
+Thumbs.db
 *.log
 .vscode/
 .idea/

@@ -1,121 +1,152 @@
-# VibeXP Design System
+# @shaharia-lab/design-system
 
-The shared design foundation for **shaharia-lab / VibeXP** — product, website, blog and docs.
-Built directly on [shadcn/ui](https://ui.shadcn.com) (default style · neutral base) with Tailwind v4
-and OKLCH color tokens. This repo is the single source of truth for **tokens, typography and
-component conventions**.
+The unified design system for all shaharia-lab services — the product app,
+the public website, the blog and the docs.
 
-> **Brand is neutral black.** No accent hue, no gradients — every "brand moment" uses the global
-> `--primary` token (near-black in light, near-white in dark). Status and data-viz color live in the
-> tonal + chart scales.
+It is the **shadcn/ui default theme** on a **neutral (grayscale) base** in the
+**OKLCH** colour space. The brand is deliberately monochrome — there is **no
+accent hue**. Dark mode is a value-flip on the `.dark` class. One source of
+truth, consumed everywhere, so the surfaces never drift.
+
+> 📖 **Live reference:** open `docs/index.html` (or host `docs/` on GitHub
+> Pages). Tokens, type scale, components, patterns and usage guidelines, with
+> a light/dark toggle.
 
 ---
 
 ## What's in here
 
-| Path | What it is | Who consumes it |
-| --- | --- | --- |
-| `tokens.css` | Canonical CSS variables (`:root` + `.dark`) **+** the Tailwind v4 `@theme inline` bridge | Every app — import it once |
-| `tokens.json` | Machine-readable tokens (light/dark values, type scale, font→surface map) | Tooling, Figma sync, native apps |
-| `docs/` | The interactive reference site (browse tokens, type, components, patterns, guidelines) | Humans |
-| `package.json` | Lets services install this repo as a dependency | Build tooling |
+| Path | What it is |
+| --- | --- |
+| `index.css` | Barrel — imports everything below in the right order. |
+| `tokens/tokens.css` | **Source of truth** — `:root` + `.dark` custom properties. |
+| `tokens/theme.css` | Tailwind v4 `@theme inline` mapping → utilities. |
+| `tokens/fonts.css` | System / Inter / Poppins / mono font stacks. |
+| `tokens/prose.css` | Long-form `.prose` styles for blog & docs. |
+| `tokens.json` | Machine-readable tokens (Figma, codegen, non-CSS). |
+| `brand/` | `logo.svg` (icon mark) · `logo_wu.svg` (wordmark). |
+| `docs/` | The live documentation site. |
 
 ---
 
-## Use it in a service
+## Install
 
-### Option A — import the stylesheet (recommended)
+Pick whichever fits the consuming service.
+
+**npm (install straight from GitHub):**
 
 ```bash
 npm install github:shaharia-lab/design-system
+# or pin a tag once you cut releases:
+# npm install github:shaharia-lab/design-system#v0.1.0
 ```
+
+**git submodule** (for the monorepo / no package registry):
+
+```bash
+git submodule add https://github.com/shaharia-lab/design-system vendor/design-system
+```
+
+**Vendor** — copy `tokens/` into the service. Simplest, but you lose updates.
+
+---
+
+## Use it
+
+### Tailwind v4 service (product app, website)
+
+In your entry CSS (the file with `@import "tailwindcss";`):
 
 ```css
-/* your app's main stylesheet, before your own rules */
-@import "@shaharia-lab/design-system/tokens.css";
+@import 'tailwindcss';
+@import '@shaharia-lab/design-system';   /* tokens + theme + fonts + prose */
 ```
 
-That gives you every token **and** the Tailwind utilities (`bg-background`, `text-muted-foreground`,
-`rounded-lg`, `border-border`, …). Your existing shadcn components keep working unchanged — they
-already reference these variables.
-
-### Option B — vendor the file
-
-Copy `tokens.css` into your repo and import it. Pin the version you copied from in a comment so
-updates are traceable.
-
-### Dark mode
-
-Toggle the `.dark` class on `<html>` (or any ancestor). Every token flips; no component changes
-needed.
+Now the token utilities resolve and flip in dark mode:
 
 ```html
-<html class="dark"> … </html>
+<div class="bg-background text-foreground">
+  <button class="bg-primary text-primary-foreground rounded-md px-4 py-2">
+    Primary
+  </button>
+  <p class="text-muted-foreground">Secondary text</p>
+</div>
+```
+
+Toggle dark mode by putting `class="dark"` on `<html>` (or any ancestor).
+
+> **Tailwind v4 gotcha:** Tailwind only scans `@theme` blocks in your **entry**
+> CSS file. If `bg-primary` & friends don't generate, copy the
+> `@theme inline { … }` block from `tokens/theme.css` directly into your entry
+> CSS. Importing `tokens/tokens.css` (the variables) is always safe.
+
+### Just the tokens (any framework, no Tailwind)
+
+```css
+@import '@shaharia-lab/design-system/tokens.css';
+
+.panel { background: var(--card); color: var(--card-foreground);
+         border: 1px solid var(--border); border-radius: var(--radius); }
+```
+
+### Blog & docs (long-form)
+
+```css
+@import '@shaharia-lab/design-system/tokens.css';
+@import '@shaharia-lab/design-system/fonts.css';
+@import '@shaharia-lab/design-system/prose.css';
+```
+
+```html
+<article class="prose"> … rendered markdown … </article>
+```
+
+### shadcn/ui components
+
+This package owns the **tokens**, not the React components — keep generating
+those with the shadcn CLI in each service (they already reference these token
+names). Use the default style + neutral base so they line up:
+
+```jsonc
+// components.json
+{ "style": "default", "tailwind": { "baseColor": "neutral", "cssVariables": true } }
 ```
 
 ---
 
-## Typography — one typeface per surface
+## Typeface by surface
 
-| Surface | Font | Token |
+| Font | Surface | Token |
 | --- | --- | --- |
-| Frontend **app** (shadcn v2) | System sans (`ui-sans-serif, system-ui…`) | `--font-system` / `--font-sans` |
-| **Website · blog · docs** | Inter (400–800) | `--font-inter` |
-| Legacy **v1** app pages | Poppins (300–900) | `--font-poppins` |
-
-Long-form (`.prose`) body is **14px / 1.75**; headings step **h1 24/700 → h6 14/600**. Full scale in
-`tokens.json → typeScale`.
-
-Load Inter / Poppins where used:
-
-```html
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-```
+| System sans | Product app UI (shadcn v2) | `--font-system` / `font-sans` |
+| **Inter** | Website, blog, docs | `--font-inter` / `font-inter` |
+| Poppins | Legacy v1 app pages only | `--font-poppins` / `font-poppins` |
 
 ---
 
-## Foundations at a glance
+## Conventions
 
-- **Radius** — one seed `--radius: 0.625rem` → `sm` (6px) · `md` (8px) · `lg` (10px) · `xl` (14px)
-- **Spacing** — Tailwind 4px base grid
-- **Elevation** — three steps: `shadow-sm` (cards) · `shadow-md` (popovers) · `shadow-lg` (modals)
-- **Color** — semantic roles only; never hard-code hex/oklch in components
-- **Icons** — [Lucide](https://lucide.dev), `size-4` (16px) inside buttons/inputs
-
-See `docs/` for live examples and the full do / don't guidelines.
+- **Reference roles, never literals.** Use `bg-primary`, not a hex/oklch value
+  — that's what makes theming and dark mode free.
+- **The brand is neutral.** No accent hues, no gradients. Status meaning lives
+  in `destructive` + the documented tonal/chart scales; brand emphasis uses
+  `--primary` (black in light, white in dark).
+- **One radius seed.** Everything derives from `--radius: 0.625rem`.
+- **Don't fork tokens per service.** Change them here, bump the version, update
+  consumers. That's the whole point of this repo.
 
 ---
 
-## View the docs locally
+## Releasing
 
 ```bash
-cd docs
-python3 -m http.server 8000   # or: npx serve .
-# open http://localhost:8000
+# bump version in package.json + CHANGELOG.md, then:
+git tag v0.1.0
+git push origin v0.1.0
 ```
 
-The docs site is plain HTML + React via CDN — no build step.
+Consumers pin with `npm install github:shaharia-lab/design-system#v0.1.0`.
 
----
+## License
 
-## First push (from the project export)
-
-```bash
-# from the unzipped design-system/ folder
-git init
-git add .
-git commit -m "VibeXP design system v1.0 — tokens, typography, docs"
-git branch -M main
-git remote add origin git@github.com:shaharia-lab/design-system.git
-git push -u origin main
-```
-
----
-
-## Versioning
-
-Bump `package.json` + the header in `tokens.css` together. Treat any token **value** change as a
-minor release and any token **removal/rename** as a major — downstream services pin to a version.
-
-_Generated as v1.0 from the live VibeXP codebase (`frontend/` + `website/`)._
+MIT © shaharia-lab

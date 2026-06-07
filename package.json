@@ -1,23 +1,43 @@
 {
   "name": "@shaharia-lab/design-system",
-  "version": "1.0.0",
-  "description": "VibeXP design system — tokens, typography and component conventions built on shadcn/ui (default · neutral). Shared across product, website, blog and docs.",
-  "license": "UNLICENSED",
-  "private": false,
+  "version": "0.1.0",
+  "description": "Unified design system across all shaharia-lab services — shadcn/ui default theme, neutral base, OKLCH tokens, full light/dark parity.",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/shaharia-lab/design-system.git"
   },
   "type": "module",
-  "files": [
-    "tokens.css",
-    "tokens.json",
-    "docs/"
+  "sideEffects": [
+    "*.css"
   ],
+  "main": "index.css",
+  "style": "index.css",
   "exports": {
-    "./tokens.css": "./tokens.css",
-    "./tokens.json": "./tokens.json"
+    ".": "./index.css",
+    "./css": "./index.css",
+    "./tokens.css": "./tokens/tokens.css",
+    "./theme.css": "./tokens/theme.css",
+    "./prose.css": "./tokens/prose.css",
+    "./fonts.css": "./tokens/fonts.css",
+    "./tokens.json": "./tokens.json",
+    "./brand/*": "./brand/*"
   },
-  "keywords": ["design-system", "design-tokens", "shadcn", "tailwind", "vibexp", "oklch"],
-  "sideEffects": ["*.css"]
+  "files": [
+    "index.css",
+    "tokens/",
+    "tokens.json",
+    "brand/",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "design-system",
+    "design-tokens",
+    "shadcn",
+    "tailwindcss",
+    "oklch",
+    "shaharia-lab"
+  ]
 }
