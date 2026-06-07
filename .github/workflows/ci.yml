@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  validate:
+    name: Validate package
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Validate tokens.json
+        run: node -e "JSON.parse(require('fs').readFileSync('tokens.json', 'utf8')); console.log('tokens.json is valid JSON')"
+
+      - name: Check exports paths exist
+        run: |
+          node -e '
+            const fs = require("fs");
+            const pkg = require("./package.json");
+            const missing = [];
+            for (const [key, value] of Object.entries(pkg.exports)) {
+              if (value.includes("*")) {
+                const dir = value.slice(2, value.indexOf("*"));
+                if (!fs.existsSync(dir)) missing.push(`${key} -> ${dir}`);
+              } else if (!fs.existsSync(value)) {
+                missing.push(`${key} -> ${value}`);
+              }
+            }
+            if (missing.length) {
+              console.error("Missing export targets:\n" + missing.join("\n"));
+              process.exit(1);
+            }
+            console.log("All export paths exist");
+          '
+
+      - name: Pack dry run
+        run: npm pack --dry-run
