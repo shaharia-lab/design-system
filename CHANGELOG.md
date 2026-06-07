@@ -3,7 +3,7 @@
 All notable changes to `@shaharia-lab/design-system` are documented here.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
-## [0.1.0] — Unreleased
+## [0.1.0] — 2026-06-07
 
 Initial extraction of the shared foundation from the product codebase.
 
