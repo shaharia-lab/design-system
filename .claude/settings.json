@@ -1,0 +1,14 @@
+{
+  "extraKnownMarketplaces": {
+    "shaharia-lab": {
+      "source": {
+        "source": "github",
+        "repo": "shaharia-lab/claude-plugin-marketplace"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "lab-workflow@shaharia-lab": true,
+    "pr-review@shaharia-lab": true
+  }
+}
