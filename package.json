@@ -1,0 +1,23 @@
+{
+  "name": "@shaharia-lab/design-system",
+  "version": "1.0.0",
+  "description": "VibeXP design system — tokens, typography and component conventions built on shadcn/ui (default · neutral). Shared across product, website, blog and docs.",
+  "license": "UNLICENSED",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shaharia-lab/design-system.git"
+  },
+  "type": "module",
+  "files": [
+    "tokens.css",
+    "tokens.json",
+    "docs/"
+  ],
+  "exports": {
+    "./tokens.css": "./tokens.css",
+    "./tokens.json": "./tokens.json"
+  },
+  "keywords": ["design-system", "design-tokens", "shadcn", "tailwind", "vibexp", "oklch"],
+  "sideEffects": ["*.css"]
+}
