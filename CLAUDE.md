@@ -37,7 +37,7 @@ Tokens flow through three files that must stay in sync. When adding a new token,
 ## Conventions
 
 - Reference roles, never literals — no hard-coded hex/oklch values in consumers; if a value doesn't exist, add a token here first.
-- No accent hues or gradients. Status meaning lives in `destructive` + the tonal/chart scales; brand emphasis is `--primary` (black in light, white in dark).
+- No accent hues or gradients **in the brand** — brand emphasis is `--primary` (black in light, white in dark). Hue is allowed only for *functional* meaning: the status roles (`destructive`, `success`, `warning`, `info`, each with `-foreground` and `-subtle`) and the chart scale. Don't introduce a new hue for decoration; if you need one for state, it already exists here.
 - Everything radius-related derives from the single seed `--radius: 0.625rem`.
 - Commit messages use conventional prefixes (`feat:` / `fix:` / `docs:` / `refactor:`).
 - This package owns tokens only, not React components — services generate shadcn/ui components themselves (default style, neutral base).
