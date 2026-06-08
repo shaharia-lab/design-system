@@ -25,7 +25,7 @@ truth, consumed everywhere, so the surfaces never drift.
 | `tokens/prose.css` | Long-form `.prose` styles for blog & docs. |
 | `tokens/a11y.css` | Accessibility baseline — focus ring, reduced-motion, `.sr-only`, skip link. |
 | `tokens.json` | Machine-readable tokens (Figma, codegen, non-CSS). |
-| `brand/` | `logo.svg` (icon mark) · `logo_wu.svg` (wordmark). |
+| `brand/` | `logo.svg` (mark) · `logo_wu.svg` (lockup) · `logo-mono.svg` (glyph). |
 | `docs/` | The live documentation site. |
 
 ---
@@ -81,7 +81,7 @@ still resolves from the public npm registry. The token is read from the
 
 ```bash
 npm install @shaharia-lab/design-system
-# pin an exact version in package.json — "@shaharia-lab/design-system": "0.3.0"
+# pin an exact version in package.json — "@shaharia-lab/design-system": "0.4.0"
 ```
 
 > **Make it consumable org-wide.** A package published from a private repo is,
@@ -94,7 +94,7 @@ npm install @shaharia-lab/design-system
 ### Alternatives (no registry)
 
 - **Straight from git** — pure CSS, no build, so it just works:
-  `npm install github:shaharia-lab/design-system#v0.3.0`
+  `npm install github:shaharia-lab/design-system#v0.4.0`
 - **git submodule:**
   `git submodule add https://github.com/shaharia-lab/design-system vendor/design-system`
 - **Vendor** — copy `tokens/` into the service. Simplest, but you lose updates.
@@ -202,6 +202,45 @@ Rules for consumers (the system can't enforce these for you):
 
 The `docs/` site has a full **Accessibility** page with the verified contrast
 table and keyboard map.
+
+---
+
+## Brand assets
+
+Three marks in `brand/`, all monochrome (the brand has no accent hue):
+
+| File | Role | Use it for |
+| --- | --- | --- |
+| `logo.svg` | Mark — tile + pulse | App icon, sidebar, favicon source |
+| `logo_wu.svg` | Lockup — mark + wordmark | Splash, marketing, OG images, email |
+| `logo-mono.svg` | Single-ink glyph, no tile | Watermarks, dense UI, CSS masks, 1-colour print |
+
+**They're theme-aware.** The tile is `fill="currentColor"` and the glyph/text
+knock out to `var(--background)`. So:
+
+- **Inline the SVG** (import as a component, `?raw`, or paste the markup) inside
+  an element whose `color` is the foreground, and the mark **flips for dark mode
+  automatically** — near-black tile in light, near-white in dark.
+- **Use `<img src>`** for simplicity and it renders the static black-on-white
+  fallback (an `<img>` is opaque to page CSS, so `currentColor` can't reach it).
+
+```jsx
+// React — inline + themed (flips automatically)
+import Logo from '@shaharia-lab/design-system/brand/logo.svg?react';
+<span style={{ color: 'var(--foreground)' }}><Logo width={32} height={32} /></span>
+
+// Plain — static fallback, no theming
+<img src="@shaharia-lab/design-system/brand/logo.svg" width="32" alt="VibeXP" />
+```
+
+For a wordmark, prefer a **CSS lockup** (mark + live `--font-inter` text) over
+the baked-text `logo_wu.svg`, which only carries a font *fallback*. Reserve the
+SVG wordmark for non-CSS contexts (email, OG images, PDF).
+
+**Distribution is package-only.** Reference these files from the installed
+package — never copy an SVG into a service repo. To rebrand everywhere: edit the
+mark here, bump the version, and each service picks it up on its next dependency
+bump. (No CDN / runtime channel — propagation is versioned, by design.)
 
 ---
 

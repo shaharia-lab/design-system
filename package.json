@@ -1,6 +1,6 @@
 {
   "name": "@shaharia-lab/design-system",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Unified design system across all shaharia-lab services — shadcn/ui default theme, neutral base, OKLCH tokens, full light/dark parity.",
   "license": "MIT",
   "repository": {

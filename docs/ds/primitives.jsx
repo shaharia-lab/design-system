@@ -155,7 +155,41 @@ function Badge({ variant = "default", children }) {
   return <span className={"sh-badge sh-badge--" + variant}>{children}</span>;
 }
 
+/* ---- brand: inline, theme-aware logo (mirrors brand/*.svg) ---------------
+   currentColor drives the tile (foreground); the glyph/text knock out to
+   --background, so the whole mark flips for dark mode automatically. */
+function LogoMark({ size = 34, radius = 9, style, ...rest }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 512 512" fill="none" role="img" aria-label="VibeXP"
+      style={{ display: "block", flexShrink: 0, color: "var(--foreground)", borderRadius: radius, ...style }} {...rest}>
+      <rect width="512" height="512" rx="90" fill="currentColor" />
+      <path d="M128 256h48l32-96 64 192 32-96h48" style={{ stroke: "var(--background)" }}
+        strokeWidth="40" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+    </svg>
+  );
+}
+function LogoGlyph({ size = 34, style, ...rest }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 512 512" fill="none" role="img" aria-label="VibeXP"
+      style={{ display: "block", flexShrink: 0, color: "var(--foreground)", ...style }} {...rest}>
+      <path d="M64 256 L136 256 L184 112 L280 400 L328 256 L400 256" stroke="currentColor"
+        strokeWidth="54" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+    </svg>
+  );
+}
+function LogoLockup({ size = 32, style, ...rest }) {
+  return (
+    <span style={{ display: "inline-flex", alignItems: "center", gap: Math.round(size * 0.32),
+      color: "var(--foreground)", ...style }} {...rest}>
+      <LogoMark size={size} radius={Math.round(size * 0.26)} />
+      <span style={{ fontFamily: "var(--font-inter)", fontWeight: 700, fontSize: Math.round(size * 0.62),
+        letterSpacing: "-0.02em", lineHeight: 1 }}>vibexp.io</span>
+    </span>
+  );
+}
+
 Object.assign(window, {
   React, useState, useRef, useEffect, useCallback,
   Icon, Section, SubHead, SubNote, Chip, Example, PropTable, Callout, Btn, Badge,
+  LogoMark, LogoGlyph, LogoLockup,
 });

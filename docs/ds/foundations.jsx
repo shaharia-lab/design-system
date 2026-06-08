@@ -1,4 +1,5 @@
-/* global React, Section, SubHead, SubNote, Example, PropTable, Callout, Chip, Icon, Badge */
+/* global React, Section, SubHead, SubNote, Example, PropTable, Callout, Chip, Icon, Badge,
+   LogoMark, LogoGlyph, LogoLockup */
 
 /* ---- color token data (verbatim from index.css) -------------------- */
 const SEMANTIC = [
@@ -113,33 +114,89 @@ function ColorsSection() {
         <SwatchCard name="accent" label="oklch(0.97 0 0) · hover / active" />
       </div>
 
-      <SubHead>Logomark</SubHead>
+      <SubHead>Logo</SubHead>
       <SubNote>
-        The mark is a black tile (<code>rx 90 / 512 ≈ 18%</code> radius) with a white activity-pulse
-        glyph — the brand made literal: monochrome, no gradient. Use the icon mark in tight spaces and
-        the wordmark lockup where the name needs to read. Files: <code>logo.svg</code> ·{" "}
-        <code>logo_wu.svg</code>.
+        A black tile (<code>rx 90 / 512 ≈ 18%</code> radius) carrying a knocked-out activity-pulse
+        glyph — the brand made literal: monochrome, no gradient. The marks are{" "}
+        <strong>theme-aware</strong>: the tile is <code>currentColor</code> and the glyph knocks out to{" "}
+        <code>--background</code>, so when the SVG is <em>inlined</em> it flips automatically for dark
+        mode. Loaded as an <code>&lt;img&gt;</code> it renders the static black-on-white fallback.
       </SubNote>
-      <Example center
-        code={`<img src="/logo.svg" alt="VibeXP" />        {/* icon mark */}
-<img src="/logo_wu.svg" alt="VibeXP.io" />   {/* wordmark lockup */}`}
-      >
-        <div className="row" style={{ gap: 28, alignItems: "center" }}>
-          <div className="col" style={{ alignItems: "center", gap: 8 }}>
-            <img src="ds/logo.svg" alt="VibeXP" width="64" height="64" style={{ borderRadius: 12 }} />
-            <span className="token-val">logo.svg · 64</span>
+
+      {/* live, theme-aware specimens (inline SVG) */}
+      <Example center>
+        <div className="row" style={{ gap: 22, alignItems: "center", flexWrap: "wrap" }}>
+          <div className="logo-frame is-light">
+            <LogoMark size={60} radius={15} />
+            <span className="token-val">mark · light</span>
           </div>
-          <div className="col" style={{ alignItems: "center", gap: 8 }}>
-            <img src="ds/logo.svg" alt="VibeXP" width="40" height="40" style={{ borderRadius: 8 }} />
-            <span className="token-val">logo.svg · 40</span>
+          <div className="logo-frame is-dark">
+            <LogoMark size={60} radius={15} />
+            <span className="token-val">mark · dark (auto-flip)</span>
           </div>
-          <div className="sh-separator sh-separator--v" style={{ height: 64 }} />
-          <div className="col" style={{ alignItems: "center", gap: 8 }}>
-            <img src="ds/logo_wu.svg" alt="VibeXP.io" width="96" height="96" style={{ borderRadius: 16 }} />
-            <span className="token-val">logo_wu.svg · wordmark</span>
+          <div className="sh-separator sh-separator--v" style={{ height: 76 }} />
+          <div className="logo-frame is-light">
+            <LogoGlyph size={56} />
+            <span className="token-val">mono · glyph only</span>
+          </div>
+          <div className="logo-frame is-light">
+            <LogoLockup size={34} />
+            <span className="token-val">lockup · Inter</span>
           </div>
         </div>
       </Example>
+
+      <SubNote>
+        Three files, three jobs. All live in <code>brand/</code> and ship in the package
+        (<code>@shaharia-lab/design-system/brand/*</code>).
+      </SubNote>
+      <PropTable
+        cols={["File", "Role", "Use it for"]}
+        rows={[
+          [<code>logo.svg</code>, "Primary mark — tile + pulse", "App icon, sidebar, favicon source, anywhere the brand tile reads"],
+          [<code>logo_wu.svg</code>, "Lockup — mark + wordmark", "Splash, marketing headers, OG images, email — where the name must read"],
+          [<code>logo-mono.svg</code>, "Single-ink glyph, no tile", "Watermarks, dense UI, CSS masks, one-colour print/stamp"],
+        ]}
+      />
+
+      <Callout>
+        <b>Inline to theme, <code>&lt;img&gt;</code> for simplicity.</b> An <code>&lt;img&gt;</code> is
+        opaque to page CSS, so <code>currentColor</code> can't flip it — it stays black-on-white (a
+        fine static fallback). To get the automatic dark-mode flip, <em>inline</em> the SVG (import as
+        a component / raw markup) inside an element whose <code>color</code> is the foreground.
+      </Callout>
+
+      <SubNote>
+        Prefer a CSS lockup over the baked-text SVG when you can — it uses the live{" "}
+        <code>--font-inter</code> webfont and stays crisp at any size:
+      </SubNote>
+      <Example
+        code={`/* mark + live brand type — preferred lockup */
+<span style="display:inline-flex;align-items:center;gap:10px;
+             color:var(--foreground)">
+  <!-- inline contents of brand/logo.svg here -->
+  <span style="font-family:var(--font-inter);font-weight:700;
+               letter-spacing:-.02em">vibexp.io</span>
+</span>`}
+      >
+        <LogoLockup size={40} />
+      </Example>
+
+      <PropTable
+        cols={["Do", "Don't"]}
+        rows={[
+          ["Keep clearspace ≥ the tile's corner radius on all sides", "Crowd the mark against text or edges"],
+          ["Let it flip via currentColor, or use the right static file", "Recolour the tile to a brand hue — there isn't one"],
+          ["Use logo-mono where a single ink is required", "Re-add a drop shadow, gradient or outline to the glyph"],
+          ["Scale the whole SVG uniformly", "Stretch, skew, or rebuild the pulse path"],
+        ]}
+      />
+
+      <Callout>
+        <b>Distribution is package-only.</b> Services <em>reference</em> these files from the installed
+        package — never copy the SVG into a service repo. To change the logo everywhere: edit it here,
+        bump the version, and each service picks it up on its next dependency update.
+      </Callout>
 
       <SubHead>Semantic status roles</SubHead>
       <SubNote>

@@ -3,6 +3,32 @@
 All notable changes to `@shaharia-lab/design-system` are documented here.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
+## [0.4.0] — 2026-06-08
+
+Brand / logo overhaul. The marks are now theme-aware and the wordmark uses the
+brand typeface. No token changes; consumers re-importing `brand/*` pick this up.
+
+### Added
+- **`brand/logo-mono.svg`** — single-ink activity-pulse glyph, no tile. For
+  watermarks, dense UI, CSS masks and one-colour print. Pure `currentColor`.
+
+### Changed
+- **`brand/logo.svg` and `brand/logo_wu.svg` are now theme-aware.** The tile is
+  `fill="currentColor"` and the glyph/text knock out to `var(--background)`, so
+  an **inlined** mark flips automatically in dark mode (near-black tile in
+  light → near-white in dark). Loaded as an `<img>` it falls back to the static
+  black-on-white mark — visually identical to before, so no consumer breaks.
+- **Wordmark typeface fixed.** `logo_wu.svg` set the wordmark in `Arial`; it now
+  uses the brand stack (`'Inter', system-ui, …`). Inlined it renders in Inter;
+  as an `<img>` it falls back to system-ui — never Arial.
+
+### Docs
+- Reworked the **Logo** specimen: live theme-flip demo, variant table,
+  inline-vs-`<img>` guidance, CSS-lockup pattern, do/don'ts, and the
+  package-only distribution rule.
+- De-duplicated the logo assets — the docs site now references the canonical
+  `brand/*.svg` (inlined) instead of keeping its own copies under `docs/ds/`.
+
 ## [0.3.0] — 2026-06-08
 
 Semantic status colour roles. The system previously shipped only

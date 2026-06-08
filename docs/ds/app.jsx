@@ -1,4 +1,4 @@
-/* global React, useState, useEffect, useRef, Icon, Btn, Badge,
+/* global React, useState, useEffect, useRef, Icon, Btn, Badge, LogoMark,
    ColorsSection, TypographySection, SpacingSection, AccessibilitySection,
    ComponentsSection, PatternsSection, GuidelinesSection */
 const { createRoot } = ReactDOM;
@@ -127,7 +127,7 @@ function App() {
     <div className="shell">
       <aside className="sidebar">
         <div className="sidebar__brand">
-          <img className="brandmark" src="ds/logo.svg" alt="VibeXP" width="34" height="34" />
+          <LogoMark className="brandmark" size={34} />
           <div>
             <div className="sidebar__title">VibeXP</div>
             <div className="sidebar__sub">Design System</div>
