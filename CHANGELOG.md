@@ -3,7 +3,7 @@
 All notable changes to `@shaharia-lab/design-system` are documented here.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
-## [0.3.0] — Unreleased
+## [0.3.0] — 2026-06-08
 
 Semantic status colour roles. The system previously shipped only
 `--destructive` for "meaning"; consumers encoding success / warning / info
@@ -26,7 +26,7 @@ On a `-subtle` alert panel: background = `--x-subtle`, body text =
 `--foreground`, icon / border / title accent = `--x` (the solid). Solid badges
 and buttons use `--x` + `--x-foreground`.
 
-## [0.2.0] — Unreleased
+## [0.2.0] — 2026-06-08
 
 Accessibility pass on the foundation. No component API changes; consuming
 services pick up the fixes by re-importing the tokens.
@@ -47,7 +47,7 @@ services pick up the fixes by re-importing the tokens.
 - **Accessibility** documentation page in `docs/` — verified contrast table,
   focus-ring spec, keyboard map, and label / alt-text rules.
 
-## [0.1.0] — Unreleased
+## [0.1.0] — 2026-06-07
 
 Initial extraction of the shared foundation from the product codebase.
 

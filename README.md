@@ -32,23 +32,72 @@ truth, consumed everywhere, so the surfaces never drift.
 
 ## Install
 
-Pick whichever fits the consuming service.
+This package is published to **GitHub Packages** (GitHub's private npm
+registry) under the `@shaharia-lab` scope. The repo is private, so the package
+is too — only the org can pull it.
 
-**npm (install straight from GitHub):**
+### 1. Point the `@shaharia-lab` scope at GitHub Packages
 
-```bash
-npm install github:shaharia-lab/design-system
-# or pin a tag once you cut releases:
-# npm install github:shaharia-lab/design-system#v0.1.0
+In the consuming repo, add an `.npmrc` next to its `package.json`:
+
+```ini
+@shaharia-lab:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}
 ```
 
-**git submodule** (for the monorepo / no package registry):
+This routes only the `@shaharia-lab` scope to GitHub Packages; everything else
+still resolves from the public npm registry. The token is read from the
+`NODE_AUTH_TOKEN` env var, so no secret is committed.
+
+### 2. Authenticate
+
+- **CI (GitHub Actions):** use the workflow's built-in `GITHUB_TOKEN` — no PAT
+  needed. The job must request `packages: read`:
+
+  ```yaml
+  permissions:
+    contents: read
+    packages: read
+  steps:
+    - uses: actions/checkout@<sha>
+    - uses: actions/setup-node@<sha>
+      with:
+        node-version: 22
+        registry-url: https://npm.pkg.github.com
+        scope: '@shaharia-lab'
+    - run: npm ci
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  ```
+
+- **Local dev:** export a classic [personal access token](https://github.com/settings/tokens)
+  with the `read:packages` scope (authorized for org SSO if enforced):
+
+  ```bash
+  export NODE_AUTH_TOKEN=ghp_xxx   # in your shell profile, never the repo
+  ```
+
+### 3. Install
 
 ```bash
-git submodule add https://github.com/shaharia-lab/design-system vendor/design-system
+npm install @shaharia-lab/design-system
+# pin an exact version in package.json — "@shaharia-lab/design-system": "0.3.0"
 ```
 
-**Vendor** — copy `tokens/` into the service. Simplest, but you lose updates.
+> **Make it consumable org-wide.** A package published from a private repo is,
+> by default, only readable by people/Actions with access to *this* repo — it
+> is **not** automatically available to every org repo's CI. To open it up:
+> set the package's visibility to **Internal**, or grant each consuming repo
+> access under **Manage Actions access** (GitHub → Org → Packages →
+> `design-system` → Package settings). There is no Terraform toggle for this.
+
+### Alternatives (no registry)
+
+- **Straight from git** — pure CSS, no build, so it just works:
+  `npm install github:shaharia-lab/design-system#v0.3.0`
+- **git submodule:**
+  `git submodule add https://github.com/shaharia-lab/design-system vendor/design-system`
+- **Vendor** — copy `tokens/` into the service. Simplest, but you lose updates.
 
 ---
 
