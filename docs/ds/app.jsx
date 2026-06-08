@@ -1,6 +1,6 @@
 /* global React, useState, useEffect, useRef, Icon, Btn, Badge,
-   ColorsSection, TypographySection, SpacingSection, ComponentsSection,
-   PatternsSection, GuidelinesSection */
+   ColorsSection, TypographySection, SpacingSection, AccessibilitySection,
+   ComponentsSection, PatternsSection, GuidelinesSection */
 const { createRoot } = ReactDOM;
 
 const NAV = [
@@ -11,6 +11,7 @@ const NAV = [
       { id: "colors", label: "Color", icon: "palette" },
       { id: "typography", label: "Typography", icon: "type" },
       { id: "spacing", label: "Spacing & radius", icon: "ruler" },
+      { id: "accessibility", label: "Accessibility", icon: "shield" },
     ],
   },
   {
@@ -25,6 +26,7 @@ const NAV = [
 
 const CRUMBS = {
   overview: "Overview", colors: "Color", typography: "Typography", spacing: "Spacing & radius",
+  accessibility: "Accessibility",
   components: "Components", patterns: "Patterns", guidelines: "Guidelines",
 };
 
@@ -160,6 +162,7 @@ function App() {
           <ColorsSection />
           <TypographySection />
           <SpacingSection />
+          <AccessibilitySection />
           <ComponentsSection />
           <PatternsSection />
           <GuidelinesSection />

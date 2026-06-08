@@ -23,6 +23,7 @@ truth, consumed everywhere, so the surfaces never drift.
 | `tokens/theme.css` | Tailwind v4 `@theme inline` mapping → utilities. |
 | `tokens/fonts.css` | System / Inter / Poppins / mono font stacks. |
 | `tokens/prose.css` | Long-form `.prose` styles for blog & docs. |
+| `tokens/a11y.css` | Accessibility baseline — focus ring, reduced-motion, `.sr-only`, skip link. |
 | `tokens.json` | Machine-readable tokens (Figma, codegen, non-CSS). |
 | `brand/` | `logo.svg` (icon mark) · `logo_wu.svg` (wordmark). |
 | `docs/` | The live documentation site. |
@@ -124,6 +125,37 @@ names). Use the default style + neutral base so they line up:
 
 ---
 
+## Accessibility
+
+A11y is baked into the foundation, not bolted on — import the tokens and every
+surface inherits it. What's guaranteed:
+
+- **Colour contrast (verified).** Body text is 19.8:1 (light) / 19:1 (dark).
+  All semantic status tones clear AA (4.8–5.7:1 light, 7–9.4:1 dark). The
+  focus `--ring` clears the 3:1 non-text threshold (7.46:1 light / 5:1 dark).
+  One thing to mind: `muted-foreground` on a `muted` surface is 4.35:1 — fine
+  for large/secondary text, but don't set small body copy in that pairing.
+- **Visible keyboard focus.** `tokens/a11y.css` puts a token-driven
+  `:focus-visible` ring on every interactive element. Never `outline: none`
+  without a replacement.
+- **Reduced motion.** `@media (prefers-reduced-motion: reduce)` neutralises
+  animation, transition and smooth-scroll automatically.
+- **Hidden-but-announced text.** Use `.sr-only` for icon-only button labels
+  and live-region text; `.skip-link` for skip-to-content.
+
+Rules for consumers (the system can't enforce these for you):
+
+- **Label every control.** A visible `<label htmlFor>` tied to the input `id` —
+  never placeholder-as-label. Icon-only buttons get an `aria-label`.
+- **Use native elements.** `<button>` for actions, `<a>` for navigation. If you
+  must build a custom control, mirror the role + `aria-*` + keyboard handling.
+- **Give images meaningful `alt`** (or `alt=""` if decorative).
+
+The `docs/` site has a full **Accessibility** page with the verified contrast
+table and keyboard map.
+
+---
+
 ## Conventions
 
 - **Reference roles, never literals.** Use `bg-primary`, not a hex/oklch value
@@ -137,7 +169,11 @@ names). Use the default style + neutral base so they line up:
 
 ---
 
-## Releasing
+## Changing the system
+
+Tokens here are the single source of truth — edit a token, bump the version,
+tag a release, and services opt in. The full loop (what to edit, semver rules,
+how to request design-level changes) is in **[CONTRIBUTING.md](./CONTRIBUTING.md)**.
 
 ```bash
 # bump version in package.json + CHANGELOG.md, then:

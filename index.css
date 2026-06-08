@@ -6,7 +6,7 @@
  *     @import '@shaharia-lab/design-system';
  *
  * Order matters: fonts + tokens define the variables, theme maps them to
- * Tailwind utilities, prose consumes them.
+ * Tailwind utilities, prose consumes them, a11y adds the accessibility baseline.
  *
  * NOTE (Tailwind v4): if utilities like `bg-primary` don't generate, move
  * the `@theme inline { … }` block from tokens/theme.css into your entry CSS
@@ -17,3 +17,4 @@
 @import './tokens/tokens.css';
 @import './tokens/theme.css';
 @import './tokens/prose.css';
+@import './tokens/a11y.css';

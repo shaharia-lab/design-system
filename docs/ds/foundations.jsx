@@ -16,7 +16,7 @@ const SEMANTIC = [
   ["destructive", "bg-destructive", "oklch(0.577 0.245 27.3)", "oklch(0.704 0.191 22.2)", "Danger / delete"],
   ["border", "border-border", "oklch(0.922 0 0)", "oklch(1 0 0 / 10%)", "Hairline borders"],
   ["input", "border-input", "oklch(0.922 0 0)", "oklch(1 0 0 / 15%)", "Field borders"],
-  ["ring", "ring-ring", "oklch(0.708 0 0)", "oklch(0.556 0 0)", "Focus ring"],
+  ["ring", "ring-ring", "oklch(0.45 0 0)", "oklch(0.6 0 0)", "Focus ring · WCAG 2.2 ≥3:1"],
 ];
 
 const SIDEBAR = [
