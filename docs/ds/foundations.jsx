@@ -14,6 +14,9 @@ const SEMANTIC = [
   ["muted-foreground", "text-muted-foreground", "oklch(0.556 0 0)", "oklch(0.708 0 0)", "Secondary text"],
   ["accent", "bg-accent", "oklch(0.97 0 0)", "oklch(0.269 0 0)", "Hover / highlight"],
   ["destructive", "bg-destructive", "oklch(0.577 0.245 27.3)", "oklch(0.704 0.191 22.2)", "Danger / delete"],
+  ["success", "bg-success", "oklch(0.52 0.14 150)", "oklch(0.7 0.15 150)", "Success / active"],
+  ["warning", "bg-warning", "oklch(0.7 0.145 75)", "oklch(0.78 0.15 80)", "Warning / pending"],
+  ["info", "bg-info", "oklch(0.52 0.13 245)", "oklch(0.68 0.16 245)", "Info / running"],
   ["border", "border-border", "oklch(0.922 0 0)", "oklch(1 0 0 / 10%)", "Hairline borders"],
   ["input", "border-input", "oklch(0.922 0 0)", "oklch(1 0 0 / 15%)", "Field borders"],
   ["ring", "ring-ring", "oklch(0.45 0 0)", "oklch(0.6 0 0)", "Focus ring · WCAG 2.2 ≥3:1"],
@@ -25,6 +28,13 @@ const SIDEBAR = [
   ["sidebar-primary", "oklch(0.205 0 0)", "oklch(0.488 0.243 264)"],
   ["sidebar-accent", "oklch(0.97 0 0)", "oklch(0.269 0 0)"],
   ["sidebar-border", "oklch(0.922 0 0)", "oklch(1 0 0 / 10%)"],
+];
+
+const STATUS = [
+  ["destructive", "Failed", "irreversible / error state"],
+  ["success", "Active", "completed, healthy, running ok"],
+  ["warning", "Pending", "needs attention, degraded"],
+  ["info", "Running", "neutral informational state"],
 ];
 
 const CHART = [
@@ -131,23 +141,64 @@ function ColorsSection() {
         </div>
       </Example>
 
-      <SubHead>Status tones</SubHead>
+      <SubHead>Semantic status roles</SubHead>
       <SubNote>
-        From <code>StatusBadge.tsx</code> — soft tonal fills (colour at 10–12% alpha) for state, kept
-        deliberately distinct from the monochrome brand so meaning reads instantly.
+        Functional status colour — the one place hue is allowed outside the brand. Each role ships a{" "}
+        <strong>solid</strong> (<code>--x</code> + <code>--x-foreground</code>) for badges and a{" "}
+        <strong>subtle</strong> (<code>--x-subtle</code>) for alert panels. On a subtle panel the body
+        text stays <code>--foreground</code> (≈17:1) and the solid colours the icon, border and title.
+        Every pairing clears WCAG AA. Toggle the theme to see the dark values resolve.
       </SubNote>
       <Example
-        code={`<StatusBadge tone="success">Active</StatusBadge>
-<StatusBadge tone="warning">Pending</StatusBadge>
-<StatusBadge tone="destructive">Failed</StatusBadge>
-<StatusBadge tone="info">Running</StatusBadge>
-<StatusBadge tone="neutral">Draft</StatusBadge>`}
+        code={`{/* solid badge */}
+<span className="bg-success text-success-foreground">Active</span>
+
+{/* subtle alert: tinted bg, neutral body, role-coloured accent */}
+<div className="bg-warning-subtle border-warning">
+  <Icon className="text-warning" /> Pending review…
+</div>`}
       >
-        <Badge variant="success">Active</Badge>
-        <Badge variant="warning">Pending</Badge>
-        <Badge variant="tone-destructive">Failed</Badge>
-        <Badge variant="info">Running</Badge>
-        <Badge variant="neutral">Draft</Badge>
+        <div className="col" style={{ gap: 14, width: "100%" }}>
+          <div className="row" style={{ gap: 8, flexWrap: "wrap" }}>
+            {STATUS.map(([role, label]) => (
+              <span
+                key={role}
+                style={{
+                  background: "var(--" + role + ")",
+                  color: "var(--" + role + "-foreground)",
+                  borderRadius: "var(--radius-md)",
+                  padding: "3px 10px",
+                  fontSize: 12,
+                  fontWeight: 600,
+                }}
+              >
+                {label}
+              </span>
+            ))}
+          </div>
+          <div className="col" style={{ gap: 8, width: "100%" }}>
+            {STATUS.map(([role, , line]) => (
+              <div
+                key={role}
+                style={{
+                  background: "var(--" + role + "-subtle)",
+                  border: "1px solid var(--" + role + ")",
+                  borderRadius: "var(--radius-lg)",
+                  padding: "10px 12px",
+                  color: "var(--foreground)",
+                  fontSize: 13,
+                  display: "flex",
+                  gap: 8,
+                  alignItems: "center",
+                }}
+              >
+                <span style={{ width: 8, height: 8, borderRadius: 99, background: "var(--" + role + ")", flexShrink: 0 }} />
+                <span style={{ fontWeight: 600, color: "var(--" + role + ")" }}>--{role}</span>
+                <span style={{ color: "var(--muted-foreground)" }}>{line}</span>
+              </div>
+            ))}
+          </div>
+        </div>
       </Example>
 
       <SubHead>Chart palette</SubHead>

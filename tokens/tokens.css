@@ -36,9 +36,26 @@
   --accent: oklch(0.97 0 0);
   --accent-foreground: oklch(0.205 0 0);
 
-  /* feedback */
+  /* feedback — functional status roles. NOT brand accent (the brand stays
+     monochrome via --primary); these encode meaning the way --destructive
+     already does. Each role ships three values:
+       --x             solid fill          (badges, solid buttons)
+       --x-foreground  text/icon on solid  (WCAG-checked, ratios below)
+       --x-subtle      soft tinted panel   (alert backgrounds)
+     Usage on a -subtle panel: background = --x-subtle, body text =
+     --foreground (≈17:1), icon/border/title accent = --x. Solid fills carry
+     their own -foreground; warning is light enough to need a dark one. */
   --destructive: oklch(0.577 0.245 27.325);
   --destructive-foreground: oklch(0.985 0 0);
+  --success: oklch(0.52 0.14 150); /* fg white → 4.95:1 */
+  --success-foreground: oklch(0.985 0 0);
+  --success-subtle: oklch(0.95 0.03 150);
+  --warning: oklch(0.7 0.145 75); /* fg near-black → 6.55:1 */
+  --warning-foreground: oklch(0.205 0 0);
+  --warning-subtle: oklch(0.96 0.03 80);
+  --info: oklch(0.52 0.13 245); /* fg white → 5.23:1 */
+  --info-foreground: oklch(0.985 0 0);
+  --info-subtle: oklch(0.96 0.02 245);
 
   /* lines & focus
      --ring is the keyboard focus indicator. It must clear WCAG 2.2 SC 1.4.11
@@ -83,6 +100,17 @@
   --accent-foreground: oklch(0.985 0 0);
   --destructive: oklch(0.704 0.191 22.216);
   --destructive-foreground: oklch(0.985 0 0);
+  /* status solids ride brighter on dark surfaces, so they take a dark
+     foreground (success 7.13:1 · warning 8.81:1 · info 6.28:1). */
+  --success: oklch(0.7 0.15 150);
+  --success-foreground: oklch(0.205 0 0);
+  --success-subtle: oklch(0.27 0.05 150);
+  --warning: oklch(0.78 0.15 80);
+  --warning-foreground: oklch(0.205 0 0);
+  --warning-subtle: oklch(0.27 0.05 80);
+  --info: oklch(0.68 0.16 245);
+  --info-foreground: oklch(0.205 0 0);
+  --info-subtle: oklch(0.27 0.05 245);
   --border: oklch(1 0 0 / 10%);
   --input: oklch(1 0 0 / 15%);
   /* dark focus ring: 0.556 passed (4.18:1) but sat marginal on raised cards

@@ -3,6 +3,29 @@
 All notable changes to `@shaharia-lab/design-system` are documented here.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
+## [0.3.0] — Unreleased
+
+Semantic status colour roles. The system previously shipped only
+`--destructive` for "meaning"; consumers encoding success / warning / info
+had no token to map to and were inventing their own. These are **functional**
+status colours, not brand accent — the brand stays monochrome via `--primary`.
+
+### Added
+- **`--success` / `--warning` / `--info`** roles, each with a `-foreground`
+  (text/icon on the solid fill) and a `-subtle` (soft tinted alert panel)
+  variant, in both light and `.dark`. All foreground pairings are WCAG-checked:
+  light solids 4.95 / 6.55 / 5.23:1, dark solids 7.13 / 8.81 / 6.28:1, and
+  `-subtle` panels carry body text at ≈14–17:1. Hues are in-gamut OKLCH
+  (green 150 · amber 75–80 · blue 245) at `--destructive`-level chroma.
+- Tailwind utilities for all nine roles (`bg-success`, `text-warning-foreground`,
+  `bg-info-subtle`, …) via `tokens/theme.css`.
+- `tokens.json` mirror entries for every new role (light + dark).
+
+### Usage
+On a `-subtle` alert panel: background = `--x-subtle`, body text =
+`--foreground`, icon / border / title accent = `--x` (the solid). Solid badges
+and buttons use `--x` + `--x-foreground`.
+
 ## [0.2.0] — Unreleased
 
 Accessibility pass on the foundation. No component API changes; consuming
