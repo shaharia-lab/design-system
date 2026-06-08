@@ -145,10 +145,10 @@ function ComponentsSection() {
 </div>`}
       >
         <div className="col" style={{ maxWidth: 360 }}>
-          <label className="sh-label">Work email</label>
-          <input className="sh-input" type="email" placeholder="you@vibexp.io" />
-          <label className="sh-label" style={{ marginTop: 10 }}>Prompt</label>
-          <textarea className="sh-input sh-textarea" placeholder="Describe what the agent should do…" />
+          <label className="sh-label" htmlFor="ex-email">Work email</label>
+          <input className="sh-input" id="ex-email" type="email" placeholder="you@vibexp.io" />
+          <label className="sh-label" htmlFor="ex-prompt" style={{ marginTop: 10 }}>Prompt</label>
+          <textarea className="sh-input sh-textarea" id="ex-prompt" placeholder="Describe what the agent should do…" />
           <div className="row" style={{ marginTop: 4 }}>
             <input className="sh-input" placeholder="Disabled" disabled style={{ maxWidth: 200 }} />
           </div>

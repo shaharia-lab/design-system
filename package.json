@@ -1,15 +1,11 @@
 {
   "name": "@shaharia-lab/design-system",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Unified design system across all shaharia-lab services — shadcn/ui default theme, neutral base, OKLCH tokens, full light/dark parity.",
   "license": "MIT",
   "repository": {
     "type": "git",
     "url": "https://github.com/shaharia-lab/design-system.git"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com",
-    "access": "restricted"
   },
   "type": "module",
   "sideEffects": [
@@ -24,6 +20,7 @@
     "./theme.css": "./tokens/theme.css",
     "./prose.css": "./tokens/prose.css",
     "./fonts.css": "./tokens/fonts.css",
+    "./a11y.css": "./tokens/a11y.css",
     "./tokens.json": "./tokens.json",
     "./brand/*": "./brand/*"
   },
