@@ -8,7 +8,6 @@
     }
   },
   "enabledPlugins": {
-    "lab-workflow@shaharia-lab": true,
-    "pr-review@shaharia-lab": true
+    "lab-workflow@shaharia-lab": true
   }
 }
