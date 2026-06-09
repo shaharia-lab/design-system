@@ -38,7 +38,7 @@ Tokens flow through three files that must stay in sync. When adding a new token,
 
 `index.css` is the barrel that imports `tokens/` files in the right order; it is the package's main entry. `tokens/fonts.css` holds font stacks (system sans for the app, Inter for website/blog/docs, Poppins legacy-only) and `tokens/prose.css` holds long-form `.prose` styles.
 
-`docs/` is the live reference site (buildless React via Babel standalone, JSX in `docs/ds/`). Update its specimens when a foundation changes.
+`docs/` is the live reference site (buildless React via Babel standalone, JSX in `docs/ds/`). Update its specimens when a foundation changes. The shell chrome uses hand-rolled buildless primitives; the **"Brand · React" section embeds `docs/specimens/*.html` as `<iframe>`s** that import the *real* built components (`dist/react/index.js`) via an import map + esm.sh — so that gallery is true to what ships, with no drift. Each specimen is a standalone page; frames track the theme toggle via `docs/specimens/_theme-sync.js`. **Run `npm run build` first** (the specimens need `dist/`), and serve over HTTP (ES modules don't load from `file://`) — e.g. `python3 -m http.server`.
 
 ## Architecture: the React layer (`./react`)
 

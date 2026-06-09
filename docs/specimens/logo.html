@@ -1,0 +1,80 @@
+<!-- @dsCard group="Brand" viewport="700x300" name="Logo" subtitle="Mark · glyph · lockup — the real ./react components" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<!-- design tokens (the @theme block in theme.css is ignored by the browser; tokens.css applies) -->
+<link rel="stylesheet" href="../../index.css" />
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@18.3.1",
+    "react/jsx-runtime": "https://esm.sh/react@18.3.1/jsx-runtime?external=react",
+    "react-dom/client": "https://esm.sh/react-dom@18.3.1/client?external=react"
+  }
+}
+</script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<style>
+  body { margin: 0; font-family: var(--font-system); background: var(--background); color: var(--foreground); }
+  .wrap { padding: 24px 26px; display: flex; flex-direction: column; gap: 26px; }
+  .lab { font-size: 11px; font-family: var(--font-mono); color: var(--muted-foreground); margin-bottom: 12px; letter-spacing: 0.02em; }
+  .row { display: flex; flex-wrap: wrap; align-items: center; gap: 28px; }
+  .note { padding: 16px 18px; border: 1px dashed var(--border); border-radius: var(--radius-lg, 0.625rem); color: var(--muted-foreground); font-size: 13px; line-height: 1.6; }
+  code { font-family: var(--font-mono); font-size: 0.92em; }
+</style>
+</head>
+<body>
+  <div class="wrap" id="root"></div>
+
+  <script type="text/babel" data-type="module" data-presets="react">
+    import React from "react";
+    import { createRoot } from "react-dom/client";
+
+    let mod;
+    try {
+      mod = await import("../../dist/react/index.js");
+    } catch (err) {
+      document.getElementById("root").innerHTML =
+        '<div class="note"><b>Build the package first.</b> These specimens render the real ' +
+        '<code>./react</code> components from <code>dist/</code>. Run <code>npm run build</code>, then reload.</div>';
+      throw err;
+    }
+    const { LogoMark, LogoGlyph, LogoLockup } = mod;
+
+    function Demo() {
+      return (
+        <>
+          <div>
+            <div className="lab">LogoMark — rounded tile, glyph knocks out to --background</div>
+            <div className="row">
+              <LogoMark size={32} />
+              <LogoMark size={48} />
+              <LogoMark size={64} />
+            </div>
+          </div>
+          <div>
+            <div className="lab">LogoGlyph — bare waveform, inherits currentColor</div>
+            <div className="row">
+              <LogoGlyph size={32} />
+              <LogoGlyph size={48} />
+              <LogoGlyph size={64} />
+            </div>
+          </div>
+          <div>
+            <div className="lab">LogoLockup — mark + Inter wordmark</div>
+            <div className="row">
+              <LogoLockup size={28} />
+              <LogoLockup size={40} wordmark="vibexp.io" />
+            </div>
+          </div>
+        </>
+      );
+    }
+
+    createRoot(document.getElementById("root")).render(<Demo />);
+  </script>
+
+  <script src="./_theme-sync.js"></script>
+</body>
+</html>

@@ -33,6 +33,13 @@ CSS/JSON pull in no React and no build output.
 - **`CLAUDE.md`** — documents the new React layer, build/test commands, and the
   revised scope (brand primitives ship here; the product UI kit still doesn't).
 
+### Docs
+- New **"Brand · React"** gallery in `docs/` that embeds standalone specimen
+  pages (`docs/specimens/logo.html`, `icon.html`) as `<iframe>`s rendering the
+  **real built components** from `dist/react/` (via import map + esm.sh), each
+  isolated in its own document and synced to the theme toggle. Requires
+  `npm run build` and an HTTP server (ES modules don't load from `file://`).
+
 ## [0.5.0] — 2026-06-09
 
 Elevation, spacing and brand-alias tokens. Purely additive — no existing token
