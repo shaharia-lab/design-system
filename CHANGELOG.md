@@ -3,6 +3,36 @@
 All notable changes to `@shaharia-lab/design-system` are documented here.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
+## [0.6.0] — 2026-06-09
+
+**The package is no longer tokens-only.** It now also ships brand React
+components behind a new `./react` entry, compiled from TypeScript source. The
+token layer is unchanged and stays buildless — consumers that only import the
+CSS/JSON pull in no React and no build output.
+
+### Added
+- **`@shaharia-lab/design-system/react`** — brand React primitives:
+  - `Logo`, `LogoMark`, `LogoGlyph`, `LogoLockup` — theme-aware SVG marks
+    (`currentColor` tile knocks out to `--background`, so they flip in dark for
+    free), with programmatic `size`/`radius` and the Inter wordmark lockup.
+  - `Icon` (+ `ICON_NAMES`, `IconName`) — a curated inline Lucide-style set
+    (33 glyphs), `currentColor`, 2px stroke, `aria-hidden` unless given a
+    `title`. A zero-dependency subset for buildless/common use — **not** a
+    Lucide replacement; use `lucide-react` for the full set in production.
+  - `react >=18` is a **peer dependency**; `react-dom` and the test stack are
+    dev-only.
+- **Build + test tooling** — tsup (`src/react/` → `dist/react/`, ESM + types),
+  TypeScript typecheck, and vitest + @testing-library/react component tests.
+  CI now runs `typecheck` → `test` → `build` before the existing token checks;
+  `release.yml` builds `dist/` at publish time via `prepublishOnly`.
+
+### Changed
+- **`package.json`** — new `./react` conditional export, `dist/` added to
+  `files`, `peerDependencies.react`, dev deps, and `build`/`typecheck`/`test`
+  scripts. `dist/` is gitignored (built in CI / on publish, never committed).
+- **`CLAUDE.md`** — documents the new React layer, build/test commands, and the
+  revised scope (brand primitives ship here; the product UI kit still doesn't).
+
 ## [0.5.0] — 2026-06-09
 
 Elevation, spacing and brand-alias tokens. Purely additive — no existing token
