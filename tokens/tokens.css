@@ -18,6 +18,14 @@
   /* radius seed — every corner in the system derives from this one value */
   --radius: 0.625rem;
 
+  /* radius scale, computed off the seed. Mirrored in tokens/theme.css as
+     Tailwind theme keys (rounded-sm/md/lg/xl); duplicated here as raw vars so
+     non-Tailwind consumers can reference them directly. */
+  --radius-sm: calc(var(--radius) - 4px); /* ~6px  · checkbox, tabs, chips */
+  --radius-md: calc(var(--radius) - 2px); /* ~8px  · buttons, inputs, selects */
+  --radius-lg: var(--radius);             /* 10px  · cards, alerts, popovers */
+  --radius-xl: calc(var(--radius) + 4px); /* ~14px · large containers */
+
   /* surfaces */
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -35,6 +43,15 @@
   --muted-foreground: oklch(0.556 0 0);
   --accent: oklch(0.97 0 0);
   --accent-foreground: oklch(0.205 0 0);
+
+  /* brand aliases — semantic handles for "brand moments". They reference the
+     neutral roles, so brand emphasis renders near-black in light and near-white
+     in dark automatically (no .dark override needed — --primary/--accent/--ring
+     already flip). The brand stays monochrome; these add no new hue. */
+  --brand: var(--primary);
+  --brand-foreground: var(--primary-foreground);
+  --brand-muted: var(--accent);
+  --brand-ring: var(--ring);
 
   /* feedback — functional status roles. NOT brand accent (the brand stays
      monochrome via --primary); these encode meaning the way --destructive
@@ -81,6 +98,23 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.45 0 0);
+
+  /* elevation — a restrained three-step shadow ramp (the Tailwind defaults).
+     Depth signals layering, not decoration. Theme-independent (shadows do not
+     flip in dark). --shadow-md is consumed by the .skip-link in a11y.css. */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+  /* spacing — 4px base unit. Raw vars for direct reference; Tailwind's own
+     spacing utilities (p-4, gap-2, …) are unaffected by these. */
+  --space-1: 0.25rem; /* 4px  */
+  --space-2: 0.5rem;  /* 8px  */
+  --space-3: 0.75rem; /* 12px */
+  --space-4: 1rem;    /* 16px */
+  --space-6: 1.5rem;  /* 24px */
+  --space-8: 2rem;    /* 32px */
+  --space-12: 3rem;   /* 48px */
 }
 
 .dark {
