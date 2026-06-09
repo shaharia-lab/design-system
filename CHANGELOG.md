@@ -3,6 +3,67 @@
 All notable changes to `@shaharia-lab/design-system` are documented here.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
+## [0.6.0] — 2026-06-09
+
+**The package is no longer tokens-only.** It now also ships brand React
+components behind a new `./react` entry, compiled from TypeScript source. The
+token layer is unchanged and stays buildless — consumers that only import the
+CSS/JSON pull in no React and no build output.
+
+### Added
+- **`@shaharia-lab/design-system/react`** — brand React primitives:
+  - `Logo`, `LogoMark`, `LogoGlyph`, `LogoLockup` — theme-aware SVG marks
+    (`currentColor` tile knocks out to `--background`, so they flip in dark for
+    free), with programmatic `size`/`radius` and the Inter wordmark lockup.
+  - `Icon` (+ `ICON_NAMES`, `IconName`) — a curated inline Lucide-style set
+    (33 glyphs), `currentColor`, 2px stroke, `aria-hidden` unless given a
+    `title`. A zero-dependency subset for buildless/common use — **not** a
+    Lucide replacement; use `lucide-react` for the full set in production.
+  - `react >=18` is a **peer dependency**; `react-dom` and the test stack are
+    dev-only.
+- **Build + test tooling** — tsup (`src/react/` → `dist/react/`, ESM + types),
+  TypeScript typecheck, and vitest + @testing-library/react component tests.
+  CI now runs `typecheck` → `test` → `build` before the existing token checks;
+  `release.yml` builds `dist/` at publish time via `prepublishOnly`.
+
+### Changed
+- **`package.json`** — new `./react` conditional export, `dist/` added to
+  `files`, `peerDependencies.react`, dev deps, and `build`/`typecheck`/`test`
+  scripts. `dist/` is gitignored (built in CI / on publish, never committed).
+- **`CLAUDE.md`** — documents the new React layer, build/test commands, and the
+  revised scope (brand primitives ship here; the product UI kit still doesn't).
+
+### Docs
+- New **"Brand · React"** gallery in `docs/` that embeds standalone specimen
+  pages (`docs/specimens/logo.html`, `icon.html`) as `<iframe>`s rendering the
+  **real built components** from `dist/react/` (via import map + esm.sh), each
+  isolated in its own document and synced to the theme toggle. Requires
+  `npm run build` and an HTTP server (ES modules don't load from `file://`).
+
+## [0.5.0] — 2026-06-09
+
+Elevation, spacing and brand-alias tokens. Purely additive — no existing token
+value changed, so consumers re-importing the tokens pick these up with no
+migration. Fills a real gap: `a11y.css`'s `.skip-link` already referenced
+`var(--shadow-md)`, which was never defined and silently fell back.
+
+### Added
+- **Elevation** — `--shadow-sm` / `--shadow-md` / `--shadow-lg`, a restrained
+  three-step ramp (the Tailwind defaults). Theme-independent. `--shadow-md` now
+  resolves for the `.skip-link` instead of using its inline fallback.
+- **Spacing scale** — `--space-1` … `--space-12` (4px base unit) as raw vars,
+  for non-Tailwind consumers and direct `var()` reference. Tailwind's own
+  spacing utilities are unaffected.
+- **Radius scale as raw vars** — `--radius-sm/md/lg/xl` are now also emitted in
+  `:root` (`tokens/tokens.css`), not only as Tailwind theme keys in
+  `tokens/theme.css`, so framework-agnostic consumers can reference them.
+- **Brand aliases** — `--brand` / `--brand-foreground` / `--brand-muted` /
+  `--brand-ring`, semantic handles that reference the neutral roles
+  (`--primary` / `--accent` / `--ring`) and flip in dark mode for free. No new
+  hue — the brand stays monochrome. Exposed as Tailwind utilities
+  (`bg-brand`, `text-brand-foreground`, …) via `tokens/theme.css`.
+- `tokens.json` mirror entries for elevation, spacing and brand.
+
 ## [0.4.0] — 2026-06-08
 
 Brand / logo overhaul. The marks are now theme-aware and the wordmark uses the

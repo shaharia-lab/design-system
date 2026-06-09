@@ -1,6 +1,6 @@
 /* global React, useState, useEffect, useRef, Icon, Btn, Badge, LogoMark,
    ColorsSection, TypographySection, SpacingSection, AccessibilitySection,
-   ComponentsSection, PatternsSection, GuidelinesSection */
+   ComponentsSection, BrandReactSection, PatternsSection, GuidelinesSection */
 const { createRoot } = ReactDOM;
 
 const NAV = [
@@ -18,6 +18,7 @@ const NAV = [
     group: "Library",
     items: [
       { id: "components", label: "Components", icon: "layout" },
+      { id: "brand-react", label: "Brand · React", icon: "bot" },
       { id: "patterns", label: "Patterns", icon: "box" },
       { id: "guidelines", label: "Guidelines", icon: "shield" },
     ],
@@ -27,7 +28,7 @@ const NAV = [
 const CRUMBS = {
   overview: "Overview", colors: "Color", typography: "Typography", spacing: "Spacing & radius",
   accessibility: "Accessibility",
-  components: "Components", patterns: "Patterns", guidelines: "Guidelines",
+  components: "Components", "brand-react": "Brand components", patterns: "Patterns", guidelines: "Guidelines",
 };
 
 function useTheme() {
@@ -39,6 +40,11 @@ function useTheme() {
   useEffect(() => {
     document.documentElement.classList.toggle("dark", dark);
     localStorage.setItem("vibexp-ds-theme", dark ? "dark" : "light");
+    // broadcast to embedded specimen iframes (they also read localStorage, but
+    // postMessage covers file:// where storage events don't fire)
+    document.querySelectorAll("iframe").forEach((f) => {
+      try { f.contentWindow && f.contentWindow.postMessage({ type: "ds-theme", dark }, "*"); } catch (e) { /* cross-origin guard */ }
+    });
   }, [dark]);
   return [dark, setDark];
 }
@@ -164,6 +170,7 @@ function App() {
           <SpacingSection />
           <AccessibilitySection />
           <ComponentsSection />
+          <BrandReactSection />
           <PatternsSection />
           <GuidelinesSection />
         </div>

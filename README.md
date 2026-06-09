@@ -26,6 +26,7 @@ truth, consumed everywhere, so the surfaces never drift.
 | `tokens/a11y.css` | Accessibility baseline — focus ring, reduced-motion, `.sr-only`, skip link. |
 | `tokens.json` | Machine-readable tokens (Figma, codegen, non-CSS). |
 | `brand/` | `logo.svg` (mark) · `logo_wu.svg` (lockup) · `logo-mono.svg` (glyph). |
+| `src/react/` | React brand primitives (`Logo*`, `Icon`) — TS source, built to `dist/react/`, exported at `./react`. |
 | `docs/` | The live documentation site. |
 
 ---
@@ -151,11 +152,28 @@ Toggle dark mode by putting `class="dark"` on `<html>` (or any ancestor).
 <article class="prose"> … rendered markdown … </article>
 ```
 
-### shadcn/ui components
+### React brand components (`./react`)
 
-This package owns the **tokens**, not the React components — keep generating
-those with the shadcn CLI in each service (they already reference these token
-names). Use the default style + neutral base so they line up:
+The package ships brand primitives — the `Logo` family and the inline `Icon`
+set — compiled and importable. `react >=18` is a peer dependency.
+
+```jsx
+import '@shaharia-lab/design-system';                 // tokens once at the app root
+import { Logo, LogoMark, Icon } from '@shaharia-lab/design-system/react';
+
+<LogoMark size={32} />                                 {/* flips with .dark for free */}
+<Logo wordmark="vibexp.io" />                          {/* mark + Inter wordmark lockup */}
+<button aria-label="Settings"><Icon name="settings" title="Settings" /></button>
+```
+
+`Icon` is a curated, zero-dependency subset (33 glyphs) — for the full icon set
+in production, use `lucide-react` directly rather than extending the map here.
+
+### shadcn/ui app components
+
+The package does **not** own the product UI kit (Button, Card, forms, …) — keep
+generating those with the shadcn CLI in each service (they already reference
+these token names). Use the default style + neutral base so they line up:
 
 ```jsonc
 // components.json
