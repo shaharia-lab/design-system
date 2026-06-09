@@ -6,8 +6,9 @@ This project adheres to [Semantic Versioning](https://semver.org/).
 ## [0.6.0] — 2026-06-09
 
 **The package is no longer tokens-only.** It now also ships brand React
-components behind a new `./react` entry, compiled from TypeScript source. The
-token layer is unchanged and stays buildless — consumers that only import the
+components behind a new `./react` entry, compiled from TypeScript source —
+alongside a batch of additive foundation tokens (elevation, spacing, brand
+aliases). The token layer stays buildless: consumers that only import the
 CSS/JSON pull in no React and no build output.
 
 ### Added
@@ -25,6 +26,24 @@ CSS/JSON pull in no React and no build output.
   TypeScript typecheck, and vitest + @testing-library/react component tests.
   CI now runs `typecheck` → `test` → `build` before the existing token checks;
   `release.yml` builds `dist/` at publish time via `prepublishOnly`.
+- **Foundation tokens** (additive — no existing token value changed; consumers
+  re-importing pick these up with no migration):
+  - **Elevation** — `--shadow-sm` / `--shadow-md` / `--shadow-lg`, a restrained
+    three-step ramp (the Tailwind defaults). Theme-independent. Fills a real
+    gap: `a11y.css`'s `.skip-link` referenced `var(--shadow-md)`, which was
+    never defined and silently fell back.
+  - **Spacing scale** — `--space-1` … `--space-12` (4px base unit) as raw vars,
+    for non-Tailwind consumers and direct `var()` reference. Tailwind's own
+    spacing utilities are unaffected.
+  - **Radius scale as raw vars** — `--radius-sm/md/lg/xl` are now also emitted
+    in `:root` (`tokens/tokens.css`), not only as Tailwind theme keys in
+    `tokens/theme.css`, so framework-agnostic consumers can reference them.
+  - **Brand aliases** — `--brand` / `--brand-foreground` / `--brand-muted` /
+    `--brand-ring`, semantic handles that reference the neutral roles
+    (`--primary` / `--accent` / `--ring`) and flip in dark mode for free. No new
+    hue — the brand stays monochrome. Exposed as Tailwind utilities
+    (`bg-brand`, `text-brand-foreground`, …) via `tokens/theme.css`.
+  - `tokens.json` mirror entries for elevation, spacing and brand.
 
 ### Changed
 - **`package.json`** — new `./react` conditional export, `dist/` added to
@@ -39,30 +58,6 @@ CSS/JSON pull in no React and no build output.
   **real built components** from `dist/react/` (via import map + esm.sh), each
   isolated in its own document and synced to the theme toggle. Requires
   `npm run build` and an HTTP server (ES modules don't load from `file://`).
-
-## [0.5.0] — 2026-06-09
-
-Elevation, spacing and brand-alias tokens. Purely additive — no existing token
-value changed, so consumers re-importing the tokens pick these up with no
-migration. Fills a real gap: `a11y.css`'s `.skip-link` already referenced
-`var(--shadow-md)`, which was never defined and silently fell back.
-
-### Added
-- **Elevation** — `--shadow-sm` / `--shadow-md` / `--shadow-lg`, a restrained
-  three-step ramp (the Tailwind defaults). Theme-independent. `--shadow-md` now
-  resolves for the `.skip-link` instead of using its inline fallback.
-- **Spacing scale** — `--space-1` … `--space-12` (4px base unit) as raw vars,
-  for non-Tailwind consumers and direct `var()` reference. Tailwind's own
-  spacing utilities are unaffected.
-- **Radius scale as raw vars** — `--radius-sm/md/lg/xl` are now also emitted in
-  `:root` (`tokens/tokens.css`), not only as Tailwind theme keys in
-  `tokens/theme.css`, so framework-agnostic consumers can reference them.
-- **Brand aliases** — `--brand` / `--brand-foreground` / `--brand-muted` /
-  `--brand-ring`, semantic handles that reference the neutral roles
-  (`--primary` / `--accent` / `--ring`) and flip in dark mode for free. No new
-  hue — the brand stays monochrome. Exposed as Tailwind utilities
-  (`bg-brand`, `text-brand-foreground`, …) via `tokens/theme.css`.
-- `tokens.json` mirror entries for elevation, spacing and brand.
 
 ## [0.4.0] — 2026-06-08
 

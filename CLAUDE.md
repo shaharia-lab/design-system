@@ -65,4 +65,6 @@ Tag-driven, publishing to GitHub Packages (org-internal; repo is private and the
 2. Commit to `main` and wait for CI to go green.
 3. Tag `vX.Y.Z` (must exactly match `package.json` version — `release.yml` fails otherwise) and push the tag. That publishes the package and cuts a GitHub Release. `release.yml` runs `npm ci`, and `npm publish` triggers `prepublishOnly` → `npm run build`, so `dist/react/` is built fresh from source at publish time (it is never committed).
 
+**The changelog gates the release — never release without it.** Before tagging any `vX.Y.Z`, `CHANGELOG.md` MUST already carry a dated `## [X.Y.Z]` entry for that exact version, on `main`, describing what ships. No changelog entry → do not tag. Update the changelog (and the two `version` fields) *first*, let that land on `main`, then release. There must be one changelog heading per released tag — don't leave an un-tagged version section behind (if work gets folded into a later release, fold its notes under that release's heading too).
+
 Do not push a tag unless explicitly asked — pushing a `v*` tag triggers a release. Branch protection requires PRs to `main` (direct pushes only work via bypass).
