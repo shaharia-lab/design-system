@@ -13,7 +13,6 @@
   }
 }
 </script>
-<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 <style>
   body { margin: 0; font-family: var(--font-system); background: var(--background); color: var(--foreground); }
   .wrap { padding: 24px 26px; display: flex; flex-direction: column; gap: 22px; }
@@ -29,8 +28,8 @@
 <body>
   <div class="wrap" id="root"></div>
 
-  <script type="text/babel" data-type="module" data-presets="react">
-    import React from "react";
+  <script type="module">
+    import { createElement as h, Fragment } from "react";
     import { createRoot } from "react-dom/client";
 
     let mod;
@@ -44,34 +43,19 @@
     }
     const { Icon, ICON_NAMES } = mod;
 
-    function Demo() {
-      return (
-        <>
-          <div>
-            <div className="lab">sizes — currentColor, 2px stroke (size 16 → 20 → 24 → 32)</div>
-            <div className="sizes">
-              <Icon name="rocket" size={16} />
-              <Icon name="rocket" size={20} />
-              <Icon name="rocket" size={24} />
-              <Icon name="rocket" size={32} />
-            </div>
-          </div>
-          <div>
-            <div className="lab">{ICON_NAMES.length} glyphs — ICON_NAMES</div>
-            <div className="grid">
-              {ICON_NAMES.map((n) => (
-                <div className="cell" key={n}>
-                  <Icon name={n} size={20} />
-                  <span>{n}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </>
-      );
-    }
+    const sizes = h("div", { className: "sizes" },
+      ...[16, 20, 24, 32].map((s) => h(Icon, { key: s, name: "rocket", size: s })));
 
-    createRoot(document.getElementById("root")).render(<Demo />);
+    const grid = h("div", { className: "grid" },
+      ...ICON_NAMES.map((n) =>
+        h("div", { className: "cell", key: n }, h(Icon, { name: n, size: 20 }), h("span", null, n))));
+
+    createRoot(document.getElementById("root")).render(
+      h(Fragment, null,
+        h("div", null, h("div", { className: "lab" }, "sizes — currentColor, 2px stroke (size 16 → 20 → 24 → 32)"), sizes),
+        h("div", null, h("div", { className: "lab" }, ICON_NAMES.length + " glyphs — ICON_NAMES"), grid),
+      )
+    );
   </script>
 
   <script src="./_theme-sync.js"></script>

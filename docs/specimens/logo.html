@@ -14,7 +14,6 @@
   }
 }
 </script>
-<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 <style>
   body { margin: 0; font-family: var(--font-system); background: var(--background); color: var(--foreground); }
   .wrap { padding: 24px 26px; display: flex; flex-direction: column; gap: 26px; }
@@ -27,8 +26,10 @@
 <body>
   <div class="wrap" id="root"></div>
 
-  <script type="text/babel" data-type="module" data-presets="react">
-    import React from "react";
+  <!-- The components are prebuilt (dist/react/), so no JSX/Babel here — just
+       native ES modules composed with createElement. -->
+  <script type="module">
+    import { createElement as h, Fragment } from "react";
     import { createRoot } from "react-dom/client";
 
     let mod;
@@ -42,37 +43,20 @@
     }
     const { LogoMark, LogoGlyph, LogoLockup } = mod;
 
-    function Demo() {
-      return (
-        <>
-          <div>
-            <div className="lab">LogoMark — rounded tile, glyph knocks out to --background</div>
-            <div className="row">
-              <LogoMark size={32} />
-              <LogoMark size={48} />
-              <LogoMark size={64} />
-            </div>
-          </div>
-          <div>
-            <div className="lab">LogoGlyph — bare waveform, inherits currentColor</div>
-            <div className="row">
-              <LogoGlyph size={32} />
-              <LogoGlyph size={48} />
-              <LogoGlyph size={64} />
-            </div>
-          </div>
-          <div>
-            <div className="lab">LogoLockup — mark + Inter wordmark</div>
-            <div className="row">
-              <LogoLockup size={28} />
-              <LogoLockup size={40} wordmark="vibexp.io" />
-            </div>
-          </div>
-        </>
-      );
-    }
+    const lab = (t) => h("div", { className: "lab" }, t);
+    const row = (...kids) => h("div", { className: "row" }, ...kids);
+    const block = (label, ...kids) => h("div", null, lab(label), row(...kids));
 
-    createRoot(document.getElementById("root")).render(<Demo />);
+    createRoot(document.getElementById("root")).render(
+      h(Fragment, null,
+        block("LogoMark — rounded tile, glyph knocks out to --background",
+          h(LogoMark, { size: 32 }), h(LogoMark, { size: 48 }), h(LogoMark, { size: 64 })),
+        block("LogoGlyph — bare waveform, inherits currentColor",
+          h(LogoGlyph, { size: 32 }), h(LogoGlyph, { size: 48 }), h(LogoGlyph, { size: 64 })),
+        block("LogoLockup — mark + Inter wordmark",
+          h(LogoLockup, { size: 28 }), h(LogoLockup, { size: 40, wordmark: "vibexp.io" })),
+      )
+    );
   </script>
 
   <script src="./_theme-sync.js"></script>
