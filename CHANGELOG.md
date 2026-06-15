@@ -3,6 +3,18 @@
 All notable changes to `@shaharia-lab/design-system` are documented here.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
+## [0.7.1] — 2026-06-15
+
+### Fixed
+- **`exports` — expose the typography layer for granular import.** v0.7.0 added
+  `tokens/typography.css` to the barrel (`index.css`) but never added a subpath
+  export, so consumers that import granularly (every service imports
+  `@shaharia-lab/design-system/tokens.css`, not the barrel) could not reach the
+  `.type-*` roles or `--text-*` scale. Added `"./typography.css":
+  "./tokens/typography.css"` to `exports` so services can
+  `@import '@shaharia-lab/design-system/typography.css';` alongside their
+  existing `tokens.css` import. No change to the typography layer itself.
+
 ## [0.7.0] — 2026-06-15
 
 **The typography layer.** The system gained a real type foundation: a named
