@@ -26,7 +26,7 @@ node -e "JSON.parse(require('fs').readFileSync('tokens.json','utf8'))"  # tokens
 npm pack --dry-run
 ```
 
-`dist/` is gitignored and built in CI / on publish — never commit it. Preview the docs site by opening `docs/index.html` in a browser (no dev server needed — it loads React + Babel standalone from CDN and compiles the JSX in-browser).
+`dist/` is gitignored and built in CI / on publish — never commit it. Preview the docs site by serving the repo root over HTTP (the pages fetch their JSX modules, so `file://` won't work) — e.g. `python3 -m http.server`, then open `/docs/index.html`. It loads React + Babel standalone from CDN and compiles the JSX in-browser, so there's no docs build step.
 
 ## Architecture: the token chain
 
@@ -38,7 +38,25 @@ Tokens flow through three files that must stay in sync. When adding a new token,
 
 `index.css` is the barrel that imports `tokens/` files in the right order; it is the package's main entry. `tokens/fonts.css` holds font stacks (system sans for the app, Inter for website/blog/docs, Poppins legacy-only) and `tokens/prose.css` holds long-form `.prose` styles.
 
-`docs/` is the live reference site (buildless React via Babel standalone, JSX in `docs/ds/`). Update its specimens when a foundation changes. The shell chrome uses hand-rolled buildless primitives; the **"Brand · React" section embeds `docs/specimens/*.html` as `<iframe>`s** that import the *real* built components (`dist/react/index.js`) via an import map + esm.sh — so that gallery is true to what ships, with no drift. Each specimen is a standalone page; frames track the theme toggle via `docs/specimens/_theme-sync.js`. **Run `npm run build` first** (the specimens need `dist/`), and serve over HTTP (ES modules don't load from `file://`) — e.g. `python3 -m http.server`.
+`docs/` is the live reference site (buildless React via Babel standalone). It is **multi-page**: `docs/index.html` is a catalog landing (hero + searchable card grid over every surface), and each foundation/library section is its own deep-linkable page under `docs/pages/*.html` (e.g. `pages/color.html`, `pages/components.html`). Every page loads only its own section, so they stay fast and are individually shareable. The shared chrome — sidebar nav, breadcrumb, theme toggle — lives in `docs/shared/shell.js` (the `Shell` component + the `DS_NAV` config, the single source of truth for the nav). The section content lives as `*Section` components in `docs/ds/*.jsx` (each exposed on `window`); a page composes one into `<Shell active="…">`. To add a section: add a `*Section` in `docs/ds/`, add a `DS_NAV` entry in `shell.js`, add a thin `docs/pages/<name>.html` (copy an existing page), and add a catalog card in `index.html`. Pages under `docs/pages/` set `window.DS_BASE = "../"` so the shared section modules resolve `../specimens/*` correctly.
+
+**Page map** — every docs surface, what it covers, and the file to edit to change it. The page is a thin wrapper; the content lives in the `*Section` component in the source file:
+
+| Page (serve root + this path)   | Renders            | Edit this source                       | Covers |
+|---------------------------------|--------------------|----------------------------------------|--------|
+| `docs/index.html`               | `Hero` + `Catalog` | `docs/index.html` (inline) + `CATALOG` array | Landing: hero, stat tiles, searchable card grid over every surface. Add a card here when you add a page. |
+| `docs/pages/color.html`         | `ColorsSection`    | `docs/ds/foundations.jsx`              | Semantic colour tokens, status roles (destructive/success/warning/info), chart scale; live swatches per theme. |
+| `docs/pages/typography.html`    | `TypographySection`| `docs/ds/foundations.jsx`              | `.type-*` role vocabulary, fluid display tiers, font stacks. |
+| `docs/pages/spacing.html`       | `SpacingSection`   | `docs/ds/foundations.jsx`              | Spacing scale and every radius derived from the `--radius` seed. |
+| `docs/pages/accessibility.html` | `AccessibilitySection` | `docs/ds/accessibility.jsx`        | Contrast targets, focus rings, motion, both-theme rules. |
+| `docs/pages/components.html`    | `ComponentsSection`| `docs/ds/components-section.jsx`       | shadcn/ui primitive specimens (Button, Badge, …) with the authentic `className` strings to copy. |
+| `docs/pages/brand-react.html`   | `BrandReactSection`| `docs/ds/brand-react.jsx`              | The shipped `./react` primitives — embeds `specimens/{logo,icon}.html` as iframes (real `dist/react/`). |
+| `docs/pages/patterns.html`      | `PatternsSection`  | `docs/ds/patterns.jsx`                 | Composed layouts / recurring recipes built from the primitives. |
+| `docs/pages/guidelines.html`    | `GuidelinesSection`| `docs/ds/patterns.jsx`                 | How to consume the system — the reference-roles-never-literals rules, do/don't guidance. |
+
+Shared building blocks every page pulls in: `docs/ds/primitives.jsx` (`Icon`, `Section`, `SubHead`, `Chip`, `Example`, `PropTable`, `Callout`, `Btn`, `Badge`, `Logo*` — all assigned to `window`) and `docs/shared/shell.js` (`Shell`, `DS_NAV`, `useDsTheme`). The real-component specimens are `docs/specimens/{logo,icon,type-scale}.html`. So: to change *what a foundation says*, edit the `*Section` in `docs/ds/`; to change *the nav or chrome*, edit `docs/shared/shell.js`; to change *the landing/catalog*, edit `docs/index.html`.
+
+Update the specimens when a foundation changes. The shell chrome uses hand-rolled buildless primitives; the **"Brand · React" page embeds `docs/specimens/*.html` as `<iframe>`s** that import the *real* built components (`dist/react/index.js`) via an import map + esm.sh — so that gallery is true to what ships, with no drift. Each specimen is a standalone page; frames track the theme toggle via `docs/specimens/_theme-sync.js`. **Run `npm run build` first** (the specimens need `dist/`), and serve over HTTP (ES modules don't load from `file://`) — e.g. `python3 -m http.server`.
 
 ## Architecture: the React layer (`./react`)
 
