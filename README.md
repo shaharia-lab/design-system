@@ -8,9 +8,10 @@ It is the **shadcn/ui default theme** on a **neutral (grayscale) base** in the
 accent hue**. Dark mode is a value-flip on the `.dark` class. One source of
 truth, consumed everywhere, so the surfaces never drift.
 
-> 📖 **Live reference:** open `docs/index.html` (or host `docs/` on GitHub
-> Pages). Tokens, type scale, components, patterns and usage guidelines, with
-> a light/dark toggle.
+> 📖 **Live reference:** a multi-page docs site under `docs/` — a searchable
+> catalog landing plus a deep-linkable page per foundation/component, with a
+> light/dark toggle. Serve it over HTTP and open `/docs/index.html` (see
+> [Running the docs locally](#running-the-docs-locally)).
 
 ---
 
@@ -27,7 +28,7 @@ truth, consumed everywhere, so the surfaces never drift.
 | `tokens.json` | Machine-readable tokens (Figma, codegen, non-CSS). |
 | `brand/` | `logo.svg` (mark) · `logo_wu.svg` (lockup) · `logo-mono.svg` (glyph). |
 | `src/react/` | React brand primitives (`Logo*`, `Icon`) — TS source, built to `dist/react/`, exported at `./react`. |
-| `docs/` | The live documentation site. |
+| `docs/` | The live documentation site (multi-page; `index.html` catalog + `pages/*.html`). |
 
 ---
 
@@ -274,6 +275,34 @@ bump. (No CDN / runtime channel — propagation is versioned, by design.)
   consumers. That's the whole point of this repo.
 
 ---
+
+## Running the docs locally
+
+The docs site is **buildless** — React + Babel standalone load from a CDN and
+compile the JSX in the browser, so there's no docs build step. But the pages
+**fetch** their JSX modules (and the Brand · React page loads the real built
+components), so you must serve over HTTP — opening `file://…` won't work.
+
+```bash
+# 1. build the React layer once, so the Brand · React specimens have dist/react/
+npm ci          # first time only (installs dev + peer deps)
+npm run build
+
+# 2. serve the repo root over HTTP, from the project root
+python3 -m http.server 8000
+#   (any static server works: `npx serve`, `php -S localhost:8000`, …)
+
+# 3. open the catalog landing
+#   http://localhost:8000/docs/index.html
+```
+
+From the landing, search or click into any page — each section is its own URL
+(e.g. `http://localhost:8000/docs/pages/color.html`), so you can deep-link and
+share them. The theme toggle (top-right) flips light/dark across the page and
+the embedded specimen frames.
+
+> If the **Brand · React** cards say "build the package first", you skipped
+> `npm run build` — the specimens render `dist/react/`, which is gitignored.
 
 ## Changing the system
 

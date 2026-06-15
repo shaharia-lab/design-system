@@ -362,7 +362,7 @@ function TypographySection() {
         are surface-agnostic: family inherits (system sans here, Inter on the web). The display tier
         and <code>.type-lead</code> are fluid via <code>clamp()</code>; <code>.type-lead</code> and{" "}
         <code>.type-caption</code> bake in the muted colour.{" "}
-        <a href="specimens/type-scale.html" target="_blank" rel="noreferrer">Full specimen ↗</a>
+        <a href={(window.DS_BASE || "") + "specimens/type-scale.html"} target="_blank" rel="noreferrer">Full specimen ↗</a>
       </SubNote>
       <div className="tokens" style={{ padding: "4px 22px" }}>
         {TYPE_ROLES.map((t, i) => (
