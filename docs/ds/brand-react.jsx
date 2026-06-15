@@ -38,13 +38,13 @@ function BrandReactSection() {
 
       <SubHead>Logo</SubHead>
       <SubNote><code>Logo · LogoMark · LogoGlyph · LogoLockup</code> — theme-aware SVG marks; the tile is <code>currentColor</code> and the glyph knocks out to <code>--background</code>, so they flip in dark for free.</SubNote>
-      <SpecimenFrame src="specimens/logo.html" height={300} title="Logo specimens" />
+      <SpecimenFrame src={(window.DS_BASE || "") + "specimens/logo.html"} height={300} title="Logo specimens" />
 
       <div style={{ height: 22 }} />
 
       <SubHead>Icon</SubHead>
       <SubNote><code>Icon</code> (+ <code>ICON_NAMES</code>, <code>IconName</code>) — a curated, zero-dependency Lucide-style set. For the full icon set in production, use <code>lucide-react</code> directly rather than extending this map.</SubNote>
-      <SpecimenFrame src="specimens/icon.html" height={400} title="Icon specimens" />
+      <SpecimenFrame src={(window.DS_BASE || "") + "specimens/icon.html"} height={400} title="Icon specimens" />
     </Section>
   );
 }
