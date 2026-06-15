@@ -3,6 +3,57 @@
 All notable changes to `@shaharia-lab/design-system` are documented here.
 This project adheres to [Semantic Versioning](https://semver.org/).
 
+## [0.7.0] — 2026-06-15
+
+**The typography layer.** The system gained a real type foundation: a named
+size scale, weight + tracking tokens, and — most importantly — a **canonical
+set of semantic `.type-*` role classes** that every consuming service shares.
+This replaces the duplicated `typography.tsx` shipped (byte-identical) by both
+`website` and `blog`, and the ad-hoc `text-[…]` sizing in `frontend`. CSS roles
+only — no React `Typography` component (that stays on the product-UI-kit side of
+the package boundary; consumers compose the classes). Fully additive; light/dark
+parity preserved; no existing token value changed.
+
+### Added
+- **`tokens/typography.css`** — the new source file:
+  - **Size scale** — `--text-xs … --text-7xl`, each with a paired line-height
+    (`--text-…-lh`). The Tailwind v4 / shadcn default ramp, now tokenised so all
+    four services share one ramp. Floor is **12px (`--text-xs`)** by policy —
+    no sub-12px steps.
+  - **Fluid display sizes** — `--text-fluid-display/title/section/stat/lead`,
+    rem-based `clamp()` so one class replaces hand-written
+    `text-4xl md:text-5xl lg:text-6xl` chains and scales with the user's root
+    font-size (accessibility win).
+  - **Weights** — `--font-weight-normal/medium/semibold/bold` (400/500/600/700).
+  - **Tracking** — `--tracking-tighter/tight/normal/wide/wider`.
+  - **Semantic roles** (the public API, surface-agnostic — family inherits):
+    `.type-display`, `.type-title`, `.type-section`, `.type-heading` (panel),
+    `.type-card-title`, `.type-stat` (tabular-nums), `.type-lead`, `.type-body`,
+    `.type-body-sm`, `.type-label`, `.type-caption`, `.type-overline`,
+    `.type-code`. Reconciled to be a true **superset** of the variants
+    website/blog were already using (display, h1→title, section, panel→heading,
+    cardTitle→card-title, stat, lead, body, small→caption). `.type-lead` and
+    `.type-caption` bake in the muted colour; the display tier + lead are fluid.
+- **Avatar / identity palette** — `--avatar-1/2/3` (light + dark, lifted on the
+  dark card surface). A small **categorical** palette in the spirit of
+  `--chart-*` — the one place the monochrome brand tolerates hue, for telling
+  people apart, not decoration. Exposed as `bg-avatar-1…3` via `theme.css`.
+- **`tokens/theme.css`** — Tailwind v4 `@theme` keys for the scale
+  (`--text-*` + `--text-*--line-height`), weights, tracking, and the avatar
+  colours, so `text-2xl`, `font-semibold`, `tracking-tight`, `bg-avatar-2`
+  resolve from these tokens.
+- **`tokens.json`** — machine-readable mirror: `text`, `textFluid`,
+  `fontWeight`, `tracking`, `type` (roles), and `color.*.avatar-*`.
+- **`docs/specimens/type-scale.html`** — specimen for the ramp + all roles,
+  light/dark.
+
+### Migration (consumers, tracked separately)
+- `website` + `blog`: delete `src/components/ui/typography.tsx`; map its
+  variants to the `.type-*` roles (1:1 — see role list above).
+- `frontend`: replace ad-hoc `text-[…]` with the scale/roles; consolidate the
+  13px tier to `text-sm` and the 15px tier to `.type-card-title`; drop sub-12px
+  sizes. (App-side cleanup, not a DS change.)
+
 ## [0.6.0] — 2026-06-09
 
 **The package is no longer tokens-only.** It now also ships brand React

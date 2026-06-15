@@ -89,6 +89,14 @@
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
 
+  /* avatar / identity — a small CATEGORICAL palette (like --chart-*), the one
+     place the brand tolerates hue: distinguishing people, not decoration.
+     Used as a solid tile under light initials; foreground text = white
+     (--primary-foreground). Three evenly-spread hues at one chroma/lightness. */
+  --avatar-1: oklch(0.55 0.13 255);
+  --avatar-2: oklch(0.55 0.13 150);
+  --avatar-3: oklch(0.55 0.13 30);
+
   /* sidebar / app navigation surface */
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
@@ -155,6 +163,10 @@
   --chart-3: oklch(0.769 0.188 70.08);
   --chart-4: oklch(0.627 0.265 303.9);
   --chart-5: oklch(0.645 0.246 16.439);
+  /* avatars lift on dark surfaces so initials stay legible on the dark card */
+  --avatar-1: oklch(0.68 0.14 255);
+  --avatar-2: oklch(0.68 0.14 150);
+  --avatar-3: oklch(0.68 0.14 30);
   --sidebar: oklch(0.205 0 0);
   --sidebar-foreground: oklch(0.985 0 0);
   --sidebar-primary: oklch(0.488 0.243 264.376);

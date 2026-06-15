@@ -15,6 +15,7 @@
 
 @import './tokens/fonts.css';
 @import './tokens/tokens.css';
+@import './tokens/typography.css';
 @import './tokens/theme.css';
 @import './tokens/prose.css';
 @import './tokens/a11y.css';
