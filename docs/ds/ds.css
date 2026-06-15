@@ -368,6 +368,45 @@ body {
 .type-scale-row:last-child { border-bottom: 0; }
 .type-scale-meta { display: flex; flex-direction: column; gap: 3px; }
 .type-scale-spec { font-family: var(--font-mono); font-size: 11.5px; color: var(--muted-foreground); }
+.type-scale-row .type-scale-meta .chip { align-self: flex-start; }
+
+/* ── typography roles (mirror of tokens/typography.css) ──────────────────
+   The docs site is a buildless token mirror, so the type scale + the canonical
+   .type-* role classes are duplicated here verbatim from tokens/typography.css
+   to render the foundation live. Keep in sync when the source changes. */
+:root {
+  --text-xs: 0.75rem;   --text-xs-lh: 1rem;
+  --text-sm: 0.875rem;  --text-sm-lh: 1.25rem;
+  --text-base: 1rem;    --text-base-lh: 1.5rem;
+  --text-lg: 1.125rem;  --text-lg-lh: 1.75rem;
+  --text-xl: 1.25rem;   --text-xl-lh: 1.75rem;
+  --text-2xl: 1.5rem;   --text-2xl-lh: 2rem;
+  --text-3xl: 1.875rem; --text-3xl-lh: 2.25rem;
+  --text-4xl: 2.25rem;  --text-4xl-lh: 2.5rem;
+  --text-5xl: 3rem;     --text-5xl-lh: 1.08;
+  --text-6xl: 3.75rem;  --text-6xl-lh: 1.05;
+  --text-7xl: 4.5rem;   --text-7xl-lh: 1;
+  --text-fluid-display: clamp(2.25rem, 1.6rem + 2.7vw, 3.75rem);
+  --text-fluid-title:   clamp(2.25rem, 1.92rem + 1.35vw, 3rem);
+  --text-fluid-section: clamp(1.875rem, 1.38rem + 2.02vw, 3rem);
+  --text-fluid-stat:    clamp(1.875rem, 1.71rem + 0.67vw, 2.25rem);
+  --text-fluid-lead:    clamp(1.125rem, 1.07rem + 0.22vw, 1.25rem);
+  --font-weight-normal: 400; --font-weight-medium: 500; --font-weight-semibold: 600; --font-weight-bold: 700;
+  --tracking-tighter: -0.03em; --tracking-tight: -0.018em; --tracking-normal: 0em; --tracking-wide: 0.02em; --tracking-wider: 0.06em;
+}
+.type-display    { font-size: var(--text-fluid-display); line-height: 1.05; font-weight: var(--font-weight-bold); letter-spacing: var(--tracking-tighter); }
+.type-title      { font-size: var(--text-fluid-title);   line-height: 1.1;  font-weight: var(--font-weight-bold); letter-spacing: var(--tracking-tight); }
+.type-section    { font-size: var(--text-fluid-section); line-height: 1.1;  font-weight: var(--font-weight-bold); letter-spacing: var(--tracking-tight); }
+.type-heading    { font-size: var(--text-2xl); line-height: var(--text-2xl-lh); font-weight: var(--font-weight-bold);     letter-spacing: var(--tracking-tight); }
+.type-card-title { font-size: var(--text-xl);  line-height: var(--text-xl-lh);  font-weight: var(--font-weight-semibold); letter-spacing: var(--tracking-tight); }
+.type-stat       { font-size: var(--text-fluid-stat); line-height: 1.1; font-weight: var(--font-weight-bold); letter-spacing: var(--tracking-tight); font-variant-numeric: tabular-nums; }
+.type-lead       { font-size: var(--text-fluid-lead); line-height: 1.6; font-weight: var(--font-weight-normal); color: var(--muted-foreground); }
+.type-body       { font-size: var(--text-base); line-height: 1.6; font-weight: var(--font-weight-normal); }
+.type-body-sm    { font-size: var(--text-sm);   line-height: 1.5; font-weight: var(--font-weight-normal); }
+.type-label      { font-size: var(--text-sm);   line-height: var(--text-sm-lh); font-weight: var(--font-weight-medium); letter-spacing: var(--tracking-normal); }
+.type-caption    { font-size: var(--text-sm);   line-height: 1.5; font-weight: var(--font-weight-normal); color: var(--muted-foreground); }
+.type-overline   { font-size: var(--text-xs);   line-height: var(--text-xs-lh); font-weight: var(--font-weight-semibold); letter-spacing: var(--tracking-wider); text-transform: uppercase; }
+.type-code       { font-size: var(--text-sm);   line-height: var(--text-sm-lh); font-weight: var(--font-weight-normal); font-family: var(--font-mono); }
 
 .prop-table { width: 100%; border-collapse: collapse; border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; font-size: 13px; }
 .prop-table th { text-align: left; background: var(--muted); font-weight: 600; padding: 9px 14px; color: var(--muted-foreground); font-size: 12px; }

@@ -60,6 +60,9 @@
   --color-chart-3: var(--chart-3);
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
+  --color-avatar-1: var(--avatar-1);
+  --color-avatar-2: var(--avatar-2);
+  --color-avatar-3: var(--avatar-3);
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar-primary: var(--sidebar-primary);
@@ -74,4 +77,31 @@
   --font-inter: var(--font-inter);
   --font-poppins: var(--font-poppins);
   --font-mono: var(--font-mono);
+
+  /* type scale → text-xs … text-7xl (size + paired line-height).
+     Mirrors tokens/typography.css so `text-2xl` etc. resolve from one ramp. */
+  --text-xs: var(--text-xs);     --text-xs--line-height: var(--text-xs-lh);
+  --text-sm: var(--text-sm);     --text-sm--line-height: var(--text-sm-lh);
+  --text-base: var(--text-base); --text-base--line-height: var(--text-base-lh);
+  --text-lg: var(--text-lg);     --text-lg--line-height: var(--text-lg-lh);
+  --text-xl: var(--text-xl);     --text-xl--line-height: var(--text-xl-lh);
+  --text-2xl: var(--text-2xl);   --text-2xl--line-height: var(--text-2xl-lh);
+  --text-3xl: var(--text-3xl);   --text-3xl--line-height: var(--text-3xl-lh);
+  --text-4xl: var(--text-4xl);   --text-4xl--line-height: var(--text-4xl-lh);
+  --text-5xl: var(--text-5xl);   --text-5xl--line-height: var(--text-5xl-lh);
+  --text-6xl: var(--text-6xl);   --text-6xl--line-height: var(--text-6xl-lh);
+  --text-7xl: var(--text-7xl);   --text-7xl--line-height: var(--text-7xl-lh);
+
+  /* font weights → font-normal / font-medium / font-semibold / font-bold */
+  --font-weight-normal: var(--font-weight-normal);
+  --font-weight-medium: var(--font-weight-medium);
+  --font-weight-semibold: var(--font-weight-semibold);
+  --font-weight-bold: var(--font-weight-bold);
+
+  /* letter-spacing → tracking-tighter … tracking-wider */
+  --tracking-tighter: var(--tracking-tighter);
+  --tracking-tight: var(--tracking-tight);
+  --tracking-normal: var(--tracking-normal);
+  --tracking-wide: var(--tracking-wide);
+  --tracking-wider: var(--tracking-wider);
 }

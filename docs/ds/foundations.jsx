@@ -281,15 +281,23 @@ function ColorsSection() {
 }
 
 /* ---- typography ---------------------------------------------------- */
-const TYPE_SCALE = [
-  ["Display / Card title", "text-2xl font-semibold", "1.5rem / 24px", "600", "1", "CardTitle, page H1"],
-  ["Page title", "text-2xl font-semibold tracking-tight", "1.5rem / 24px", "600", "tight", "PageHeader"],
-  ["Section heading", "text-lg font-medium", "1.125rem / 18px", "500", "1.75rem", "EmptyState title"],
-  ["Body", "text-sm", "0.875rem / 14px", "400", "1.25rem", "Default UI text"],
-  ["Body (inputs)", "text-base md:text-sm", "1rem→0.875rem", "400", "1.5rem", "Input, Textarea"],
-  ["Label", "text-sm font-medium", "0.875rem / 14px", "500", "1", "Form labels"],
-  ["Caption / muted", "text-sm text-muted-foreground", "0.875rem / 14px", "400", "1.4", "Descriptions"],
-  ["Fine / badge", "text-xs font-semibold", "0.75rem / 12px", "600", "1rem", "Badges, meta"],
+/* The canonical .type-* role vocabulary (tokens/typography.css). Every surface
+   shares these — they replace website/blog's typography.tsx and frontend's
+   ad-hoc text-[…]. [role, class, size, weight, tracking, use] */
+const TYPE_ROLES = [
+  ["Display", "type-display", "fluid 36 → 60px", "700", "tighter", "Marketing hero headline"],
+  ["Title", "type-title", "fluid 36 → 48px", "700", "tight", "Standalone page title (H1)"],
+  ["Section", "type-section", "fluid 30 → 48px", "700", "tight", "Section-band heading"],
+  ["Heading", "type-heading", "24px", "700", "tight", "Panel / prominent in-card heading"],
+  ["Card title", "type-card-title", "20px", "600", "tight", "Card / feature / step title"],
+  ["Stat", "type-stat", "fluid 30 → 36px", "700", "tight · tabular-nums", "Numeric stat value"],
+  ["Lead", "type-lead", "fluid 18 → 20px", "400", "muted", "Lead paragraph under a heading"],
+  ["Body", "type-body", "16px", "400", "—", "Default body copy"],
+  ["Body sm", "type-body-sm", "14px", "400", "—", "Dense / secondary body"],
+  ["Label", "type-label", "14px", "500", "—", "Form labels"],
+  ["Caption", "type-caption", "14px", "400", "muted", "Captions, helper text"],
+  ["Overline", "type-overline", "12px", "600", "wider · UPPERCASE", "Eyebrows, section kickers"],
+  ["Code", "type-code", "14px", "400", "mono", "Inline code"],
 ];
 
 /* prose heading scale — verbatim from .prose overrides (blog + docs) */
@@ -347,26 +355,29 @@ function TypographySection() {
         text already matches the monochrome system. Don't bring Poppins into v2 components.
       </Callout>
 
-      <SubHead>UI type scale</SubHead>
-      <SubNote>Tailwind size utilities mapped to the roles they fill in the product chrome (system sans).</SubNote>
+      <SubHead>Semantic type roles</SubHead>
+      <SubNote>
+        The canonical <code>.type-*</code> vocabulary — the public API every surface shares (it
+        replaces the per-site <code>typography.tsx</code> and ad-hoc <code>text-[…]</code>). Roles
+        are surface-agnostic: family inherits (system sans here, Inter on the web). The display tier
+        and <code>.type-lead</code> are fluid via <code>clamp()</code>; <code>.type-lead</code> and{" "}
+        <code>.type-caption</code> bake in the muted colour.{" "}
+        <a href="specimens/type-scale.html" target="_blank" rel="noreferrer">Full specimen ↗</a>
+      </SubNote>
       <div className="tokens" style={{ padding: "4px 22px" }}>
-        {TYPE_SCALE.map((t, i) => (
+        {TYPE_ROLES.map((t, i) => (
           <div className="type-scale-row" key={i}>
             <div className="type-scale-meta">
-              <Chip text={t[1]} />
-              <span className="type-scale-spec">{t[2]} · {t[3]} · lh {t[4]}</span>
+              <Chip text={`.${t[1]}`} />
+              <span className="type-scale-spec">{t[2]} · {t[3]} · {t[4]}</span>
               <span className="type-scale-spec" style={{ color: "var(--muted-foreground)" }}>{t[5]}</span>
             </div>
-            <div
-              style={{
-                fontSize: t[2].includes("2xl") ? 24 : t[2].includes("lg") ? 18 : t[1].includes("xs") ? 12 : 14,
-                fontWeight: t[1].includes("semibold") ? 600 : t[1].includes("medium") ? 500 : 400,
-                letterSpacing: t[1].includes("tracking-tight") ? "-0.02em" : 0,
-                color: t[1].includes("muted") ? "var(--muted-foreground)" : "var(--foreground)",
-                lineHeight: 1.2,
-              }}
-            >
-              Generate, review and ship in one flow
+            <div className={t[1]} style={{ minWidth: 0 }}>
+              {t[1] === "type-code"
+                ? "npm i @shaharia-lab/design-system"
+                : t[1] === "type-stat"
+                  ? "1,248"
+                  : "Generate, review and ship in one flow"}
             </div>
           </div>
         ))}
