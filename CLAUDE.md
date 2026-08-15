@@ -2,6 +2,97 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+---
+
+## Rule 0 — the VibeXP knowledge loop (every session, no exceptions)
+
+**What we have *learned* about this repo does not live in this file.** This file
+holds the shape of the repo — what it is, how it is built, the hard rules. The
+knowledge lives in **VibeXP** (the team's shared brain, `vibexp.shaharialab.com`,
+reached over the `vibexp_io` MCP tools), which every session **reads before
+acting** and **writes back to before finishing**. A session that consumes team
+knowledge and returns none has broken the loop, no matter how well the task
+itself went.
+
+**Anchors** — always pass both; every `vibexp_io_*` call is team-scoped:
+
+| | |
+|---|---|
+| Team | `shaharia-lab` (`0225a1e7-bab3-4b3c-ad69-a4b514aa1572`) |
+| Project | `shaharia-lab/design-system` — `eca2cfe7-a615-469c-8dd6-858adbf39181` |
+| Blueprint (mirrors *this file*) | slug `design-system-claude-md` |
+| Durable knowledge | memories with `metadata.role = canonical`, `category` one of `architecture` / `workflow` |
+
+Anchors can go stale. If a call 404s or the project looks wrong, **re-resolve
+rather than guess**: `vibexp_io_list_teams` → every `github.com/shaharia-lab`
+repo belongs to the team named **Shaharia Lab**; `vibexp_io_list_projects` →
+the project whose `git_url` is this repo's GitHub URL
+(`https://github.com/shaharia-lab/design-system`). If no project matches, create one in the
+VibeXP UI (there is no MCP tool for it) named after the repo, with its `git_url`
+set — then correct the table above in the same PR.
+
+### 1. Pull context before you touch anything
+
+Run `/vibexp:prime` (or do it by hand: `vibexp_io_search` scoped to the project
+for the subject of the task, `vibexp_io_get_resource` for the blueprint,
+`vibexp_io_list_resources` for the canonical memories). Do this **before** the
+first edit, the first build, the first deploy — the whole point is to not
+rediscover a gotcha we already paid for.
+
+Treat what comes back as **current intent, not verified truth.** It describes
+the system as of the last write-back; the system may have moved. Verify any
+specific claim you are about to depend on — a version pin, an endpoint, a
+resource name, the state of some flag — against live reality before relying on
+it.
+
+### 2. Do the work
+
+Use the retrieved knowledge as a starting point, not gospel. The rest of this
+file still governs *how* changes are made here.
+
+### 3. Close the loop before you finish — every time, including when nothing went wrong
+
+- **Durable finding** (true next month, not just today) → fold it into the
+  **canonical memory that already covers that area** with
+  `vibexp_io_update_memory`. Prefer editing over adding: a near-duplicate
+  memory is how a knowledge base rots. Only when no memory covers the area,
+  `vibexp_io_create_memory` with
+  `metadata: {category: "architecture"|"workflow", role: "canonical"}`.
+- **One-off or unconfirmed observation** (an approach that failed, an open
+  question, something to re-check next time) → `vibexp_io_create_memory`,
+  short and dated, `metadata: {category: "observation", role: "observation"}`.
+  Do not promote it to canonical until it has held up twice.
+- **Something we believed turned out to be wrong** → correct that memory in
+  place, or archive it (`status: "archived"`). Never leave two memories
+  contradicting each other; the next session cannot tell which one won.
+- **A change to the rules or procedures in *this file*** → the same PR updates
+  the `design-system-claude-md` blueprint via `vibexp_io_update_blueprint` (create it
+  with `vibexp_io_create_blueprint`, or run `/vibexp:onboard`, if it does not
+  exist yet). That blueprint is a mirror of this file; when it drifts it
+  actively lies to every other tool that reads it.
+- **Long or autonomous runs** → post the work stream and the outcome to the
+  team feed (`/vibexp:report` during, `/vibexp:wrap` at the end).
+
+If you changed anything real — shipped code, moved a deployment, altered
+configuration — and did **not** write back in the same session, **say so
+explicitly in your final response.** A silent gap between what the system does
+and what VibeXP says it does is the exact failure this loop exists to prevent.
+
+### 4. Where a new fact goes
+
+New facts, gotchas, identifiers, resolved incidents, how-tos → **VibeXP**.
+Edit this file only for *structural* change: a new subsystem, a new hard rule, a
+moved anchor, a step of this loop being wrong. That split is what keeps this
+file small and stable while the knowledge base absorbs the churn and compounds —
+so the next session starts smarter than this one did.
+
+Run `/vibexp:consolidate` periodically to compact accumulated memories back into
+the canonical set. If the `vibexp_io` MCP tools are not available in the
+session, say so up front and treat every finding as owed — do not silently skip
+the loop.
+
+---
+
 ## What this repo is
 
 `@shaharia-lab/design-system` — the single source of truth for design tokens **and brand React components** across all shaharia-lab services (product app, website, blog, docs). It is the shadcn/ui default theme on a neutral (grayscale) base in OKLCH; the brand is deliberately monochrome with no accent hue. Dark mode is a value-flip on the `.dark` class.
