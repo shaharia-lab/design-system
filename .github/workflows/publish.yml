@@ -1,0 +1,78 @@
+name: Publish design system
+
+# Publishing is driven entirely by tags, one design system per tag:
+#
+#   git tag agento-code@0.1.0 && git push origin agento-code@0.1.0
+#
+# The part before the "@" is the directory to publish; the part after is the
+# version, which must already match that directory's package.json. Nothing is
+# published on a push to main — a release is always an explicit tag.
+on:
+  push:
+    tags:
+      - '*@*'
+  workflow_dispatch:
+    inputs:
+      system:
+        description: 'Directory of the design system to publish (e.g. agento-code)'
+        required: true
+        type: string
+
+permissions:
+  contents: read
+  id-token: write # required for npm provenance attestation
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Resolve system and version from the tag
+        id: target
+        run: |
+          set -euo pipefail
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            system='${{ inputs.system }}'
+            tag_version=''
+          else
+            tag="${GITHUB_REF_NAME}"
+            system="${tag%@*}"
+            tag_version="${tag##*@}"
+          fi
+
+          if [ ! -f "${system}/package.json" ]; then
+            echo "::error::No package.json in '${system}/' — the tag prefix must be a design system directory."
+            exit 1
+          fi
+
+          pkg_version="$(node -p "require('./${system}/package.json').version")"
+          if [ -n "${tag_version}" ] && [ "${tag_version}" != "${pkg_version}" ]; then
+            echo "::error::Tag version '${tag_version}' does not match ${system}/package.json version '${pkg_version}'."
+            exit 1
+          fi
+
+          {
+            echo "system=${system}"
+            echo "version=${pkg_version}"
+            echo "name=$(node -p "require('./${system}/package.json').name")"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Inspect the tarball
+        working-directory: ${{ steps.target.outputs.system }}
+        run: npm pack --dry-run
+
+      - name: Publish to npm
+        working-directory: ${{ steps.target.outputs.system }}
+        run: npm publish --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Summary
+        run: |
+          echo "Published \`${{ steps.target.outputs.name }}@${{ steps.target.outputs.version }}\`" >> "$GITHUB_STEP_SUMMARY"

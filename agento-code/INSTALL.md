@@ -6,16 +6,16 @@ one stylesheet linked, and `components/` available to import.
 ## 1. npm (the intended route, once published)
 
 ```sh
-npm install agento-code
+npm install @shaharia-lab/agento-code
 ```
 
 ```js
 // one import, at the entry point
-import 'agento-code/styles.css';
+import '@shaharia-lab/agento-code/styles.css';
 ```
 
 ```jsx
-import { Button, Panel, Masthead } from 'agento-code/components/core/Button.jsx';
+import { Button, Panel, Masthead } from '@shaharia-lab/agento-code/components/core/Button.jsx';
 ```
 
 The package ships source `.jsx` — no build output — so the consuming project's
@@ -28,7 +28,7 @@ import in the layout:
 
 ```astro
 ---
-import 'agento-code/styles.css';
+import '@shaharia-lab/agento-code/styles.css';
 ---
 ```
 
@@ -39,7 +39,7 @@ the system in place. It gives a real merge path back and forth.
 
 ```sh
 # add it once, under whatever folder the repo prefers
-git remote add design https://github.com/shaharia-lab/agento-code.git
+git remote add design https://github.com/shaharia-lab/design-system.git
 git subtree add --prefix web/src/design design main --squash
 
 # pull updates later
@@ -55,6 +55,10 @@ Then link the stylesheet by relative path:
 A submodule works too (`git submodule add …`), but a subtree keeps the files
 present in a fresh clone with no extra command, which matters for CI and for
 contributors.
+
+Note that this repository holds several design systems, so a subtree brings all
+of them in and `agento-code/` sits one level down (`../design/agento-code/…`).
+If that is unwanted, use the npm package or the plain copy below.
 
 ## 3. Plain copy
 
