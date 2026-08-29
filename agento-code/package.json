@@ -1,7 +1,7 @@
 {
   "name": "@shaharia-lab/agento-code",
   "version": "0.1.0",
-  "description": "The agento-code design system — tokens, CSS foundations and React primitives for Shaharia Lab open-source project sites.",
+  "description": "The agento-code design system \u2014 tokens, CSS foundations and React primitives for Shaharia Lab open-source project sites.",
   "license": "MIT",
   "author": "Shaharia Lab (https://shaharialab.com)",
   "homepage": "https://github.com/shaharia-lab/design-system/tree/main/agento-code#readme",
@@ -10,9 +10,20 @@
     "url": "git+https://github.com/shaharia-lab/design-system.git",
     "directory": "agento-code"
   },
-  "bugs": { "url": "https://github.com/shaharia-lab/design-system/issues" },
-  "keywords": ["design-system", "agento", "shaharia-lab", "css-tokens", "design-tokens", "react"],
-  "sideEffects": ["*.css"],
+  "bugs": {
+    "url": "https://github.com/shaharia-lab/design-system/issues"
+  },
+  "keywords": [
+    "design-system",
+    "agento",
+    "shaharia-lab",
+    "css-tokens",
+    "design-tokens",
+    "react"
+  ],
+  "sideEffects": [
+    "*.css"
+  ],
   "type": "module",
   "exports": {
     "./package.json": "./package.json",
@@ -33,10 +44,15 @@
     "readme.md",
     "SKILL.md"
   ],
-  "peerDependencies": { "react": ">=18" },
-  "peerDependenciesMeta": { "react": { "optional": true } },
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    }
+  },
   "publishConfig": {
-    "access": "public",
-    "provenance": true
+    "access": "public"
   }
 }
