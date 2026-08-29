@@ -7,6 +7,11 @@ name: Publish design system
 # The part before the "@" is the directory to publish; the part after is the
 # version, which must already match that directory's package.json. Nothing is
 # published on a push to main — a release is always an explicit tag.
+#
+# Actions are pinned to full commit SHAs because the shaharia-lab org enforces
+# sha_pinning_required; a version tag such as @v7 is rejected before the run
+# even starts (startup_failure, no logs). Keep the trailing "# vX.Y.Z" comment
+# in step with the SHA when bumping.
 on:
   push:
     tags:
@@ -17,6 +22,11 @@ on:
         description: 'Directory of the design system to publish (e.g. agento-code)'
         required: true
         type: string
+      dry_run:
+        description: 'Pack and inspect only — do not publish to npm'
+        required: false
+        default: true
+        type: boolean
 
 permissions:
   contents: read
@@ -26,9 +36,9 @@ jobs:
   publish:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
 
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version: '22'
           registry-url: 'https://registry.npmjs.org'
@@ -68,6 +78,7 @@ jobs:
         run: npm pack --dry-run
 
       - name: Publish to npm
+        if: ${{ github.event_name == 'push' || inputs.dry_run == false }}
         working-directory: ${{ steps.target.outputs.system }}
         run: npm publish --provenance --access public
         env:
@@ -75,4 +86,8 @@ jobs:
 
       - name: Summary
         run: |
-          echo "Published \`${{ steps.target.outputs.name }}@${{ steps.target.outputs.version }}\`" >> "$GITHUB_STEP_SUMMARY"
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.dry_run }}" = "true" ]; then
+            echo "Dry run only — \`${{ steps.target.outputs.name }}@${{ steps.target.outputs.version }}\` was packed but not published." >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "Published \`${{ steps.target.outputs.name }}@${{ steps.target.outputs.version }}\`" >> "$GITHUB_STEP_SUMMARY"
+          fi
