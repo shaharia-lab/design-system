@@ -1,0 +1,58 @@
+/* Type.
+
+   Four families, each with one job:
+     display — Instrument Serif, hero and h1/h2. Tight, optically large.
+     sub     — Newsreader 600, panel and card headings, post titles.
+     sans    — Karla, body copy and UI.
+     mono    — JetBrains Mono, every label, eyebrow, pill, button and code run.
+
+   Body defaults to the sans. The site keeps a serif-body switch wired
+   (:root[data-body="serif"]) so the choice can be made by looking. */
+:root {
+  --font-display: "Instrument Serif", "Iowan Old Style", Georgia, serif;
+  --font-sub: "Newsreader", "Iowan Old Style", Georgia, serif;
+  --font-serif-text: "Newsreader", "Iowan Old Style", Georgia, serif;
+  --font-sans-text: "Karla", "Helvetica Neue", Arial, sans-serif;
+  --font-body: var(--font-sans-text);
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+
+  /* Size scale, as used. Values are literal from the site — not snapped. */
+  --text-hero: clamp(44px, 8vw, 92px);
+  --text-h1: 52px;
+  --text-h1-post: 58px;
+  --text-h2: 38px;
+  --text-h2-doc: 31px;
+  --text-h3: 25px;
+  --text-h4: 19.5px;
+  --text-lede: 19px;
+  --text-lede-post: 20px;
+  --text-body-size: 16px;
+  --text-body-post: 17px;
+  --text-ui: 15px;
+  --text-ui-sm: 14.5px;
+  --text-mono: 12.5px;
+  --text-label: 11px;
+  --text-badge: 10px;
+
+  /* Line heights */
+  --leading-hero: 0.97;
+  --leading-title: 1.05;
+  --leading-heading: 1.2;
+  --leading-body: 1.6;
+  --leading-prose: 1.68;
+
+  /* Tracking. Mono labels are wide; display type is tight. */
+  --tracking-display: -0.02em;
+  --tracking-heading: -0.01em;
+  --tracking-label: 0.1em;
+  --tracking-eyebrow: 0.14em;
+  --tracking-button: 0.08em;
+  --tracking-nav: 0.06em;
+
+  /* Measures */
+  --measure: 68ch;
+  --measure-lede: 54ch;
+  --shell: 1120px;
+}
+:root[data-body="serif"] { --font-body: var(--font-serif-text); }
+:root[data-body="serif"] body { font-size: 17.5px; line-height: 1.62; }

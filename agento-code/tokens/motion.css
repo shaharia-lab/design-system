@@ -1,0 +1,13 @@
+/* Motion.
+
+   Almost none. Controls translate toward their own shadow on hover and land on
+   it when pressed; disclosure chevrons rotate. Nothing fades, nothing bounces,
+   nothing moves on scroll. Every transition is short and eased out, and all of
+   them are dropped under prefers-reduced-motion. */
+:root {
+  --dur-press: 120ms; /* @kind other */
+  --dur-chev: 140ms; /* @kind other */
+  --ease: ease; /* @kind other */
+  --press-1: translate(2px, 2px); /* @kind other */
+  --press-2: translate(4px, 4px); /* @kind other */
+}

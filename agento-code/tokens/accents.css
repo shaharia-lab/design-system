@@ -1,0 +1,37 @@
+/* Accent pick.
+
+   A site chooses its accent with one attribute on <html>:
+
+     <html data-accent="forest">     bottle green (the default; may be omitted)
+     <html data-accent="saffron">    warm yellow
+     <html data-accent="ink">        no accent — near-black does every job
+
+   Each block only re-points --accent* at a named palette declared in
+   colors.css, so the choice stays correct in light and dark without repeating
+   any hex. Nothing else in the system changes: same grounds, same ink, same
+   borders, same offsets. */
+:root[data-accent="forest"] {
+  --accent: var(--accent-forest);
+  --accent-tint: var(--accent-forest-tint);
+  --accent-deep: var(--accent-forest-deep);
+  --on-accent: var(--on-accent-forest);
+}
+/* Saffron sits close to the amber warn colour, so warnings move to a
+   letterpress red here — otherwise a caution reads as decoration. */
+:root[data-accent="saffron"] {
+  --accent: var(--accent-saffron);
+  --accent-tint: var(--accent-saffron-tint);
+  --accent-deep: var(--accent-saffron-deep);
+  --on-accent: var(--on-accent-saffron);
+  --warn: #B3232B;
+}
+/* Accent-free. Near-black fills the primary button, the wordmark dot, the focus
+   ring and the active nav; the tint becomes the sunken ground, so a tinted
+   state reads as pressed rather than coloured. Expressed in ink and sunken, so
+   it inverts with the theme for free. */
+:root[data-accent="ink"] {
+  --accent: var(--ink);
+  --accent-tint: var(--sunken);
+  --accent-deep: var(--ink);
+  --on-accent: var(--paper);
+}

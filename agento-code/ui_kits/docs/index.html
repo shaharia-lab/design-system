@@ -1,0 +1,32 @@
+<!-- @dsCard group="Docs" viewport="1120x700" name="Documentation reading view" subtitle="Sidebar, article, TOC — the Starlight-themed docs page" -->
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Installation — Agento docs</title>
+<link rel="icon" href="../../assets/agento-mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>.doc-h2{font-family:var(--font-display);font-weight:400;font-size:31px;margin:40px 0 12px;padding-bottom:8px;border-bottom:var(--bw) solid var(--ink);line-height:1.15}.doc-p{margin:0 0 15px}code{font-family:var(--font-mono);font-size:.87em;background:var(--sunken);border:1px solid var(--ink-faint);border-radius:2px;padding:1px 5px}</style>
+</head><body><div id="root"></div>
+<script type="text/babel" src="DocsPage.jsx"></script>
+<script type="text/babel">
+const { Masthead, Footer } = window.AgentoDesignSystem_36a6ee;
+const DOCS_REPO = 'https://github.com/shaharia-lab/agento';
+function DocsSite() {
+  const [page, setPage] = React.useState('/docs/installation/');
+  const [theme, setTheme] = React.useState('light');
+  React.useEffect(() => { document.documentElement.setAttribute('data-theme', theme); }, [theme]);
+  return <>
+    <Masthead current="Docs" links={[
+        { label: 'Docs', href: '#', onClick: (e) => e.preventDefault() },
+        { label: 'Blog', href: '../website/index.html' },
+        { label: 'Releases', href: DOCS_REPO + '/releases' },
+      ]} star={{ href: DOCS_REPO }}
+      theme={theme === 'dark' ? 'Light' : 'Dark'}
+      onTheme={() => setTheme(theme === 'dark' ? 'light' : 'dark')} />
+    <DocsPage page={page} setPage={setPage} />
+    <div className="shell"><Footer copyright="© 2026 Shaharia Lab · MIT" links={[{ label: 'Home', href: '../website/index.html' }, { label: 'Releases', href: DOCS_REPO + '/releases' }]} aside="runs entirely on your machine —" /></div>
+  </>;
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<DocsSite />);
+</script></body></html>

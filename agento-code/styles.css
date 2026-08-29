@@ -1,0 +1,10 @@
+/* Agento Design System — global entry point.
+   Consumers link this one file. Imports only; no rules here. */
+@import "tokens/fonts.css";
+@import "tokens/colors.css";
+@import "tokens/accents.css";
+@import "tokens/typography.css";
+@import "tokens/space.css";
+@import "tokens/borders.css";
+@import "tokens/motion.css";
+@import "base.css";

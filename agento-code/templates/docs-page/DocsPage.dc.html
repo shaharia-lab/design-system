@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- @template name="Documentation page" description="Three-column docs reading view: sidebar, article with ink-ruled headings, on-page contents." -->
+<helmet><script src="./ds-base.js"></script></helmet>
+<div style="background:var(--paper);color:var(--ink);font-family:Karla,Helvetica Neue,Arial,sans-serif;font-size:16px;line-height:1.6;min-height:100vh">
+<header style="border-bottom:2px solid var(--ink)"><div style="display:flex;align-items:center;gap:18px;padding:16px 24px;max-width:1120px;margin:0 auto">
+<a href="#" style="font-family:Instrument Serif,Georgia,serif;font-size:26px;line-height:1;text-decoration:none;color:var(--ink);display:flex;align-items:baseline;gap:8px"><span style="width:9px;height:9px;border-radius:999px;background:var(--accent);border:1.5px solid var(--ink);display:inline-block"></span>Agento</a>
+<nav style="display:flex;gap:20px;margin-left:auto;font-family:JetBrains Mono,ui-monospace,monospace;font-size:12px;font-weight:500;letter-spacing:0.06em;text-transform:uppercase">
+<a href="#" style="text-decoration:none;color:var(--ink);padding-bottom:2px;border-bottom:2px solid var(--ink)">Docs</a>
+<a href="#" style="text-decoration:none;color:var(--ink);padding-bottom:2px;border-bottom:2px solid transparent" style-hover="border-bottom-color:var(--accent)">Blog</a>
+</nav></div></header>
+
+<div style="max-width:1120px;margin:0 auto;padding:0 24px">
+<div style="display:grid;grid-template-columns:232px minmax(0,1fr) 190px;gap:34px;padding:34px 0 60px;align-items:start">
+
+<div>
+<x-import component-from-global-scope="AgentoDesignSystem_36a6ee.SearchBox" hint-size="100%,36px"></x-import>
+<x-import component-from-global-scope="AgentoDesignSystem_36a6ee.SidebarNav" dc-props="{{ nav }}" hint-size="100%,300px"></x-import>
+</div>
+
+<article style="max-width:68ch">
+<div style="display:flex;gap:8px;align-items:center;margin-bottom:14px;font-family:JetBrains Mono,ui-monospace,monospace;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;color:var(--ink-faint)"><span>Docs</span><span>/</span><span>Installation</span></div>
+<h1 style="font-family:Instrument Serif,Georgia,serif;font-weight:400;font-size:52px;line-height:1.02;letter-spacing:-0.02em;margin:0 0 10px">Installation</h1>
+<p style="font-size:18px;color:var(--ink-soft);margin:0 0 26px;max-width:56ch">One sentence saying what this page gets the reader to, and what it assumes they already have.</p>
+
+<h2 style="font-family:Instrument Serif,Georgia,serif;font-weight:400;font-size:31px;margin:40px 0 12px;padding-bottom:8px;border-bottom:1.5px solid var(--ink);line-height:1.15">Requirements</h2>
+<p style="margin:0 0 15px">State the requirement, then the consequence of not meeting it. If a command proves it, show the command.</p>
+<pre style="background:var(--ink);color:var(--code-fg);border:1.5px solid var(--ink);border-radius:2px;font-family:JetBrains Mono,ui-monospace,monospace;font-size:12.5px;line-height:1.7;padding:14px 16px;overflow-x:auto;margin:0 0 18px"><span style="color:var(--code-key);font-weight:700">claude</span> --version</pre>
+
+<h2 style="font-family:Instrument Serif,Georgia,serif;font-weight:400;font-size:31px;margin:40px 0 12px;padding-bottom:8px;border-bottom:1.5px solid var(--ink);line-height:1.15">Download</h2>
+<x-import component-from-global-scope="AgentoDesignSystem_36a6ee.RowList" hint-size="100%,140px">
+<x-import component-from-global-scope="AgentoDesignSystem_36a6ee.Row" href="#" badge="dmg" mono="Agento_1.2.0_aarch64.dmg" right="arm64 · 12.4 MB" go="↓" recommended="{{ true }}" hint-size="100%,44px"></x-import>
+<x-import component-from-global-scope="AgentoDesignSystem_36a6ee.Row" href="#" badge="msi" mono="Agento_1.2.0_x64_en-US.msi" right="x64 · 11.8 MB" go="↓" hint-size="100%,44px"></x-import>
+</x-import>
+
+<h2 style="font-family:Instrument Serif,Georgia,serif;font-weight:400;font-size:31px;margin:40px 0 12px;padding-bottom:8px;border-bottom:1.5px solid var(--ink);line-height:1.15">Where your data lives</h2>
+<p style="margin:0 0 20px">Name the directory, say what is written and what is only read, and say what deleting it does.</p>
+<x-import component-from-global-scope="AgentoDesignSystem_36a6ee.Note" label="Privacy" hint-size="100%,64px">There is no account, no telemetry and no analytics.</x-import>
+<x-import component-from-global-scope="AgentoDesignSystem_36a6ee.Note" kind="warn" hint-size="100%,64px">Say the uncomfortable thing here, in the same register as a feature.</x-import>
+
+<x-import component-from-global-scope="AgentoDesignSystem_36a6ee.Pager" dc-props="{{ pager }}" hint-size="100%,90px"></x-import>
+</article>
+
+<div>
+<x-import component-from-global-scope="AgentoDesignSystem_36a6ee.Toc" dc-props="{{ toc }}" hint-size="100%,160px"></x-import>
+</div>
+
+</div>
+</div>
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      nav: {
+        current: '/docs/installation/',
+        groups: [
+          { label: 'Start here', items: [
+            { label: 'Overview', href: '/docs/' },
+            { label: 'Installation', href: '/docs/installation/' },
+            { label: 'User guide', href: '/docs/user-guide/' },
+          ] },
+          { label: 'Reference', items: [
+            { label: 'Architecture', href: '/docs/architecture/' },
+            { label: 'Integrations', href: '/docs/integrations/' },
+          ] },
+        ],
+      },
+      toc: {
+        current: '#requirements',
+        items: [
+          { label: 'Requirements', href: '#requirements' },
+          { label: 'Download', href: '#download' },
+          { label: 'Where your data lives', href: '#data' },
+        ],
+      },
+      pager: {
+        prev: { label: 'Overview', href: '/docs/' },
+        next: { label: 'User guide', href: '/docs/user-guide/' },
+      },
+    };
+  }
+}
+
+</script>
+</body>
+</html>

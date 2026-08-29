@@ -1,0 +1,21 @@
+/* Borders, radii and shadow.
+
+   There are no blurred shadows anywhere in this design. A "shadow" is a solid
+   offset rectangle of ink, which is what makes a sheet read as a printed card
+   rather than a floating panel. Corners are all but square: 2px. */
+:root {
+  --bw: 1.5px;          /* hairline-hard border: sheets, rows, tables */
+  --bw-strong: 2px;     /* masthead rule, buttons, feature panels */
+  --bw-hair: 1px;       /* inner row borders, uses --ink-faint */
+
+  --offset: 8px 8px 0 var(--ink);
+  --offset-sm: 5px 5px 0 var(--ink);
+  --offset-accent: 8px 8px 0 var(--blue);   /* recommended install card */
+  --offset-invert: 4px 4px 0 var(--paper); /* buttons on the inverted closer */
+
+  --radius: 2px;
+  --radius-pill: 999px;
+
+  --shadow-card: var(--offset);
+  --shadow-control: var(--offset-sm);
+}

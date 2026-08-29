@@ -1,0 +1,29 @@
+/* Space.
+
+   The site is laid out in a small set of repeated distances rather than a
+   formal ramp. These name the ones that recur; keep literal values where the
+   source is literal (a 26px panel pad is 26px, not 24px). */
+:root {
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 14px;
+  --space-5: 18px;
+  --space-6: 20px;
+  --space-7: 22px;
+  --space-8: 26px;
+  --space-9: 34px;
+  --space-10: 44px;
+  --space-11: 70px;
+
+  /* Recurring layout distances */
+  --gutter: 24px;          /* shell side padding */
+  --gap-grid: 20px;        /* card grid gap */
+  --gap-split: 22px;       /* two-column split gap */
+  --gap-rows: 8px;         /* stacked hairline rows */
+  --pad-panel: 26px;
+  --pad-card: 20px;
+  --pad-row: 12px 15px;
+  --pad-btn: 11px 20px;
+  --section-gap: 70px;     /* space above a section head */
+}

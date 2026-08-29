@@ -1,0 +1,38 @@
+<!-- @dsCard group="Components" viewport="700x420" name="Patterns" subtitle="Section head, panels, disclosure, star band, closer, post rows" -->
+<!doctype html><html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css">
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>body{padding:22px 24px}.two{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}.stack{display:flex;flex-direction:column;gap:8px}</style>
+</head><body><div id="root"></div>
+<script type="text/babel">
+const { SectionHead, Panel, Disclosure, StarBand, Closer, PostRow, Button } = window.AgentoDesignSystem_36a6ee;
+function Demo() {
+  return <>
+    <SectionHead title="Two halves, one window." label="What you get" />
+    <div className="two">
+      <Panel eyebrow="Looks backward" title="Your history, made legible"><p style={{margin:0}}>Agento never asks you to change how you work. It reads what Claude Code already wrote.</p></Panel>
+      <Panel variant="dashed" eyebrow="Looks forward" title="Agents that do the work"><p style={{margin:0}}>Build one, give it tools, hand it a schedule.</p></Panel>
+    </div>
+    <div className="two" style={{marginTop:22}}>
+      <div className="stack">
+        <Disclosure defaultOpen summary="Does Agento send my transcripts anywhere?"><p style={{margin:0,fontSize:15,color:'var(--ink-soft)'}}>No. Everything is stored locally in ~/.agento. There is no account, no telemetry and no analytics.</p></Disclosure>
+        <Disclosure summary="Do I need an Anthropic API key?"><p style={{margin:0}}>No.</p></Disclosure>
+      </div>
+      <Disclosure variant="panel" summary="macOS" meta="4 files" recommended defaultOpen><p style={{margin:0,fontSize:14.5,color:'var(--ink-soft)'}}>Open the .dmg and drag Agento to Applications.</p></Disclosure>
+    </div>
+    <div style={{marginTop:22}}>
+      <PostRow feature href="#" date="25 August 2026" title="Finding the Claude CLI where it actually is" description="A user ran claude --version, got 2.1.231, and Agento told them Claude Code was not installed. They were both right." tags={['Engineering','Release 1.2.0']} />
+      <div style={{borderTop:'2px solid var(--ink)'}}>
+        <PostRow href="#" date="12 Aug 2026" title="Pricing a message at the rate in effect" description="Costs are computed per message, at the rate that applied when it ran." tags={['Engineering']} />
+      </div>
+    </div>
+    <StarBand action={<Button variant="primary" href="#">★ Star on GitHub</Button>}>Stars are how the next Claude Code user finds Agento. It is the whole of our distribution — there is no ad budget and nothing tracks you here.</StarBand>
+    <Closer title="Your sessions are already on disk." actions={<><Button variant="primary" onInvert href="#">Download 1.2.0 →</Button><Button variant="ghost" onInvert href="#">Star on GitHub</Button></>}>
+      Agento just reads them. Install it, and the last six months of your Claude Code usage become a dashboard you can search.
+    </Closer>
+  </>;
+}
+ReactDOM.createRoot(document.getElementById('root')).render(<Demo />);
+</script></body></html>

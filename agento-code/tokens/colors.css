@@ -1,0 +1,149 @@
+/* Colour.
+
+   Neo-brutalist editorial: bone paper, hard ink borders, one accent.
+   Light is the native state; dark inverts the ground and the ink and keeps
+   everything else.
+
+   Every colour is declared on bare :root first, then redefined for the two dark
+   states. Nothing downstream may declare a colour inside a media query or a
+   [data-theme] block — a token defined only there never applies to a visitor on
+   the default "system" setting, which is most of them.
+
+   ACCENT: three named palettes ship (forest, saffron, ink) and a site picks one
+   with data-accent on <html>; see tokens/accents.css. Forest is the default.
+   Each palette is declared here as named tokens with light values, and re-tuned
+   inside the dark blocks below — so the pick in accents.css is one indirection
+   and stays correct in both themes.
+
+   The upstream Agento site used an electric blue (#1DC1FF / #C9E6F6 / #0B7FA8).
+   It was replaced deliberately, to sit apart from a competitor's cool palette. */
+:root {
+  /* Grounds */
+  --paper: #F0EEE6;
+  --raised: #F7F5EE;
+  --sunken: #E6E3D9;
+
+  /* Ink */
+  --ink: #0B0C07;
+  --ink-soft: #5A574D;
+  --ink-faint: #8A8779;
+
+  /* Named accent palettes — pick one per site in accents.css */
+  --accent-forest: #1F7A4C;
+  --accent-forest-tint: #CDE6D8;
+  --accent-forest-deep: #125C39;
+  --on-accent-forest: #F0EEE6;
+
+  --accent-saffron: #F2B01E;
+  --accent-saffron-tint: #FAE7BB;
+  --accent-saffron-deep: #8A5D00;
+  --on-accent-saffron: #0B0C07;
+
+  /* The live accent. Forest unless a data-accent scope says otherwise. */
+  --accent: var(--accent-forest);
+  --accent-tint: var(--accent-forest-tint);
+  --accent-deep: var(--accent-forest-deep);
+  --on-accent: var(--on-accent-forest);
+
+  /* Code block: a solid inverted rectangle */
+  --code-bg: #0B0C07;
+  --code-fg: #EFECE2;
+  --code-border: #0B0C07;
+  --code-comment: #8A8779;
+  --code-key: #FFFFFF;
+
+  /* Semantic status. Warn is the only one the source defines. */
+  --warn: #E8A33D;
+
+  /* Muted text on an inverted ground (the closing panel) — bone in light,
+     near-black in dark. Reading it off --ink-soft would be wrong in both. */
+  --on-ink-soft: #C9C6BB;
+
+  /* Semantic aliases — prefer these in new work. */
+  --surface-page: var(--paper);
+  --surface-card: var(--raised);
+  --surface-inset: var(--sunken);
+  --surface-invert: var(--ink);
+  --surface-accent-soft: var(--accent-tint);
+  --text-body: var(--ink);
+  --text-muted: var(--ink-soft);
+  --text-faint: var(--ink-faint);
+  --text-link: var(--accent-deep);
+  --border-hard: var(--ink);
+  --border-hairline: var(--ink-faint);
+  --focus-ring: var(--accent);
+}
+/* System preference. The selector is bare :root so the values register as
+   tokens; an explicit light choice is restored by the [data-theme="light"]
+   block below, which outranks it. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #14150F;
+    --raised: #1C1D16;
+    --sunken: #0D0E09;
+    --ink: #F1EEE5;
+    --ink-soft: #A29F92;
+    --ink-faint: #6E6C61;
+    --accent-forest: #2E9A63;
+    --accent-forest-tint: #10362A;
+    --accent-forest-deep: #6FD8A0;
+    --on-accent-forest: #0B0C07;
+    --accent-saffron: #F2B01E;
+    --accent-saffron-tint: #3A2A08;
+    --accent-saffron-deep: #F7C752;
+    --on-accent-saffron: #0B0C07;
+    --code-bg: #0A0B06;
+    --code-fg: #EFECE2;
+    --code-border: #F1EEE5;
+    --code-comment: #8A8779;
+    --code-key: #FFFFFF;
+    --warn: #E8A33D;
+    --on-ink-soft: #4A4840;
+  }
+}
+:root[data-theme="light"] {
+  --paper: #F0EEE6;
+  --raised: #F7F5EE;
+  --sunken: #E6E3D9;
+  --ink: #0B0C07;
+  --ink-soft: #5A574D;
+  --ink-faint: #8A8779;
+  --accent-forest: #1F7A4C;
+  --accent-forest-tint: #CDE6D8;
+  --accent-forest-deep: #125C39;
+  --on-accent-forest: #F0EEE6;
+  --accent-saffron: #F2B01E;
+  --accent-saffron-tint: #FAE7BB;
+  --accent-saffron-deep: #8A5D00;
+  --on-accent-saffron: #0B0C07;
+  --code-bg: #0B0C07;
+  --code-fg: #EFECE2;
+  --code-border: #0B0C07;
+  --code-comment: #8A8779;
+  --code-key: #FFFFFF;
+  --warn: #E8A33D;
+  --on-ink-soft: #C9C6BB;
+}
+:root[data-theme="dark"] {
+  --paper: #14150F;
+  --raised: #1C1D16;
+  --sunken: #0D0E09;
+  --ink: #F1EEE5;
+  --ink-soft: #A29F92;
+  --ink-faint: #6E6C61;
+  --accent-forest: #2E9A63;
+  --accent-forest-tint: #10362A;
+  --accent-forest-deep: #6FD8A0;
+  --on-accent-forest: #0B0C07;
+  --accent-saffron: #F2B01E;
+  --accent-saffron-tint: #3A2A08;
+  --accent-saffron-deep: #F7C752;
+  --on-accent-saffron: #0B0C07;
+  --code-bg: #0A0B06;
+  --code-fg: #EFECE2;
+  --code-border: #F1EEE5;
+  --code-comment: #8A8779;
+  --code-key: #FFFFFF;
+  --warn: #E8A33D;
+  --on-ink-soft: #4A4840;
+}
