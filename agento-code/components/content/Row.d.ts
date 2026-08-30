@@ -16,7 +16,7 @@ export interface RowProps {
   right?: React.ReactNode;
   /** Trailing glyph: '→' internal, '↓' download, '↗' external. Pass null to drop. */
   go?: React.ReactNode | null;
-  /** Blue-tint ground + full ink border, for the detected platform's file. */
+  /** Accent-tint ground + full ink border, for the detected platform's file. */
   recommended?: boolean;
   style?: React.CSSProperties;
   children?: React.ReactNode;

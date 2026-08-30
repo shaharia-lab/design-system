@@ -65,7 +65,7 @@ you here."* Never "we believe", never "we're excited".
 **Headlines are sentences with full stops.** Every section head is a complete
 sentence, punctuated:
 
-- "See what Claude Code *really* costs you." (one italic word, in blue, per hero)
+- "See what Claude Code *really* costs you." (one italic word, in the accent, per hero)
 - "Two halves, one window."
 - "Every section, one keystroke away."
 - "Installed in about a minute."
@@ -176,7 +176,7 @@ half of a two-panel split).
 **The eyebrow is the signature device.** A 16px ink em-rule, 9px gap, then an
 11px mono uppercase label at `0.14em` tracking, set into the top-left of the
 panel it names, `18px` above the heading. An optional right-aligned end slot
-carries a link underlined in blue.
+carries a link underlined in the accent.
 
 **Grouped strips.** Stat rows, step grids and install lists are one bordered,
 shadowed container with `1.5px` ink dividers between cells and `overflow:hidden`
@@ -193,7 +193,7 @@ Transition: `120ms ease` on transform and box-shadow. Disclosure chevrons rotate
 `@media (prefers-reduced-motion: reduce)`.
 
 **Hover states.** Rows and summaries darken to `--sunken` and promote a faint
-border to full ink. Nav links grow a `2px` blue bottom border; the current page
+border to full ink. Nav links grow a `2px` accent bottom border; the current page
 gets an ink one. The star button hovers to `--accent-tint`. Row chevrons switch
 from `--ink-faint` to `--accent-deep`. No opacity fades, no lightening.
 
@@ -222,8 +222,8 @@ imagery and no illustrations of any kind.
 **Dark mode.** Ground goes to `#14150F` / `#1C1D16` / `#0D0E09`, ink to
 `#F1EEE5`. Borders, offsets, radii, type and spacing are all unchanged — the
 shadow becomes a bone-coloured offset instead of an ink one because `--ink`
-itself inverted. `--accent-tint` becomes a deep teal `#0E3A4C` and `--accent-deep`
-lightens to `#7FDCFF` for link contrast. Theme is stamped as `data-theme` on
+itself inverted. Under the default forest palette `--accent-tint` deepens to
+`#10362A` and `--accent-deep` lightens to `#6FD8A0` for link contrast. Theme is stamped as `data-theme` on
 `<html>` and persisted in `localStorage` under the key `starlight-theme`, which
 both halves of the site share.
 

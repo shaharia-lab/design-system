@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-/** Docs sidebar: eyebrow-styled group headings, blue-tint current page. */
+/** Docs sidebar: eyebrow-styled group headings, accent-tint current page. */
 export interface SidebarNavProps {
   groups: { label: string; items: { label: string; href: string }[] }[];
   /** href of the current page. */

@@ -7,4 +7,4 @@ Lifts the one sentence of a post worth remembering. At most one per article.
 </PullQuote>
 ```
 
-It is the only place the blue left edge appears; do not reuse that treatment.
+It is the only place the accent left edge appears; do not reuse that treatment.

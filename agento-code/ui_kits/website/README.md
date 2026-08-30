@@ -15,14 +15,14 @@ Surface map for a Shaharia Lab project site:
 
 | Surface | Where it lives | Shell |
 | --- | --- | --- |
-| Marketing landing | `Landing.jsx` | full-intensity: offset shadows, display serif, one blue call |
+| Marketing landing | `Landing.jsx` | full-intensity: offset shadows, display serif, one accent call |
 | Static pages (Security, Privacy, Licence, About) | `StaticPage.jsx` | prose column at `68ch`, no sidebar |
 | Technical documentation | `../docs/` | three-column grid with sidebar, search and TOC |
 | Blog index and posts | `Blog.jsx` | ruled list; posts are a centred `68ch` article |
 | 404 | `Blog.jsx` → `NotFound` | short page with a row list of destinations |
 
 Docs and blog step the landing page's vocabulary down — same tokens, fewer
-shadows, no italic-blue emphasis.
+shadows, no italic-accent emphasis.
 
 What it does: navigate Blog from the masthead, open the featured post, switch
 platforms in the install section, open FAQ entries, flip light/dark from the

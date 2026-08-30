@@ -105,7 +105,7 @@
   `provenance: true`. Same reason as the first pull. `github.md` and `uploads/`
   still excluded; `uploads/` now also holds the audit PDF and its text extract.
 
-### Still-stale references the project has NOT swept (mirrored as-is, not ours to fix)
+### Still-stale references — RESOLVED in 0.3.1 (see the section after this one)
 
 The accent sweep landed in the types, the specimen cards and the lint config, but
 these still say "blue" project-side and therefore in the repo:
@@ -119,3 +119,27 @@ these still say "blue" project-side and therefore in the repo:
   `--accent-deep` "`#7FDCFF`") — those hexes no longer exist in `tokens/colors.css`.
 
 The `readme.md` "On the original blue" section is deliberate history and correct.
+
+## Sync 2026-08-30 (third) — direction: repo → project (PUSH), 0.3.1
+
+- The reverse direction, and the first time this repo has been ahead on content.
+  The stale-colour sweep the previous section listed was done HERE, then pushed to
+  the project, because a repo-only fix would have been reverted by the next pull.
+- **Scope: 22 files, documentation and comments only.** No API, token, class or
+  rendered output changed. `_ds_bundle.js` was regenerated anyway — JSX source
+  comments are copied into it verbatim, so a comment-only edit still changes it.
+- The grep that found them is worth repeating before any release:
+
+      grep -rn --include='*.md' --include='*.ts' --include='*.jsx' --include='*.css' \
+        --include='*.html' -i "blue" . | grep -v '_ds_bundle.js'
+
+  Three hits are correct and must stay: the CHANGELOG's 0.1.1 entry, the readme's
+  "On the original blue" section, and the comment atop `tokens/colors.css`.
+- **Pushed, deliberately NOT pushed:** the 22 files plus `CHANGELOG.md` went to the
+  project. `package.json` did not — the project's copy is still 0.1.0 with
+  `provenance: true`, and this repo is the authority on packaging. `github.md` and
+  `uploads/` are project-side only and were left untouched.
+- **No `_ds_needs_recompile` sentinel**, same reasoning as the 2026-08-29 push: it
+  would flip the project's `_ds_manifest.json` `source` from `"spa"` to
+  `"design-sync-cli"`. No component, card, token or card subtitle changed in this
+  push, so the app has nothing to recompile.

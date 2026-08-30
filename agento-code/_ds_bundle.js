@@ -1,4 +1,4 @@
-/* @ds-bundle: {"format":4,"namespace":"AgentoDesignSystem_36a6ee","components":[{"name":"Byline","sourcePath":"components/content/Byline.jsx"},{"name":"DataTable","sourcePath":"components/content/DataTable.jsx"},{"name":"KeyList","sourcePath":"components/content/KeyList.jsx"},{"name":"Note","sourcePath":"components/content/Note.jsx"},{"name":"PullQuote","sourcePath":"components/content/PullQuote.jsx"},{"name":"Row","sourcePath":"components/content/Row.jsx"},{"name":"RowList","sourcePath":"components/content/Row.jsx"},{"name":"Shot","sourcePath":"components/content/Shot.jsx"},{"name":"StatGrid","sourcePath":"components/content/StatGrid.jsx"},{"name":"Steps","sourcePath":"components/content/Steps.jsx"},{"name":"ArrowLink","sourcePath":"components/core/ArrowLink.jsx"},{"name":"Badge","sourcePath":"components/core/Badge.jsx"},{"name":"Button","sourcePath":"components/core/Button.jsx"},{"name":"CodeBlock","sourcePath":"components/core/CodeBlock.jsx"},{"name":"CodeKey","sourcePath":"components/core/CodeBlock.jsx"},{"name":"CodeStr","sourcePath":"components/core/CodeBlock.jsx"},{"name":"CodeComment","sourcePath":"components/core/CodeBlock.jsx"},{"name":"Eyebrow","sourcePath":"components/core/Eyebrow.jsx"},{"name":"NavButton","sourcePath":"components/core/NavButton.jsx"},{"name":"Pill","sourcePath":"components/core/Pill.jsx"},{"name":"Sheet","sourcePath":"components/core/Sheet.jsx"},{"name":"ThemeToggle","sourcePath":"components/core/ThemeToggle.jsx"},{"name":"Crumbs","sourcePath":"components/navigation/Crumbs.jsx"},{"name":"Footer","sourcePath":"components/navigation/Footer.jsx"},{"name":"Masthead","sourcePath":"components/navigation/Masthead.jsx"},{"name":"Pager","sourcePath":"components/navigation/Pager.jsx"},{"name":"SearchBox","sourcePath":"components/navigation/SearchBox.jsx"},{"name":"SidebarNav","sourcePath":"components/navigation/SidebarNav.jsx"},{"name":"Toc","sourcePath":"components/navigation/Toc.jsx"},{"name":"Wordmark","sourcePath":"components/navigation/Wordmark.jsx"},{"name":"CardGrid","sourcePath":"components/patterns/CardGrid.jsx"},{"name":"Split","sourcePath":"components/patterns/CardGrid.jsx"},{"name":"Closer","sourcePath":"components/patterns/Closer.jsx"},{"name":"Disclosure","sourcePath":"components/patterns/Disclosure.jsx"},{"name":"Hero","sourcePath":"components/patterns/Hero.jsx"},{"name":"MetaRule","sourcePath":"components/patterns/MetaRule.jsx"},{"name":"Panel","sourcePath":"components/patterns/Panel.jsx"},{"name":"PostRow","sourcePath":"components/patterns/PostRow.jsx"},{"name":"SectionHead","sourcePath":"components/patterns/SectionHead.jsx"},{"name":"StarBand","sourcePath":"components/patterns/StarBand.jsx"}],"sourceHashes":{"components/content/Byline.jsx":"e6ae42a8c927","components/content/DataTable.jsx":"b72e578238ac","components/content/KeyList.jsx":"804596d521f8","components/content/Note.jsx":"8182e6b947a3","components/content/PullQuote.jsx":"15538db41e84","components/content/Row.jsx":"ff418e18799a","components/content/Shot.jsx":"18eca44ff13a","components/content/StatGrid.jsx":"04054f7156c7","components/content/Steps.jsx":"64707ffe726a","components/core/ArrowLink.jsx":"e770fbf6fa1d","components/core/Badge.jsx":"0f08db413a9d","components/core/Button.jsx":"dd52a5528aa2","components/core/CodeBlock.jsx":"95139e3b9a79","components/core/Eyebrow.jsx":"338e5310d356","components/core/NavButton.jsx":"9572d24da427","components/core/Pill.jsx":"2b1fc21495ee","components/core/Sheet.jsx":"cf4e9cfe7e4b","components/core/ThemeToggle.jsx":"00c7dff40983","components/navigation/Crumbs.jsx":"942bf5a58348","components/navigation/Footer.jsx":"952023e4a31c","components/navigation/Masthead.jsx":"39566762e996","components/navigation/Pager.jsx":"69a739e4c351","components/navigation/SearchBox.jsx":"2f0035ffab57","components/navigation/SidebarNav.jsx":"93ec7e62af27","components/navigation/Toc.jsx":"a91b28f93c8a","components/navigation/Wordmark.jsx":"0539fedd83e0","components/patterns/CardGrid.jsx":"28f94fe912c0","components/patterns/Closer.jsx":"f097b5a3ac24","components/patterns/Disclosure.jsx":"df2b2d354cb2","components/patterns/Hero.jsx":"fe7e25e59efa","components/patterns/MetaRule.jsx":"ee04e27767be","components/patterns/Panel.jsx":"650cc06716b5","components/patterns/PostRow.jsx":"7f1f580e0566","components/patterns/SectionHead.jsx":"5a3e790a19dd","components/patterns/StarBand.jsx":"f70a49a6443f","ui_kits/docs/DocsPage.jsx":"5ce56a9dfd85","ui_kits/website/Blog.jsx":"6b5bd2f4d437","ui_kits/website/Landing.jsx":"f708429e96f0","ui_kits/website/StaticPage.jsx":"48ffe700bc7a"},"inlinedExternals":[],"unexposedExports":[]} */
+/* @ds-bundle: {"format":4,"namespace":"AgentoDesignSystem_36a6ee","components":[{"name":"Byline","sourcePath":"components/content/Byline.jsx"},{"name":"DataTable","sourcePath":"components/content/DataTable.jsx"},{"name":"KeyList","sourcePath":"components/content/KeyList.jsx"},{"name":"Note","sourcePath":"components/content/Note.jsx"},{"name":"PullQuote","sourcePath":"components/content/PullQuote.jsx"},{"name":"Row","sourcePath":"components/content/Row.jsx"},{"name":"RowList","sourcePath":"components/content/Row.jsx"},{"name":"Shot","sourcePath":"components/content/Shot.jsx"},{"name":"StatGrid","sourcePath":"components/content/StatGrid.jsx"},{"name":"Steps","sourcePath":"components/content/Steps.jsx"},{"name":"ArrowLink","sourcePath":"components/core/ArrowLink.jsx"},{"name":"Badge","sourcePath":"components/core/Badge.jsx"},{"name":"Button","sourcePath":"components/core/Button.jsx"},{"name":"CodeBlock","sourcePath":"components/core/CodeBlock.jsx"},{"name":"CodeKey","sourcePath":"components/core/CodeBlock.jsx"},{"name":"CodeStr","sourcePath":"components/core/CodeBlock.jsx"},{"name":"CodeComment","sourcePath":"components/core/CodeBlock.jsx"},{"name":"Eyebrow","sourcePath":"components/core/Eyebrow.jsx"},{"name":"NavButton","sourcePath":"components/core/NavButton.jsx"},{"name":"Pill","sourcePath":"components/core/Pill.jsx"},{"name":"Sheet","sourcePath":"components/core/Sheet.jsx"},{"name":"ThemeToggle","sourcePath":"components/core/ThemeToggle.jsx"},{"name":"Crumbs","sourcePath":"components/navigation/Crumbs.jsx"},{"name":"Footer","sourcePath":"components/navigation/Footer.jsx"},{"name":"Masthead","sourcePath":"components/navigation/Masthead.jsx"},{"name":"Pager","sourcePath":"components/navigation/Pager.jsx"},{"name":"SearchBox","sourcePath":"components/navigation/SearchBox.jsx"},{"name":"SidebarNav","sourcePath":"components/navigation/SidebarNav.jsx"},{"name":"Toc","sourcePath":"components/navigation/Toc.jsx"},{"name":"Wordmark","sourcePath":"components/navigation/Wordmark.jsx"},{"name":"CardGrid","sourcePath":"components/patterns/CardGrid.jsx"},{"name":"Split","sourcePath":"components/patterns/CardGrid.jsx"},{"name":"Closer","sourcePath":"components/patterns/Closer.jsx"},{"name":"Disclosure","sourcePath":"components/patterns/Disclosure.jsx"},{"name":"Hero","sourcePath":"components/patterns/Hero.jsx"},{"name":"MetaRule","sourcePath":"components/patterns/MetaRule.jsx"},{"name":"Panel","sourcePath":"components/patterns/Panel.jsx"},{"name":"PostRow","sourcePath":"components/patterns/PostRow.jsx"},{"name":"SectionHead","sourcePath":"components/patterns/SectionHead.jsx"},{"name":"StarBand","sourcePath":"components/patterns/StarBand.jsx"}],"sourceHashes":{"components/content/Byline.jsx":"d5ae76c5cf5a","components/content/DataTable.jsx":"b72e578238ac","components/content/KeyList.jsx":"804596d521f8","components/content/Note.jsx":"8182e6b947a3","components/content/PullQuote.jsx":"93bb4ab72973","components/content/Row.jsx":"ff418e18799a","components/content/Shot.jsx":"18eca44ff13a","components/content/StatGrid.jsx":"04054f7156c7","components/content/Steps.jsx":"344349d9ada5","components/core/ArrowLink.jsx":"e770fbf6fa1d","components/core/Badge.jsx":"0f08db413a9d","components/core/Button.jsx":"dd52a5528aa2","components/core/CodeBlock.jsx":"95139e3b9a79","components/core/Eyebrow.jsx":"8d3e990a02f4","components/core/NavButton.jsx":"9572d24da427","components/core/Pill.jsx":"c68d399b6755","components/core/Sheet.jsx":"cf4e9cfe7e4b","components/core/ThemeToggle.jsx":"00c7dff40983","components/navigation/Crumbs.jsx":"942bf5a58348","components/navigation/Footer.jsx":"952023e4a31c","components/navigation/Masthead.jsx":"39566762e996","components/navigation/Pager.jsx":"69a739e4c351","components/navigation/SearchBox.jsx":"2f0035ffab57","components/navigation/SidebarNav.jsx":"df3fe998a027","components/navigation/Toc.jsx":"d50fe334e1ac","components/navigation/Wordmark.jsx":"65018110c8ee","components/patterns/CardGrid.jsx":"28f94fe912c0","components/patterns/Closer.jsx":"f097b5a3ac24","components/patterns/Disclosure.jsx":"df2b2d354cb2","components/patterns/Hero.jsx":"fe7e25e59efa","components/patterns/MetaRule.jsx":"ee04e27767be","components/patterns/Panel.jsx":"650cc06716b5","components/patterns/PostRow.jsx":"7f1f580e0566","components/patterns/SectionHead.jsx":"5a3e790a19dd","components/patterns/StarBand.jsx":"f70a49a6443f","ui_kits/docs/DocsPage.jsx":"5ce56a9dfd85","ui_kits/website/Blog.jsx":"6b5bd2f4d437","ui_kits/website/Landing.jsx":"f708429e96f0","ui_kits/website/StaticPage.jsx":"48ffe700bc7a"},"inlinedExternals":[],"unexposedExports":[]} */
 
 (() => {
 
@@ -11,7 +11,7 @@ const __ds_scope = {};
 // components/content/Byline.jsx
 try { (() => {
 function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
-/* Author line under a post. The avatar is initials in mono on a blue-tint disc
+/* Author line under a post. The avatar is initials in mono on an accent-tint disc
    — there are no photographs anywhere in this brand. */
 function Byline({
   initials,
@@ -209,7 +209,7 @@ Object.assign(__ds_scope, { Note });
 // components/content/PullQuote.jsx
 try { (() => {
 function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
-/* A pull quote inside a post: ink border with a 6px blue left edge, raised
+/* A pull quote inside a post: ink border with a 6px accent left edge, raised
    ground, and the quote itself set in the display serif at 25px. */
 function PullQuote({
   style,
@@ -368,7 +368,7 @@ Object.assign(__ds_scope, { StatGrid });
 try { (() => {
 function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 /* Three numbered cells in one bordered, shadowed strip. The numeral is a 26px
-   ink-bordered blue-tint disc — the only round element besides pills. */
+   ink-bordered accent-tint disc — the only round element besides pills. */
 function Steps({
   items = [],
   style,
@@ -730,7 +730,7 @@ try { (() => {
 function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 /* The signature device: a 16px em-rule, then an 11px mono uppercase label set
    into the top-left of the panel it names. An optional `end` slot sits
-   right-aligned, usually a blue-underlined link. */
+   right-aligned, usually an accent-underlined link. */
 function Eyebrow({
   end,
   style,
@@ -824,7 +824,7 @@ Object.assign(__ds_scope, { NavButton });
 // components/core/Pill.jsx
 try { (() => {
 function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
-/* A fully-round mono capsule. Tinted by default (blue-tint ground, ink border);
+/* A fully-round mono capsule. Tinted by default (accent-tint ground, ink border);
    `plain` drops the fill and is what metadata rows use. */
 function Pill({
   plain,
@@ -1151,7 +1151,7 @@ Object.assign(__ds_scope, { SearchBox });
 try { (() => {
 function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 /* Docs sidebar. Group headings take the em-rule eyebrow with an ink underline;
-   the current page is blue-tint with a full ink border. */
+   the current page is accent-tint with a full ink border. */
 function SidebarNav({
   groups = [],
   current,
@@ -1212,7 +1212,7 @@ Object.assign(__ds_scope, { SidebarNav });
 // components/navigation/Toc.jsx
 try { (() => {
 function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
-/* On-page contents, right column. The active item gets a 3px blue left edge;
+/* On-page contents, right column. The active item gets a 3px accent left edge;
    everything else a 2px faint one. */
 function Toc({
   items = [],
@@ -1257,7 +1257,7 @@ Object.assign(__ds_scope, { Toc });
 try { (() => {
 function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 /* The wordmark is type, not an image: "Agento" in Instrument Serif at 26px,
-   preceded by a 9px ink-bordered blue dot — the app mark's circle, extracted. */
+   preceded by a 9px ink-bordered accent dot — the app mark's circle, extracted. */
 function Wordmark({
   href = '/',
   label = 'Agento',

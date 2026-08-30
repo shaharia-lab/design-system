@@ -1,6 +1,6 @@
 import React from 'react';
 
-/* Author line under a post. The avatar is initials in mono on a blue-tint disc
+/* Author line under a post. The avatar is initials in mono on an accent-tint disc
    — there are no photographs anywhere in this brand. */
 export function Byline({ initials, name, role, style, ...rest }) {
   return (

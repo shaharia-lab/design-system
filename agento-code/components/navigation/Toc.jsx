@@ -1,6 +1,6 @@
 import React from 'react';
 
-/* On-page contents, right column. The active item gets a 3px blue left edge;
+/* On-page contents, right column. The active item gets a 3px accent left edge;
    everything else a 2px faint one. */
 export function Toc({ items = [], current, label = 'On this page', style, ...rest }) {
   return (
