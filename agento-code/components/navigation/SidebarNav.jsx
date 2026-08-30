@@ -1,7 +1,7 @@
 import React from 'react';
 
 /* Docs sidebar. Group headings take the em-rule eyebrow with an ink underline;
-   the current page is blue-tint with a full ink border. */
+   the current page is accent-tint with a full ink border. */
 export function SidebarNav({ groups = [], current, style, ...rest }) {
   return (
     <nav style={{ ...style }} {...rest}>

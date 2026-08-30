@@ -1,7 +1,7 @@
 import React from 'react';
 
 /* The wordmark is type, not an image: "Agento" in Instrument Serif at 26px,
-   preceded by a 9px ink-bordered blue dot — the app mark's circle, extracted. */
+   preceded by a 9px ink-bordered accent dot — the app mark's circle, extracted. */
 export function Wordmark({ href = '/', label = 'Agento', size = 26, style, ...rest }) {
   return (
     <a href={href} style={{

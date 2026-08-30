@@ -1,6 +1,6 @@
 import React from 'react';
 
-/* A pull quote inside a post: ink border with a 6px blue left edge, raised
+/* A pull quote inside a post: ink border with a 6px accent left edge, raised
    ground, and the quote itself set in the display serif at 25px. */
 export function PullQuote({ style, children, ...rest }) {
   return (

@@ -2,7 +2,7 @@ import React from 'react';
 
 /* The signature device: a 16px em-rule, then an 11px mono uppercase label set
    into the top-left of the panel it names. An optional `end` slot sits
-   right-aligned, usually a blue-underlined link. */
+   right-aligned, usually an accent-underlined link. */
 export function Eyebrow({ end, style, children, ...rest }) {
   return (
     <div style={{

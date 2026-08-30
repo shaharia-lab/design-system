@@ -1,6 +1,6 @@
 import React from 'react';
 
-/* A fully-round mono capsule. Tinted by default (blue-tint ground, ink border);
+/* A fully-round mono capsule. Tinted by default (accent-tint ground, ink border);
    `plain` drops the fill and is what metadata rows use. */
 export function Pill({ plain, style, children, ...rest }) {
   return (

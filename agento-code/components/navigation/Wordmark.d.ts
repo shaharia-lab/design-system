@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-/** The Agento wordmark: display serif + the blue dot. Set as type, never as an image. */
+/** The Agento wordmark: display serif + the accent dot. Set as type, never as an image. */
 export interface WordmarkProps {
   href?: string;
   /** Product name. Use another Shaharia Lab project's name to re-brand a site. */

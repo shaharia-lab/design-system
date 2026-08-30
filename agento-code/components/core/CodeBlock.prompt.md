@@ -6,4 +6,5 @@ Shell commands and config snippets — one solid dark rectangle, no title bar or
 ```
 
 Only three highlight roles exist: `CodeKey` (white bold — the command),
-`CodeStr` (blue — strings and paths), `CodeComment` (faint — trailing `#` notes).
+`CodeStr` (`--code-accent` — strings and paths), `CodeComment` (faint — trailing
+`#` notes).

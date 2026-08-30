@@ -1,7 +1,7 @@
 import React from 'react';
 
 /* Three numbered cells in one bordered, shadowed strip. The numeral is a 26px
-   ink-bordered blue-tint disc — the only round element besides pills. */
+   ink-bordered accent-tint disc — the only round element besides pills. */
 export function Steps({ items = [], style, ...rest }) {
   return (
     <div style={{

@@ -7,5 +7,5 @@ The header for every Agento surface. It scrolls away — do not make it sticky.
   theme="Dark" onTheme={toggle} />
 ```
 
-Nav labels are single words, uppercased by the component. Hover grows a blue
+Nav labels are single words, uppercased by the component. Hover grows an accent
 underline; the current page's is ink.

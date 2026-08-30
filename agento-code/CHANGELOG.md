@@ -3,7 +3,25 @@
 All notable changes to `@shaharia-lab/agento-code`. Dates are release dates.
 This package is pre-1.0: minor versions may change visual output.
 
-## 0.3.0 — unreleased
+## 0.3.1 — 30 August 2026
+
+### Changed
+
+- Swept the last of the "blue" colour names out of the shipped surface. 22 files
+  still described the accent as blue after the palette moved to forest in 0.1.1 —
+  `.d.ts` doc comments (visible in IDE tooltips), `.prompt.md` files (which is what
+  an AI agent reads to learn the system), JSX source comments, and the website UI
+  kit readme. Documentation only: no API, no token and no rendered output changed.
+- The readme's **Dark mode** paragraph quoted `#0E3A4C` and `#7FDCFF` — hexes from
+  the deleted blue palette that no longer exist anywhere in the system. It now
+  states the forest dark values, `#10362A` and `#6FD8A0`.
+- `CodeBlock.prompt.md` said `CodeStr` renders blue. It renders `--code-accent`,
+  the token added in 0.3.0.
+
+Three mentions of blue remain on purpose, as history: the 0.1.1 entry below, the
+readme's "On the original blue" section, and the comment atop `tokens/colors.css`.
+
+## 0.3.0 — 30 August 2026
 
 ### Fixed
 

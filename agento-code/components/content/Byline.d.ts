@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-/** Post author line — initials on a blue-tint disc, never a photograph. */
+/** Post author line — initials on an accent-tint disc, never a photograph. */
 export interface BylineProps {
   initials: string;
   name: React.ReactNode;
