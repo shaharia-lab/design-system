@@ -43,6 +43,18 @@
         "message": "Font not provided by the design system. Available: Instrument Serif, Newsreader, Karla, JetBrains Mono."
       },
       {
+        "selector": "JSXOpeningElement[name.name='ArrowLink'] > JSXAttribute > JSXIdentifier[name!=/^(?:href|arrow|tone|size|children|key|ref|className|style|children)$/]",
+        "message": "<ArrowLink> doesn't accept that prop. Declared props: href, arrow, tone, size, children."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ArrowLink'] > JSXAttribute[name.name='arrow'] > Literal[value!=/^(?:out|in|none)$/]",
+        "message": "<ArrowLink> arrow must be one of 'out' | 'in' | 'none'."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ArrowLink'] > JSXAttribute[name.name='tone'] > Literal[value!=/^(?:muted|accent)$/]",
+        "message": "<ArrowLink> tone must be one of 'muted' | 'accent'."
+      },
+      {
         "selector": "JSXOpeningElement[name.name='Badge'] > JSXAttribute > JSXIdentifier[name!=/^(?:style|children|key|ref|className|style|children)$/]",
         "message": "<Badge> doesn't accept that prop. Declared props: style, children."
       },
@@ -57,6 +69,10 @@
       {
         "selector": "JSXOpeningElement[name.name='Byline'] > JSXAttribute > JSXIdentifier[name!=/^(?:initials|name|role|style|key|ref|className|style|children)$/]",
         "message": "<Byline> doesn't accept that prop. Declared props: initials, name, role, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='CardGrid'] > JSXAttribute > JSXIdentifier[name!=/^(?:min|cols|gap|children|key|ref|className|style|children)$/]",
+        "message": "<CardGrid> doesn't accept that prop. Declared props: min, cols, gap, children."
       },
       {
         "selector": "JSXOpeningElement[name.name='Closer'] > JSXAttribute > JSXIdentifier[name!=/^(?:title|actions|style|children|key|ref|className|style|children)$/]",
@@ -91,8 +107,24 @@
         "message": "<Footer> doesn't accept that prop. Declared props: copyright, links, aside, style."
       },
       {
+        "selector": "JSXOpeningElement[name.name='Hero'] > JSXAttribute > JSXIdentifier[name!=/^(?:pills|title|lede|actions|note|key|ref|className|style|children)$/]",
+        "message": "<Hero> doesn't accept that prop. Declared props: pills, title, lede, actions, note."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='KeyListItem'] > JSXAttribute > JSXIdentifier[name!=/^(?:term|children|key|ref|className|style|children)$/]",
+        "message": "<KeyListItem> doesn't accept that prop. Declared props: term, children."
+      },
+      {
         "selector": "JSXOpeningElement[name.name='Masthead'] > JSXAttribute > JSXIdentifier[name!=/^(?:label|links|current|star|theme|onTheme|style|key|ref|className|style|children)$/]",
         "message": "<Masthead> doesn't accept that prop. Declared props: label, links, current, star, theme, onTheme, style."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='MetaRule'] > JSXAttribute > JSXIdentifier[name!=/^(?:note|children|align|key|ref|className|style|children)$/]",
+        "message": "<MetaRule> doesn't accept that prop. Declared props: note, children, align."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='MetaRule'] > JSXAttribute[name.name='align'] > Literal[value!=/^(?:between|flex-start|flex-end)$/]",
+        "message": "<MetaRule> align must be one of 'between' | 'flex-start' | 'flex-end'."
       },
       {
         "selector": "JSXOpeningElement[name.name='NavButton'] > JSXAttribute > JSXIdentifier[name!=/^(?:href|onClick|hoverTint|style|children|key|ref|className|style|children)$/]",
@@ -179,6 +211,14 @@
         "message": "<Steps> doesn't accept that prop. Declared props: items, style."
       },
       {
+        "selector": "JSXOpeningElement[name.name='ThemeToggle'] > JSXAttribute > JSXIdentifier[name!=/^(?:storageKey|defaultTheme|onChange|key|ref|className|style|children)$/]",
+        "message": "<ThemeToggle> doesn't accept that prop. Declared props: storageKey, defaultTheme, onChange."
+      },
+      {
+        "selector": "JSXOpeningElement[name.name='ThemeToggle'] > JSXAttribute[name.name='defaultTheme'] > Literal[value!=/^(?:light|dark)$/]",
+        "message": "<ThemeToggle> defaultTheme must be one of 'light' | 'dark'."
+      },
+      {
         "selector": "JSXOpeningElement[name.name='Toc'] > JSXAttribute > JSXIdentifier[name!=/^(?:items|current|label|style|key|ref|className|style|children)$/]",
         "message": "<Toc> doesn't accept that prop. Declared props: items, current, label, style."
       },
@@ -200,6 +240,9 @@
   ],
   "x-omelette": {
     "components": {
+      "ArrowLink": {
+        "replaces": []
+      },
       "Badge": {
         "replaces": []
       },
@@ -207,6 +250,9 @@
         "replaces": []
       },
       "Byline": {
+        "replaces": []
+      },
+      "CardGrid": {
         "replaces": []
       },
       "Closer": {
@@ -230,7 +276,16 @@
       "Footer": {
         "replaces": []
       },
+      "Hero": {
+        "replaces": []
+      },
+      "KeyListItem": {
+        "replaces": []
+      },
       "Masthead": {
+        "replaces": []
+      },
+      "MetaRule": {
         "replaces": []
       },
       "NavButton": {
@@ -279,6 +334,9 @@
         "replaces": []
       },
       "Steps": {
+        "replaces": []
+      },
+      "ThemeToggle": {
         "replaces": []
       },
       "Toc": {

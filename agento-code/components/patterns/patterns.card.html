@@ -1,4 +1,4 @@
-<!-- @dsCard group="Components" viewport="700x420" name="Patterns" subtitle="Section head, panels, disclosure, star band, closer, post rows" -->
+<!-- @dsCard group="Components" viewport="700x560" name="Patterns" subtitle="Hero, section head, grids, panels, disclosure, meta rule, star band, closer, post rows" -->
 <!doctype html><html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css">
 <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
@@ -7,14 +7,28 @@
 <style>body{padding:22px 24px}.two{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start}.stack{display:flex;flex-direction:column;gap:8px}</style>
 </head><body><div id="root"></div>
 <script type="text/babel">
-const { SectionHead, Panel, Disclosure, StarBand, Closer, PostRow, Button } = window.AgentoDesignSystem_36a6ee;
+const { Hero, SectionHead, CardGrid, Split, MetaRule, ArrowLink, Panel, Disclosure, StarBand, Closer, PostRow, Button } = window.AgentoDesignSystem_36a6ee;
 function Demo() {
   return <>
+    <Hero pills={['v1.2.0', 'macOS · Windows · Linux', 'MIT licensed']}
+      title={<>See what Claude Code <em style={{fontStyle:'italic',color:'var(--accent-deep)'}}>really</em> costs you.</>}
+      lede="Agento reads the session files Claude Code already writes to your disk and turns them into cost analytics, productivity insights and a searchable history of every run."
+      actions={<><Button variant="primary" href="#">Download 1.2.0 →</Button><Button variant="ink" href="#">Read the docs</Button></>}
+      note="No API key. No account. No telemetry." style={{padding:'0 0 34px'}} />
     <SectionHead title="Two halves, one window." label="What you get" />
-    <div className="two">
+    <Split>
       <Panel eyebrow="Looks backward" title="Your history, made legible"><p style={{margin:0}}>Agento never asks you to change how you work. It reads what Claude Code already wrote.</p></Panel>
       <Panel variant="dashed" eyebrow="Looks forward" title="Agents that do the work"><p style={{margin:0}}>Build one, give it tools, hand it a schedule.</p></Panel>
-    </div>
+    </Split>
+    <CardGrid min={200} style={{marginTop:22}}>
+      <Panel size="card" eyebrow="01 · Chats" title="Talk to your agents"><p style={{margin:0}}>Streaming turns, tool calls rendered inline.</p></Panel>
+      <Panel size="card" eyebrow="02 · Agents" title="Build and version them"><p style={{margin:0}}>Prompt templates with variables and tool allowlists.</p></Panel>
+      <Panel size="card" eyebrow="03 · Tasks" title="Put them on a clock"><p style={{margin:0}}>Cron expressions validated at save time.</p></Panel>
+    </CardGrid>
+    <MetaRule note="Not your platform?">
+      <ArrowLink href="#">Every file in v1.2.0</ArrowLink>
+      <ArrowLink href="#" arrow="in">Full installation guide</ArrowLink>
+    </MetaRule>
     <div className="two" style={{marginTop:22}}>
       <div className="stack">
         <Disclosure defaultOpen summary="Does Agento send my transcripts anywhere?"><p style={{margin:0,fontSize:15,color:'var(--ink-soft)'}}>No. Everything is stored locally in ~/.agento. There is no account, no telemetry and no analytics.</p></Disclosure>

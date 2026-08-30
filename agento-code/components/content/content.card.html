@@ -1,4 +1,4 @@
-<!-- @dsCard group="Components" viewport="700x400" name="Content" subtitle="Rows, stats, steps, notes, tables, quote, shot" -->
+<!-- @dsCard group="Components" viewport="700x510" name="Content" subtitle="Rows, stats, steps, notes, tables, quote, shot" -->
 <!doctype html><html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css">
 <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
@@ -7,9 +7,14 @@
 <style>body{padding:22px 24px}.two{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:start;margin-top:20px}</style>
 </head><body><div id="root"></div>
 <script type="text/babel">
-const { Row, RowList, StatGrid, Steps, Note, DataTable, PullQuote, Byline, Shot } = window.AgentoDesignSystem_36a6ee;
+const { KeyList, Row, RowList, StatGrid, Steps, Note, DataTable, PullQuote, Byline, Shot } = window.AgentoDesignSystem_36a6ee;
 function Demo() {
   return <>
+    <KeyList style={{marginBottom:20}} items={[
+      { term: 'Cost per session', children: 'priced at the rate in effect when each message ran.' },
+      { term: 'Full-text search', children: 'across every transcript, ranked, with snippets.' },
+      { term: 'Session journey', children: 'turn by turn, sub-agents nested under the task that spawned them.' },
+    ]} />
     <StatGrid items={[{n:'0',k:'Bytes sent anywhere'},{n:'1',k:'SQLite file, on your disk'},{n:'6',k:'Integrations built in'},{n:'~60s',k:'Install to first session'}]} />
     <div className="two">
       <RowList>
