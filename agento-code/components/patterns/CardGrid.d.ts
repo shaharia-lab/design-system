@@ -1,19 +1,19 @@
 import * as React from 'react';
 
 export interface CardGridProps extends React.HTMLAttributes<HTMLDivElement> {
-  /** Minimum card width before the grid drops a column. Ignored if cols is set. */
-  min?: number;
-  /** Fix the column count instead of letting it wrap. */
-  cols?: number;
+  /** Columns at desktop width. 2 and 3 have breakpoints in base.css. */
+  cols?: 2 | 3;
+  /** Override the token gap. Rarely needed. */
   gap?: string;
+  className?: string;
   children?: React.ReactNode;
 }
 
 export interface SplitProps extends React.HTMLAttributes<HTMLDivElement> {
-  /** grid-template-columns. Default '1fr 1fr'. */
-  ratio?: string;
+  /** The lopsided screenshot-plus-note variant (.split--media). */
+  media?: boolean;
   gap?: string;
-  align?: React.CSSProperties['alignItems'];
+  className?: string;
   children?: React.ReactNode;
 }
 

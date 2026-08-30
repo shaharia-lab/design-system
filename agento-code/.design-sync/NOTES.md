@@ -79,3 +79,43 @@
   install card. `guidelines/brand-shadows.html` documents it as
   `8px 8px 0 var(--accent)`, which is what it should almost certainly be. Both sides
   agree today, so this pull did not change it.
+
+## Sync 2026-08-30 (second) — direction: project → repo (PULL), 0.3.0
+
+- Second pull of the day, on top of the still-open 0.2.0 PR. The project carried
+  the correctness fixes an audit had queued against the 0.2.0 branch: the dangling
+  `--blue`, the code-block contrast failure, the inlined-grid responsive bug, the
+  hero-size drift, reduced motion, and `Disclosure`'s lost native semantics.
+- **The version came from the project, not from us.** `CHANGELOG.md` (new,
+  project-authored) heads its top section `0.3.0 — unreleased`, and dates 0.2.0.
+  It also marks `hoverTint="blue"` → `"accent"` as **Breaking**. So this is a
+  separate release, not more content for 0.2.0.
+- **`_ds_bundle.js` was regenerated with `.design-sync/gen-bundle.cjs` and came out
+  byte-identical to the project's** (sha256 match, both 108174 bytes). The
+  generator paid for itself on its first re-use — no 100KB+ transcription.
+- **The bundle header is now the cheapest diff available.** Its `sourceHashes` are
+  `sha256(bytes)[:12]` per `.jsx`, so one `get_file` on the bundle names exactly
+  which component sources changed (6 of 39 here) and proves the other 33 plus all
+  four `ui_kits/*.jsx` untouched. Start every future pull with it. Each file
+  transcribed by hand was then confirmed by re-hashing to the header's value.
+- `_ds_manifest.json` and `_adherence.oxlintrc.json` were patched structurally
+  (both re-serialise byte-stably: manifest `separators=(",",":")`, adherence
+  `indent=2, ensure_ascii=False`) rather than retyped.
+- `package.json` again NOT pulled — the project still carries 0.1.0 and
+  `provenance: true`. Same reason as the first pull. `github.md` and `uploads/`
+  still excluded; `uploads/` now also holds the audit PDF and its text extract.
+
+### Still-stale references the project has NOT swept (mirrored as-is, not ours to fix)
+
+The accent sweep landed in the types, the specimen cards and the lint config, but
+these still say "blue" project-side and therefore in the repo:
+
+- `components/core/CodeBlock.prompt.md` — "`CodeStr` (blue — strings and paths)",
+  now doubly wrong since `CodeStr` renders `--code-accent`.
+- `components/navigation/Masthead.prompt.md` — "Hover grows a blue underline".
+- `readme.md` — "one italic word, in blue, per hero"; "a link underlined in blue";
+  "Nav links grow a `2px` blue bottom border"; and the **Dark mode** paragraph
+  still quotes the deleted blue palette (`--accent-tint` "deep teal `#0E3A4C`",
+  `--accent-deep` "`#7FDCFF`") — those hexes no longer exist in `tokens/colors.css`.
+
+The `readme.md` "On the original blue" section is deliberate history and correct.

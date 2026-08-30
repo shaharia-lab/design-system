@@ -15,5 +15,5 @@ export function CodeBlock({ code, children, style, ...rest }) {
 }
 
 export function CodeKey({ children }) { return <span style={{ color: 'var(--code-key)', fontWeight: 700 }}>{children}</span>; }
-export function CodeStr({ children }) { return <span style={{ color: 'var(--accent)' }}>{children}</span>; }
+export function CodeStr({ children }) { return <span style={{ color: 'var(--code-accent)' }}>{children}</span>; }
 export function CodeComment({ children }) { return <span style={{ color: 'var(--code-comment)' }}>{children}</span>; }

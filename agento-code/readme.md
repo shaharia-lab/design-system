@@ -44,8 +44,10 @@ were provided; the UI kits therefore cover the **website** surfaces only.
 ## Brand at a glance
 
 Neo-brutalist editorial. Bone paper, hard ink borders, solid offset shadows, one
-electric blue accent. Light is the native state; dark inverts the ground and the
-ink and keeps everything else — the accent never flips.
+accent. Light is the native state; dark inverts the ground and the ink and keeps
+everything else. The accent keeps its hue but is re-tuned per theme, so anything
+on a surface that does NOT flip — the inverted code block — must use
+`--code-accent`, which is pinned bright in both.
 
 ---
 
@@ -247,9 +249,9 @@ entire glyph vocabulary is typographic characters set in JetBrains Mono:
 Two drawn marks exist, both copied into `assets/`:
 
 - `assets/agento-mark.svg` — the app mark and favicon: a bone square with a
-  `2.5px` ink border and a `1DC1FF` circle at its centre, ink-outlined. **This is
+  `2.5px` ink border and an accent circle at its centre, ink-outlined. **This is
   the only logo the sources contain.** The site's wordmark is not an image: it is
-  the word "Agento" in Instrument Serif at 26px, preceded by a 9px blue
+  the word "Agento" in Instrument Serif at 26px, preceded by a 9px accent
   ink-bordered dot — i.e. the mark's circle, extracted. Render it as type.
 - `assets/og.png` — the 1200×630 share card, generated from
   `web/design/og-image.html`.
@@ -270,6 +272,7 @@ Root manifest:
 | File | What it is |
 | --- | --- |
 | `readme.md` | this document — brand context, content, visuals, iconography |
+| `CHANGELOG.md` | what changed in each release, and why |
 | `INSTALL.md` | how to consume it: npm, git subtree into an existing repo, or plain copy |
 | `SKILL.md` | Agent Skill front matter, for use in Claude Code |
 | `styles.css` | the global entry point consumers link (imports only) |

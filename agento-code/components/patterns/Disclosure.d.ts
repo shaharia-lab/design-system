@@ -1,19 +1,19 @@
 import * as React from 'react';
 
-/** Collapsible section — the FAQ item and the per-platform install card. */
-export interface DisclosureProps {
-  /** 'faq' = hairline, no shadow; 'panel' = full sheet with shadow and meta slot. */
+export interface DisclosureProps extends Omit<React.HTMLAttributes<HTMLElement>, 'onToggle'> {
+  /** faq = hairline row in a stack; panel = full sheet with shadow and meta. */
   variant?: 'faq' | 'panel';
-  summary: React.ReactNode;
-  /** Mono uppercase right slot, e.g. '4 files'. Panel variant only. */
+  summary?: React.ReactNode;
+  /** Mono text pinned right — file counts, sizes. Panel variant only. */
   meta?: React.ReactNode;
-  /** Adds the blue offset shadow and the "Recommended for you" flag. */
+  /** Tints the summary and swaps the shadow for the accent offset. */
   recommended?: boolean;
-  /** Controlled open state. Omit to use defaultOpen. */
+  /** Controlled open state. Omit for self-managed. */
   open?: boolean;
   defaultOpen?: boolean;
   onToggle?: (open: boolean) => void;
-  style?: React.CSSProperties;
+  className?: string;
   children?: React.ReactNode;
 }
-export declare function Disclosure(props: DisclosureProps): JSX.Element;
+
+export declare function Disclosure(props: DisclosureProps): React.JSX.Element;
