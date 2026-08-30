@@ -1,7 +1,7 @@
 Names a panel — put one at the top-left of nearly every `Sheet`/`Panel`, above the heading.
 
 ```jsx
-<Eyebrow end={<a href="/docs/architecture/" style={{ borderBottom: '1.5px solid var(--blue)' }}>Architecture ↗</a>}>
+<Eyebrow end={<a href="/docs/architecture/" style={{ borderBottom: '1.5px solid var(--accent)' }}>Architecture ↗</a>}>
   Design
 </Eyebrow>
 ```

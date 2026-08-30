@@ -1,4 +1,4 @@
-/* @ds-bundle: {"format":4,"namespace":"AgentoDesignSystem_36a6ee","components":[{"name":"Byline","sourcePath":"components/content/Byline.jsx"},{"name":"DataTable","sourcePath":"components/content/DataTable.jsx"},{"name":"KeyList","sourcePath":"components/content/KeyList.jsx"},{"name":"Note","sourcePath":"components/content/Note.jsx"},{"name":"PullQuote","sourcePath":"components/content/PullQuote.jsx"},{"name":"Row","sourcePath":"components/content/Row.jsx"},{"name":"RowList","sourcePath":"components/content/Row.jsx"},{"name":"Shot","sourcePath":"components/content/Shot.jsx"},{"name":"StatGrid","sourcePath":"components/content/StatGrid.jsx"},{"name":"Steps","sourcePath":"components/content/Steps.jsx"},{"name":"ArrowLink","sourcePath":"components/core/ArrowLink.jsx"},{"name":"Badge","sourcePath":"components/core/Badge.jsx"},{"name":"Button","sourcePath":"components/core/Button.jsx"},{"name":"CodeBlock","sourcePath":"components/core/CodeBlock.jsx"},{"name":"CodeKey","sourcePath":"components/core/CodeBlock.jsx"},{"name":"CodeStr","sourcePath":"components/core/CodeBlock.jsx"},{"name":"CodeComment","sourcePath":"components/core/CodeBlock.jsx"},{"name":"Eyebrow","sourcePath":"components/core/Eyebrow.jsx"},{"name":"NavButton","sourcePath":"components/core/NavButton.jsx"},{"name":"Pill","sourcePath":"components/core/Pill.jsx"},{"name":"Sheet","sourcePath":"components/core/Sheet.jsx"},{"name":"ThemeToggle","sourcePath":"components/core/ThemeToggle.jsx"},{"name":"Crumbs","sourcePath":"components/navigation/Crumbs.jsx"},{"name":"Footer","sourcePath":"components/navigation/Footer.jsx"},{"name":"Masthead","sourcePath":"components/navigation/Masthead.jsx"},{"name":"Pager","sourcePath":"components/navigation/Pager.jsx"},{"name":"SearchBox","sourcePath":"components/navigation/SearchBox.jsx"},{"name":"SidebarNav","sourcePath":"components/navigation/SidebarNav.jsx"},{"name":"Toc","sourcePath":"components/navigation/Toc.jsx"},{"name":"Wordmark","sourcePath":"components/navigation/Wordmark.jsx"},{"name":"CardGrid","sourcePath":"components/patterns/CardGrid.jsx"},{"name":"Split","sourcePath":"components/patterns/CardGrid.jsx"},{"name":"Closer","sourcePath":"components/patterns/Closer.jsx"},{"name":"Disclosure","sourcePath":"components/patterns/Disclosure.jsx"},{"name":"Hero","sourcePath":"components/patterns/Hero.jsx"},{"name":"MetaRule","sourcePath":"components/patterns/MetaRule.jsx"},{"name":"Panel","sourcePath":"components/patterns/Panel.jsx"},{"name":"PostRow","sourcePath":"components/patterns/PostRow.jsx"},{"name":"SectionHead","sourcePath":"components/patterns/SectionHead.jsx"},{"name":"StarBand","sourcePath":"components/patterns/StarBand.jsx"}],"sourceHashes":{"components/content/Byline.jsx":"e6ae42a8c927","components/content/DataTable.jsx":"b72e578238ac","components/content/KeyList.jsx":"804596d521f8","components/content/Note.jsx":"8182e6b947a3","components/content/PullQuote.jsx":"15538db41e84","components/content/Row.jsx":"ff418e18799a","components/content/Shot.jsx":"18eca44ff13a","components/content/StatGrid.jsx":"04054f7156c7","components/content/Steps.jsx":"64707ffe726a","components/core/ArrowLink.jsx":"e770fbf6fa1d","components/core/Badge.jsx":"0f08db413a9d","components/core/Button.jsx":"dd52a5528aa2","components/core/CodeBlock.jsx":"d45455a793e4","components/core/Eyebrow.jsx":"338e5310d356","components/core/NavButton.jsx":"85a9c2daffbb","components/core/Pill.jsx":"2b1fc21495ee","components/core/Sheet.jsx":"cf4e9cfe7e4b","components/core/ThemeToggle.jsx":"00c7dff40983","components/navigation/Crumbs.jsx":"942bf5a58348","components/navigation/Footer.jsx":"952023e4a31c","components/navigation/Masthead.jsx":"df40df0a5228","components/navigation/Pager.jsx":"69a739e4c351","components/navigation/SearchBox.jsx":"2f0035ffab57","components/navigation/SidebarNav.jsx":"93ec7e62af27","components/navigation/Toc.jsx":"a91b28f93c8a","components/navigation/Wordmark.jsx":"0539fedd83e0","components/patterns/CardGrid.jsx":"086332e6fc34","components/patterns/Closer.jsx":"f097b5a3ac24","components/patterns/Disclosure.jsx":"d517da9760fe","components/patterns/Hero.jsx":"e0edc4d66a95","components/patterns/MetaRule.jsx":"ee04e27767be","components/patterns/Panel.jsx":"650cc06716b5","components/patterns/PostRow.jsx":"7f1f580e0566","components/patterns/SectionHead.jsx":"5a3e790a19dd","components/patterns/StarBand.jsx":"f70a49a6443f","ui_kits/docs/DocsPage.jsx":"5ce56a9dfd85","ui_kits/website/Blog.jsx":"6b5bd2f4d437","ui_kits/website/Landing.jsx":"f708429e96f0","ui_kits/website/StaticPage.jsx":"48ffe700bc7a"},"inlinedExternals":[],"unexposedExports":[]} */
+/* @ds-bundle: {"format":4,"namespace":"AgentoDesignSystem_36a6ee","components":[{"name":"Byline","sourcePath":"components/content/Byline.jsx"},{"name":"DataTable","sourcePath":"components/content/DataTable.jsx"},{"name":"KeyList","sourcePath":"components/content/KeyList.jsx"},{"name":"Note","sourcePath":"components/content/Note.jsx"},{"name":"PullQuote","sourcePath":"components/content/PullQuote.jsx"},{"name":"Row","sourcePath":"components/content/Row.jsx"},{"name":"RowList","sourcePath":"components/content/Row.jsx"},{"name":"Shot","sourcePath":"components/content/Shot.jsx"},{"name":"StatGrid","sourcePath":"components/content/StatGrid.jsx"},{"name":"Steps","sourcePath":"components/content/Steps.jsx"},{"name":"ArrowLink","sourcePath":"components/core/ArrowLink.jsx"},{"name":"Badge","sourcePath":"components/core/Badge.jsx"},{"name":"Button","sourcePath":"components/core/Button.jsx"},{"name":"CodeBlock","sourcePath":"components/core/CodeBlock.jsx"},{"name":"CodeKey","sourcePath":"components/core/CodeBlock.jsx"},{"name":"CodeStr","sourcePath":"components/core/CodeBlock.jsx"},{"name":"CodeComment","sourcePath":"components/core/CodeBlock.jsx"},{"name":"Eyebrow","sourcePath":"components/core/Eyebrow.jsx"},{"name":"NavButton","sourcePath":"components/core/NavButton.jsx"},{"name":"Pill","sourcePath":"components/core/Pill.jsx"},{"name":"Sheet","sourcePath":"components/core/Sheet.jsx"},{"name":"ThemeToggle","sourcePath":"components/core/ThemeToggle.jsx"},{"name":"Crumbs","sourcePath":"components/navigation/Crumbs.jsx"},{"name":"Footer","sourcePath":"components/navigation/Footer.jsx"},{"name":"Masthead","sourcePath":"components/navigation/Masthead.jsx"},{"name":"Pager","sourcePath":"components/navigation/Pager.jsx"},{"name":"SearchBox","sourcePath":"components/navigation/SearchBox.jsx"},{"name":"SidebarNav","sourcePath":"components/navigation/SidebarNav.jsx"},{"name":"Toc","sourcePath":"components/navigation/Toc.jsx"},{"name":"Wordmark","sourcePath":"components/navigation/Wordmark.jsx"},{"name":"CardGrid","sourcePath":"components/patterns/CardGrid.jsx"},{"name":"Split","sourcePath":"components/patterns/CardGrid.jsx"},{"name":"Closer","sourcePath":"components/patterns/Closer.jsx"},{"name":"Disclosure","sourcePath":"components/patterns/Disclosure.jsx"},{"name":"Hero","sourcePath":"components/patterns/Hero.jsx"},{"name":"MetaRule","sourcePath":"components/patterns/MetaRule.jsx"},{"name":"Panel","sourcePath":"components/patterns/Panel.jsx"},{"name":"PostRow","sourcePath":"components/patterns/PostRow.jsx"},{"name":"SectionHead","sourcePath":"components/patterns/SectionHead.jsx"},{"name":"StarBand","sourcePath":"components/patterns/StarBand.jsx"}],"sourceHashes":{"components/content/Byline.jsx":"e6ae42a8c927","components/content/DataTable.jsx":"b72e578238ac","components/content/KeyList.jsx":"804596d521f8","components/content/Note.jsx":"8182e6b947a3","components/content/PullQuote.jsx":"15538db41e84","components/content/Row.jsx":"ff418e18799a","components/content/Shot.jsx":"18eca44ff13a","components/content/StatGrid.jsx":"04054f7156c7","components/content/Steps.jsx":"64707ffe726a","components/core/ArrowLink.jsx":"e770fbf6fa1d","components/core/Badge.jsx":"0f08db413a9d","components/core/Button.jsx":"dd52a5528aa2","components/core/CodeBlock.jsx":"95139e3b9a79","components/core/Eyebrow.jsx":"338e5310d356","components/core/NavButton.jsx":"9572d24da427","components/core/Pill.jsx":"2b1fc21495ee","components/core/Sheet.jsx":"cf4e9cfe7e4b","components/core/ThemeToggle.jsx":"00c7dff40983","components/navigation/Crumbs.jsx":"942bf5a58348","components/navigation/Footer.jsx":"952023e4a31c","components/navigation/Masthead.jsx":"39566762e996","components/navigation/Pager.jsx":"69a739e4c351","components/navigation/SearchBox.jsx":"2f0035ffab57","components/navigation/SidebarNav.jsx":"93ec7e62af27","components/navigation/Toc.jsx":"a91b28f93c8a","components/navigation/Wordmark.jsx":"0539fedd83e0","components/patterns/CardGrid.jsx":"28f94fe912c0","components/patterns/Closer.jsx":"f097b5a3ac24","components/patterns/Disclosure.jsx":"df2b2d354cb2","components/patterns/Hero.jsx":"fe7e25e59efa","components/patterns/MetaRule.jsx":"ee04e27767be","components/patterns/Panel.jsx":"650cc06716b5","components/patterns/PostRow.jsx":"7f1f580e0566","components/patterns/SectionHead.jsx":"5a3e790a19dd","components/patterns/StarBand.jsx":"f70a49a6443f","ui_kits/docs/DocsPage.jsx":"5ce56a9dfd85","ui_kits/website/Blog.jsx":"6b5bd2f4d437","ui_kits/website/Landing.jsx":"f708429e96f0","ui_kits/website/StaticPage.jsx":"48ffe700bc7a"},"inlinedExternals":[],"unexposedExports":[]} */
 
 (() => {
 
@@ -709,7 +709,7 @@ function CodeStr({
 }) {
   return /*#__PURE__*/React.createElement("span", {
     style: {
-      color: 'var(--accent)'
+      color: 'var(--code-accent)'
     }
   }, children);
 }
@@ -792,7 +792,7 @@ function NavButton({
     padding: '0 10px',
     border: 'var(--bw) solid var(--ink)',
     borderRadius: 'var(--radius)',
-    background: hover ? hoverTint === 'blue' ? 'var(--accent-tint)' : 'var(--sunken)' : 'var(--raised)',
+    background: hover ? hoverTint === 'accent' ? 'var(--accent-tint)' : 'var(--sunken)' : 'var(--raised)',
     color: 'var(--ink)',
     fontFamily: 'var(--font-mono)',
     fontSize: 11,
@@ -1338,7 +1338,7 @@ function Masthead({
     active: l.label === current
   }))), star ? /*#__PURE__*/React.createElement(__ds_scope.NavButton, {
     href: star.href,
-    hoverTint: "blue"
+    hoverTint: "accent"
   }, /*#__PURE__*/React.createElement("span", {
     "aria-hidden": "true"
   }, "\u2605"), " Star", star.count ? /*#__PURE__*/React.createElement("span", {
@@ -1384,44 +1384,48 @@ Object.assign(__ds_scope, { Masthead });
 try { (() => {
 function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
 /* The two layout wrappers the landing page repeats: an even card grid (three up,
-   wrapping to one) and the two-column split. Both are plain grids with a token
-   gap — no nested padding, because the sheets inside carry their own. */
+   two at 1000px, one at 760px) and the two-column split (one at 760px).
+
+   Both name a class from base.css rather than inlining grid-template-columns.
+   That is deliberate and load-bearing: an inline style outranks a stylesheet and
+   a media query cannot reach it, so an inlined grid stays three columns on a
+   phone. Anything the browser owns — breakpoints, hover, reduced motion — has to
+   live in CSS. */
 function CardGrid({
-  min = 260,
-  cols,
-  gap = 'var(--gap-grid)',
+  cols = 3,
+  gap,
+  className = '',
   style,
   children,
   ...rest
 }) {
+  const cls = ['grid' + cols, className].filter(Boolean).join(' ');
   return /*#__PURE__*/React.createElement("div", _extends({
-    style: {
-      display: 'grid',
+    className: cls,
+    style: gap ? {
       gap,
-      gridTemplateColumns: cols ? 'repeat(' + cols + ', minmax(0, 1fr))' : 'repeat(auto-fit, minmax(' + min + 'px, 1fr))',
       ...style
-    }
+    } : style
   }, rest), children);
 }
 
-/* The 1:1 split ("Two halves, one window.") — set ratio for the lopsided one
-   used by the design section, where the screenshot is wider than its note. */
+/* The 1:1 split ("Two halves, one window."). `media` is the lopsided variant the
+   design section uses, where the screenshot is wider than its note. */
 function Split({
-  ratio = '1fr 1fr',
-  gap = 'var(--gap-split)',
-  align = 'start',
+  media,
+  gap,
+  className = '',
   style,
   children,
   ...rest
 }) {
+  const cls = ['split', media && 'split--media', className].filter(Boolean).join(' ');
   return /*#__PURE__*/React.createElement("div", _extends({
-    style: {
-      display: 'grid',
-      gridTemplateColumns: ratio,
+    className: cls,
+    style: gap ? {
       gap,
-      alignItems: align,
       ...style
-    }
+    } : style
   }, rest), children);
 }
 Object.assign(__ds_scope, { CardGrid, Split });
@@ -1481,7 +1485,12 @@ function _extends() { return _extends = Object.assign ? Object.assign.bind() : f
 /* The two <details> shapes in the source, behind one component.
    variant="faq"   — hairline sheet, 16.5px Newsreader summary, no shadow.
    variant="panel" — full sheet with shadow, 20px summary, right-hand meta slot
-                     and an optional "Recommended for you" flag. */
+                     and an optional "Recommended for you" flag.
+
+   Native <details>/<summary>, not a div with role="button": the element carries
+   its own open state, keyboard behaviour, find-in-page and screen-reader
+   announcement. The marker is suppressed in base.css and drawn as a chevron that
+   rotates off the [open] attribute — CSS, so it survives with no JavaScript. */
 function Disclosure({
   variant = 'faq',
   summary,
@@ -1490,87 +1499,37 @@ function Disclosure({
   open,
   defaultOpen,
   onToggle,
+  className = '',
   style,
   children,
   ...rest
 }) {
   const isPanel = variant === 'panel';
-  const [self, setSelf] = React.useState(!!defaultOpen);
-  const isOpen = open === undefined ? self : open;
-  const [hover, setHover] = React.useState(false);
-  const toggle = e => {
-    e.preventDefault();
-    if (open === undefined) setSelf(!isOpen);
-    if (onToggle) onToggle(!isOpen);
-  };
-  return /*#__PURE__*/React.createElement("div", _extends({
-    style: {
-      border: 'var(--bw' + (isPanel ? '' : '-hair') + ') solid ' + (isPanel || isOpen ? 'var(--ink)' : 'var(--ink-faint)'),
-      borderRadius: 'var(--radius)',
-      background: 'var(--raised)',
-      boxShadow: isPanel ? recommended ? 'var(--offset-accent)' : 'var(--offset)' : 'none',
-      overflow: 'hidden',
-      ...style
+  const ref = React.useRef(null);
+  React.useEffect(() => {
+    if (open !== undefined && ref.current) ref.current.open = open;
+  }, [open]);
+  const cls = ['disclosure', isPanel ? 'disclosure--panel' : 'disclosure--faq', recommended && 'disclosure--rec', className].filter(Boolean).join(' ');
+  return /*#__PURE__*/React.createElement("details", _extends({
+    ref: ref,
+    className: cls,
+    open: open === undefined ? defaultOpen : undefined,
+    style: style,
+    onToggle: e => {
+      if (onToggle) onToggle(e.currentTarget.open);
     }
-  }, rest), /*#__PURE__*/React.createElement("div", {
-    role: "button",
-    tabIndex: 0,
-    onClick: toggle,
-    onKeyDown: e => {
-      if (e.key === 'Enter' || e.key === ' ') toggle(e);
-    },
-    onMouseEnter: () => setHover(true),
-    onMouseLeave: () => setHover(false),
-    style: {
-      display: 'flex',
-      alignItems: isPanel ? 'center' : 'baseline',
-      gap: isPanel ? 14 : 12,
-      padding: isPanel ? '15px 20px' : '12px 15px',
-      cursor: 'pointer',
-      background: hover ? 'var(--sunken)' : 'transparent',
-      fontFamily: 'var(--font-sub)',
-      fontWeight: 600,
-      fontSize: isPanel ? 20 : 16.5
-    }
-  }, /*#__PURE__*/React.createElement("span", {
-    "aria-hidden": "true",
-    style: {
-      fontFamily: 'var(--font-mono)',
-      color: isPanel ? 'var(--ink-soft)' : 'var(--ink-faint)',
-      transform: isOpen ? 'rotate(90deg)' : 'none',
-      transition: 'transform var(--dur-chev) var(--ease)',
-      display: 'inline-block'
-    }
-  }, "\u25B8"), /*#__PURE__*/React.createElement("span", null, summary), recommended ? /*#__PURE__*/React.createElement("span", {
-    style: {
-      fontFamily: 'var(--font-mono)',
-      fontSize: 10,
-      fontWeight: 700,
-      letterSpacing: 'var(--tracking-label)',
-      textTransform: 'uppercase',
-      padding: '3px 9px',
-      border: '1.5px solid var(--ink)',
-      borderRadius: 'var(--radius-pill)',
-      background: 'var(--accent-tint)',
-      color: 'var(--ink)'
-    }
+  }, rest), /*#__PURE__*/React.createElement("summary", null, /*#__PURE__*/React.createElement("span", {
+    className: "disclosure__chev",
+    "aria-hidden": "true"
+  }, "\u25B8"), /*#__PURE__*/React.createElement("span", {
+    className: "disclosure__title"
+  }, summary), recommended ? /*#__PURE__*/React.createElement("span", {
+    className: "disclosure__flag"
   }, "Recommended for you") : null, meta ? /*#__PURE__*/React.createElement("span", {
-    style: {
-      marginLeft: 'auto',
-      fontFamily: 'var(--font-mono)',
-      fontSize: 11,
-      letterSpacing: 'var(--tracking-nav)',
-      textTransform: 'uppercase',
-      color: 'var(--ink-soft)'
-    }
-  }, meta) : null), isOpen ? /*#__PURE__*/React.createElement("div", {
-    style: isPanel ? {
-      padding: '18px 20px 20px',
-      borderTop: '1px dashed var(--ink-faint)'
-    } : {
-      padding: '0 15px 14px 39px'
-    }
-  }, children) : null);
+    className: "disclosure__meta"
+  }, meta) : null), /*#__PURE__*/React.createElement("div", {
+    className: "disclosure__body"
+  }, children));
 }
 Object.assign(__ds_scope, { Disclosure });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/patterns/Disclosure.jsx", error: String((e && e.message) || e) }); }
@@ -1612,7 +1571,7 @@ function Hero({
     style: {
       fontFamily: 'var(--font-display)',
       fontWeight: 400,
-      fontSize: 'clamp(44px, 6.4vw, 76px)',
+      fontSize: 'var(--text-hero)',
       lineHeight: 1.02,
       letterSpacing: 'var(--tracking-display)',
       margin: '0 0 18px',

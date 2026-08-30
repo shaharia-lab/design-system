@@ -5,7 +5,7 @@ The Agento call-to-action button — use for downloads, docs links and the star 
 <Button variant="ink" href="/docs/installation/">Read the docs</Button>
 ```
 
-Variants: `default` (bone sheet), `primary` (electric blue, the single strongest
+Variants: `default` (bone sheet), `primary` (the accent fill, the single strongest
 call on a page), `ink` (solid near-black, the secondary next to a primary),
 `ghost` (transparent — only on the inverted closer panel, with `onInvert`).
 Labels are short, mono-uppercased by the component, and often end in `→`.

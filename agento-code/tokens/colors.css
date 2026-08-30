@@ -51,6 +51,9 @@
   --code-border: #0B0C07;
   --code-comment: #8A8779;
   --code-key: #FFFFFF;
+  /* Pinned bright in BOTH themes. The code ground is inverted either way, so a
+     code string may not use --accent: forest on near-black is 3.69:1. */
+  --code-accent: #6FD8A0;
 
   /* Semantic status. Warn is the only one the source defines. */
   --warn: #E8A33D;
@@ -97,6 +100,7 @@
     --code-border: #F1EEE5;
     --code-comment: #8A8779;
     --code-key: #FFFFFF;
+    --code-accent: #6FD8A0;
     --warn: #E8A33D;
     --on-ink-soft: #4A4840;
   }
@@ -121,6 +125,7 @@
   --code-border: #0B0C07;
   --code-comment: #8A8779;
   --code-key: #FFFFFF;
+  --code-accent: #6FD8A0;
   --warn: #E8A33D;
   --on-ink-soft: #C9C6BB;
 }
@@ -144,6 +149,7 @@
   --code-border: #F1EEE5;
   --code-comment: #8A8779;
   --code-key: #FFFFFF;
+  --code-accent: #6FD8A0;
   --warn: #E8A33D;
   --on-ink-soft: #4A4840;
 }

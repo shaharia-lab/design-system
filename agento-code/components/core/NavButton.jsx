@@ -8,7 +8,7 @@ export function NavButton({ href, onClick, hoverTint = 'sunken', style, children
     display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 6,
     height: 26, padding: '0 10px',
     border: 'var(--bw) solid var(--ink)', borderRadius: 'var(--radius)',
-    background: hover ? (hoverTint === 'blue' ? 'var(--accent-tint)' : 'var(--sunken)') : 'var(--raised)',
+    background: hover ? (hoverTint === 'accent' ? 'var(--accent-tint)' : 'var(--sunken)') : 'var(--raised)',
     color: 'var(--ink)',
     fontFamily: 'var(--font-mono)', fontSize: 11, fontWeight: 500,
     letterSpacing: 'var(--tracking-nav)', textTransform: 'uppercase', lineHeight: 1,

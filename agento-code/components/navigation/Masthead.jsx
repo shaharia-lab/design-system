@@ -12,7 +12,7 @@ export function Masthead({ label = 'Agento', links = [], current, star, theme = 
         <Wordmark label={label} />
         <nav style={{ display: 'flex', gap: 20, marginLeft: 'auto', alignItems: 'center' }}>
           {links.map((l) => <NavLink key={l.label} {...l} active={l.label === current} />)}
-          {star ? <NavButton href={star.href} hoverTint="blue"><span aria-hidden="true">★</span> Star{star.count ? <span style={{ fontVariantNumeric: 'tabular-nums' }}>{star.count}</span> : null}</NavButton> : null}
+          {star ? <NavButton href={star.href} hoverTint="accent"><span aria-hidden="true">★</span> Star{star.count ? <span style={{ fontVariantNumeric: 'tabular-nums' }}>{star.count}</span> : null}</NavButton> : null}
           {onTheme ? <NavButton onClick={onTheme} style={{ minWidth: 66 }}>{theme}</NavButton> : null}
         </nav>
       </div>

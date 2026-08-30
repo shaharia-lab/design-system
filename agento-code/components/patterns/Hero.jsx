@@ -14,7 +14,7 @@ export function Hero({ pills = [], title, lede, actions, note, style, children, 
         </div>
       ) : null}
       <h1 style={{
-        fontFamily: 'var(--font-display)', fontWeight: 400, fontSize: 'clamp(44px, 6.4vw, 76px)',
+        fontFamily: 'var(--font-display)', fontWeight: 400, fontSize: 'var(--text-hero)',
         lineHeight: 1.02, letterSpacing: 'var(--tracking-display)', margin: '0 0 18px', maxWidth: '20ch',
       }}>{title}</h1>
       {lede ? <p style={{ fontSize: 17, lineHeight: 1.6, color: 'var(--ink-soft)', margin: '0 0 26px', maxWidth: '46ch' }}>{lede}</p> : null}
