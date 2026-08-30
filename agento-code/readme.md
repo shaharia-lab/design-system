@@ -285,10 +285,10 @@ Root manifest:
 
 Components:
 
-- `components/core/` — Button, NavButton, Pill, Badge, Eyebrow, Sheet, CodeBlock
-- `components/content/` — Row, StatGrid, Steps, Note, DataTable, PullQuote, Byline, Shot
+- `components/core/` — Button, NavButton, ThemeToggle, ArrowLink, Pill, Badge, Eyebrow, Sheet, CodeBlock
+- `components/content/` — Row, RowList, KeyList, StatGrid, Steps, Note, DataTable, PullQuote, Byline, Shot
 - `components/navigation/` — Wordmark, Masthead, SidebarNav, Toc, Pager, Crumbs, SearchBox, Footer
-- `components/patterns/` — SectionHead, Panel, Disclosure, Closer, StarBand, PostRow
+- `components/patterns/` — Hero, SectionHead, CardGrid, Split, Panel, Disclosure, MetaRule, Closer, StarBand, PostRow
 
 UI kits:
 

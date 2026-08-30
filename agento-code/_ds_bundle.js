@@ -1,4 +1,4 @@
-/* @ds-bundle: {"format":4,"namespace":"AgentoDesignSystem_36a6ee","components":[{"name":"Byline","sourcePath":"components/content/Byline.jsx"},{"name":"DataTable","sourcePath":"components/content/DataTable.jsx"},{"name":"Note","sourcePath":"components/content/Note.jsx"},{"name":"PullQuote","sourcePath":"components/content/PullQuote.jsx"},{"name":"Row","sourcePath":"components/content/Row.jsx"},{"name":"RowList","sourcePath":"components/content/Row.jsx"},{"name":"Shot","sourcePath":"components/content/Shot.jsx"},{"name":"StatGrid","sourcePath":"components/content/StatGrid.jsx"},{"name":"Steps","sourcePath":"components/content/Steps.jsx"},{"name":"Badge","sourcePath":"components/core/Badge.jsx"},{"name":"Button","sourcePath":"components/core/Button.jsx"},{"name":"CodeBlock","sourcePath":"components/core/CodeBlock.jsx"},{"name":"CodeKey","sourcePath":"components/core/CodeBlock.jsx"},{"name":"CodeStr","sourcePath":"components/core/CodeBlock.jsx"},{"name":"CodeComment","sourcePath":"components/core/CodeBlock.jsx"},{"name":"Eyebrow","sourcePath":"components/core/Eyebrow.jsx"},{"name":"NavButton","sourcePath":"components/core/NavButton.jsx"},{"name":"Pill","sourcePath":"components/core/Pill.jsx"},{"name":"Sheet","sourcePath":"components/core/Sheet.jsx"},{"name":"Crumbs","sourcePath":"components/navigation/Crumbs.jsx"},{"name":"Footer","sourcePath":"components/navigation/Footer.jsx"},{"name":"Masthead","sourcePath":"components/navigation/Masthead.jsx"},{"name":"Pager","sourcePath":"components/navigation/Pager.jsx"},{"name":"SearchBox","sourcePath":"components/navigation/SearchBox.jsx"},{"name":"SidebarNav","sourcePath":"components/navigation/SidebarNav.jsx"},{"name":"Toc","sourcePath":"components/navigation/Toc.jsx"},{"name":"Wordmark","sourcePath":"components/navigation/Wordmark.jsx"},{"name":"Closer","sourcePath":"components/patterns/Closer.jsx"},{"name":"Disclosure","sourcePath":"components/patterns/Disclosure.jsx"},{"name":"Panel","sourcePath":"components/patterns/Panel.jsx"},{"name":"PostRow","sourcePath":"components/patterns/PostRow.jsx"},{"name":"SectionHead","sourcePath":"components/patterns/SectionHead.jsx"},{"name":"StarBand","sourcePath":"components/patterns/StarBand.jsx"}],"sourceHashes":{"components/content/Byline.jsx":"e6ae42a8c927","components/content/DataTable.jsx":"b72e578238ac","components/content/Note.jsx":"8182e6b947a3","components/content/PullQuote.jsx":"15538db41e84","components/content/Row.jsx":"ff418e18799a","components/content/Shot.jsx":"18eca44ff13a","components/content/StatGrid.jsx":"04054f7156c7","components/content/Steps.jsx":"64707ffe726a","components/core/Badge.jsx":"0f08db413a9d","components/core/Button.jsx":"dd52a5528aa2","components/core/CodeBlock.jsx":"d45455a793e4","components/core/Eyebrow.jsx":"338e5310d356","components/core/NavButton.jsx":"85a9c2daffbb","components/core/Pill.jsx":"2b1fc21495ee","components/core/Sheet.jsx":"cf4e9cfe7e4b","components/navigation/Crumbs.jsx":"942bf5a58348","components/navigation/Footer.jsx":"952023e4a31c","components/navigation/Masthead.jsx":"df40df0a5228","components/navigation/Pager.jsx":"69a739e4c351","components/navigation/SearchBox.jsx":"2f0035ffab57","components/navigation/SidebarNav.jsx":"93ec7e62af27","components/navigation/Toc.jsx":"a91b28f93c8a","components/navigation/Wordmark.jsx":"0539fedd83e0","components/patterns/Closer.jsx":"f097b5a3ac24","components/patterns/Disclosure.jsx":"d517da9760fe","components/patterns/Panel.jsx":"650cc06716b5","components/patterns/PostRow.jsx":"7f1f580e0566","components/patterns/SectionHead.jsx":"5a3e790a19dd","components/patterns/StarBand.jsx":"f70a49a6443f","ui_kits/docs/DocsPage.jsx":"5ce56a9dfd85","ui_kits/website/Blog.jsx":"6b5bd2f4d437","ui_kits/website/Landing.jsx":"f708429e96f0","ui_kits/website/StaticPage.jsx":"48ffe700bc7a"},"inlinedExternals":[],"unexposedExports":[]} */
+/* @ds-bundle: {"format":4,"namespace":"AgentoDesignSystem_36a6ee","components":[{"name":"Byline","sourcePath":"components/content/Byline.jsx"},{"name":"DataTable","sourcePath":"components/content/DataTable.jsx"},{"name":"KeyList","sourcePath":"components/content/KeyList.jsx"},{"name":"Note","sourcePath":"components/content/Note.jsx"},{"name":"PullQuote","sourcePath":"components/content/PullQuote.jsx"},{"name":"Row","sourcePath":"components/content/Row.jsx"},{"name":"RowList","sourcePath":"components/content/Row.jsx"},{"name":"Shot","sourcePath":"components/content/Shot.jsx"},{"name":"StatGrid","sourcePath":"components/content/StatGrid.jsx"},{"name":"Steps","sourcePath":"components/content/Steps.jsx"},{"name":"ArrowLink","sourcePath":"components/core/ArrowLink.jsx"},{"name":"Badge","sourcePath":"components/core/Badge.jsx"},{"name":"Button","sourcePath":"components/core/Button.jsx"},{"name":"CodeBlock","sourcePath":"components/core/CodeBlock.jsx"},{"name":"CodeKey","sourcePath":"components/core/CodeBlock.jsx"},{"name":"CodeStr","sourcePath":"components/core/CodeBlock.jsx"},{"name":"CodeComment","sourcePath":"components/core/CodeBlock.jsx"},{"name":"Eyebrow","sourcePath":"components/core/Eyebrow.jsx"},{"name":"NavButton","sourcePath":"components/core/NavButton.jsx"},{"name":"Pill","sourcePath":"components/core/Pill.jsx"},{"name":"Sheet","sourcePath":"components/core/Sheet.jsx"},{"name":"ThemeToggle","sourcePath":"components/core/ThemeToggle.jsx"},{"name":"Crumbs","sourcePath":"components/navigation/Crumbs.jsx"},{"name":"Footer","sourcePath":"components/navigation/Footer.jsx"},{"name":"Masthead","sourcePath":"components/navigation/Masthead.jsx"},{"name":"Pager","sourcePath":"components/navigation/Pager.jsx"},{"name":"SearchBox","sourcePath":"components/navigation/SearchBox.jsx"},{"name":"SidebarNav","sourcePath":"components/navigation/SidebarNav.jsx"},{"name":"Toc","sourcePath":"components/navigation/Toc.jsx"},{"name":"Wordmark","sourcePath":"components/navigation/Wordmark.jsx"},{"name":"CardGrid","sourcePath":"components/patterns/CardGrid.jsx"},{"name":"Split","sourcePath":"components/patterns/CardGrid.jsx"},{"name":"Closer","sourcePath":"components/patterns/Closer.jsx"},{"name":"Disclosure","sourcePath":"components/patterns/Disclosure.jsx"},{"name":"Hero","sourcePath":"components/patterns/Hero.jsx"},{"name":"MetaRule","sourcePath":"components/patterns/MetaRule.jsx"},{"name":"Panel","sourcePath":"components/patterns/Panel.jsx"},{"name":"PostRow","sourcePath":"components/patterns/PostRow.jsx"},{"name":"SectionHead","sourcePath":"components/patterns/SectionHead.jsx"},{"name":"StarBand","sourcePath":"components/patterns/StarBand.jsx"}],"sourceHashes":{"components/content/Byline.jsx":"e6ae42a8c927","components/content/DataTable.jsx":"b72e578238ac","components/content/KeyList.jsx":"804596d521f8","components/content/Note.jsx":"8182e6b947a3","components/content/PullQuote.jsx":"15538db41e84","components/content/Row.jsx":"ff418e18799a","components/content/Shot.jsx":"18eca44ff13a","components/content/StatGrid.jsx":"04054f7156c7","components/content/Steps.jsx":"64707ffe726a","components/core/ArrowLink.jsx":"e770fbf6fa1d","components/core/Badge.jsx":"0f08db413a9d","components/core/Button.jsx":"dd52a5528aa2","components/core/CodeBlock.jsx":"d45455a793e4","components/core/Eyebrow.jsx":"338e5310d356","components/core/NavButton.jsx":"85a9c2daffbb","components/core/Pill.jsx":"2b1fc21495ee","components/core/Sheet.jsx":"cf4e9cfe7e4b","components/core/ThemeToggle.jsx":"00c7dff40983","components/navigation/Crumbs.jsx":"942bf5a58348","components/navigation/Footer.jsx":"952023e4a31c","components/navigation/Masthead.jsx":"df40df0a5228","components/navigation/Pager.jsx":"69a739e4c351","components/navigation/SearchBox.jsx":"2f0035ffab57","components/navigation/SidebarNav.jsx":"93ec7e62af27","components/navigation/Toc.jsx":"a91b28f93c8a","components/navigation/Wordmark.jsx":"0539fedd83e0","components/patterns/CardGrid.jsx":"086332e6fc34","components/patterns/Closer.jsx":"f097b5a3ac24","components/patterns/Disclosure.jsx":"d517da9760fe","components/patterns/Hero.jsx":"e0edc4d66a95","components/patterns/MetaRule.jsx":"ee04e27767be","components/patterns/Panel.jsx":"650cc06716b5","components/patterns/PostRow.jsx":"7f1f580e0566","components/patterns/SectionHead.jsx":"5a3e790a19dd","components/patterns/StarBand.jsx":"f70a49a6443f","ui_kits/docs/DocsPage.jsx":"5ce56a9dfd85","ui_kits/website/Blog.jsx":"6b5bd2f4d437","ui_kits/website/Landing.jsx":"f708429e96f0","ui_kits/website/StaticPage.jsx":"48ffe700bc7a"},"inlinedExternals":[],"unexposedExports":[]} */
 
 (() => {
 
@@ -109,6 +109,56 @@ function DataTable({
 }
 Object.assign(__ds_scope, { DataTable });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/content/DataTable.jsx", error: String((e && e.message) || e) }); }
+
+// components/content/KeyList.jsx
+try { (() => {
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+/* The bulleted list inside a landing panel, where each item opens with a bold
+   term and then explains it: "Cost per session, priced at the rate in effect
+   when each message ran." The marker is a small square, not a disc — the design
+   has no round bullets. */
+function KeyList({
+  items = [],
+  style,
+  ...rest
+}) {
+  return /*#__PURE__*/React.createElement("ul", _extends({
+    style: {
+      listStyle: 'none',
+      margin: 0,
+      padding: 0,
+      display: 'flex',
+      flexDirection: 'column',
+      gap: 10,
+      ...style
+    }
+  }, rest), items.map((it, i) => /*#__PURE__*/React.createElement("li", {
+    key: it.term || i,
+    style: {
+      display: 'flex',
+      gap: 10,
+      fontSize: 14.5,
+      lineHeight: 1.55,
+      color: 'var(--ink-soft)'
+    }
+  }, /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
+    style: {
+      flex: 'none',
+      width: 5,
+      height: 5,
+      marginTop: 8,
+      background: 'var(--ink)'
+    }
+  }), /*#__PURE__*/React.createElement("span", null, it.term ? /*#__PURE__*/React.createElement("b", {
+    style: {
+      color: 'var(--ink)',
+      fontWeight: 700
+    }
+  }, it.term) : null, it.term && it.children ? ' — ' : null, it.children))));
+}
+Object.assign(__ds_scope, { KeyList });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/content/KeyList.jsx", error: String((e && e.message) || e) }); }
 
 // components/content/Note.jsx
 try { (() => {
@@ -373,6 +423,58 @@ function Steps({
 }
 Object.assign(__ds_scope, { Steps });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/content/Steps.jsx", error: String((e && e.message) || e) }); }
+
+// components/core/ArrowLink.jsx
+try { (() => {
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+/* The small mono link that ends a panel or a section: "Requirements ↗",
+   "All documentation ↗", "Full installation guide". Never a button — it is the
+   quiet way out of a block. The arrow is a character, not an icon: ↗ leaves the
+   page or opens a doc, → continues within it. */
+function ArrowLink({
+  href,
+  arrow = 'out',
+  tone = 'muted',
+  size = 11,
+  onClick,
+  style,
+  children,
+  ...rest
+}) {
+  const [hover, setHover] = React.useState(false);
+  const accent = tone === 'accent';
+  const glyph = arrow === 'in' ? '→' : arrow === 'none' ? null : '↗';
+  return /*#__PURE__*/React.createElement("a", _extends({
+    href: href,
+    onClick: onClick,
+    onMouseEnter: () => setHover(true),
+    onMouseLeave: () => setHover(false),
+    style: {
+      display: 'inline-flex',
+      alignItems: 'center',
+      gap: 5,
+      fontFamily: 'var(--font-mono)',
+      fontSize: size,
+      fontWeight: 500,
+      letterSpacing: 'var(--tracking-nav)',
+      textTransform: 'uppercase',
+      textDecoration: 'none',
+      color: accent ? 'var(--accent-deep)' : 'var(--ink-soft)',
+      borderBottom: '1.5px solid ' + (hover ? accent ? 'var(--accent)' : 'var(--ink)' : 'transparent'),
+      paddingBottom: 1,
+      cursor: 'pointer',
+      ...style
+    }
+  }, rest), children, glyph ? /*#__PURE__*/React.createElement("span", {
+    "aria-hidden": "true",
+    style: {
+      transform: hover ? 'translate(1px, ' + (arrow === 'in' ? '0' : '-1px') + ')' : 'none',
+      transition: 'transform var(--dur-press) var(--ease)'
+    }
+  }, glyph) : null);
+}
+Object.assign(__ds_scope, { ArrowLink });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/core/ArrowLink.jsx", error: String((e && e.message) || e) }); }
 
 // components/core/Badge.jsx
 try { (() => {
@@ -799,6 +901,61 @@ function Sheet({
 Object.assign(__ds_scope, { Sheet });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/core/Sheet.jsx", error: String((e && e.message) || e) }); }
 
+// components/core/ThemeToggle.jsx
+try { (() => {
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+/* The masthead theme switch. The label names the theme you will GET, not the
+   one you are in — the site reads "Dark" while in light. Writes data-theme on
+   <html> and remembers the choice; the upstream site uses the Starlight key so
+   its docs and marketing halves share one memory. Pair with the pre-paint
+   script in INSTALL.md, or the first render will flash. */
+function ThemeToggle({
+  storageKey = 'starlight-theme',
+  defaultTheme,
+  onChange,
+  style,
+  ...rest
+}) {
+  const [theme, setTheme] = React.useState(defaultTheme || 'light');
+  React.useEffect(() => {
+    if (defaultTheme) return;
+    let saved = null;
+    try {
+      saved = window.localStorage.getItem(storageKey);
+    } catch (e) {/* private mode */}
+    if (saved === 'dark' || saved === 'light') {
+      setTheme(saved);
+      return;
+    }
+    const root = document.documentElement.getAttribute('data-theme');
+    if (root === 'dark' || root === 'light') {
+      setTheme(root);
+      return;
+    }
+    setTheme(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  }, [storageKey, defaultTheme]);
+  const flip = () => {
+    const next = theme === 'dark' ? 'light' : 'dark';
+    setTheme(next);
+    document.documentElement.setAttribute('data-theme', next);
+    try {
+      window.localStorage.setItem(storageKey, next);
+    } catch (e) {/* private mode */}
+    if (onChange) onChange(next);
+  };
+  const target = theme === 'dark' ? 'Light' : 'Dark';
+  return /*#__PURE__*/React.createElement(__ds_scope.NavButton, _extends({
+    onClick: flip,
+    "aria-label": 'Switch to ' + target.toLowerCase() + ' theme',
+    style: {
+      minWidth: 66,
+      ...style
+    }
+  }, rest), target);
+}
+Object.assign(__ds_scope, { ThemeToggle });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/core/ThemeToggle.jsx", error: String((e && e.message) || e) }); }
+
 // components/navigation/Crumbs.jsx
 try { (() => {
 function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
@@ -1223,6 +1380,53 @@ function NavLink({
 Object.assign(__ds_scope, { Masthead });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/navigation/Masthead.jsx", error: String((e && e.message) || e) }); }
 
+// components/patterns/CardGrid.jsx
+try { (() => {
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+/* The two layout wrappers the landing page repeats: an even card grid (three up,
+   wrapping to one) and the two-column split. Both are plain grids with a token
+   gap — no nested padding, because the sheets inside carry their own. */
+function CardGrid({
+  min = 260,
+  cols,
+  gap = 'var(--gap-grid)',
+  style,
+  children,
+  ...rest
+}) {
+  return /*#__PURE__*/React.createElement("div", _extends({
+    style: {
+      display: 'grid',
+      gap,
+      gridTemplateColumns: cols ? 'repeat(' + cols + ', minmax(0, 1fr))' : 'repeat(auto-fit, minmax(' + min + 'px, 1fr))',
+      ...style
+    }
+  }, rest), children);
+}
+
+/* The 1:1 split ("Two halves, one window.") — set ratio for the lopsided one
+   used by the design section, where the screenshot is wider than its note. */
+function Split({
+  ratio = '1fr 1fr',
+  gap = 'var(--gap-split)',
+  align = 'start',
+  style,
+  children,
+  ...rest
+}) {
+  return /*#__PURE__*/React.createElement("div", _extends({
+    style: {
+      display: 'grid',
+      gridTemplateColumns: ratio,
+      gap,
+      alignItems: align,
+      ...style
+    }
+  }, rest), children);
+}
+Object.assign(__ds_scope, { CardGrid, Split });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/patterns/CardGrid.jsx", error: String((e && e.message) || e) }); }
+
 // components/patterns/Closer.jsx
 try { (() => {
 function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
@@ -1370,6 +1574,122 @@ function Disclosure({
 }
 Object.assign(__ds_scope, { Disclosure });
 })(); } catch (e) { __ds_ns.__errors.push({ path: "components/patterns/Disclosure.jsx", error: String((e && e.message) || e) }); }
+
+// components/patterns/Hero.jsx
+try { (() => {
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+/* The top of a project landing page: a row of status pills, the display-serif
+   claim, the lede, and the action row. The claim carries exactly one italic
+   accent word — pass it as markup: title={<>See what it <em>really</em> costs
+   you.</>}. Italic <em> inside inherits the accent colour from the rule below. */
+function Hero({
+  pills = [],
+  title,
+  lede,
+  actions,
+  note,
+  style,
+  children,
+  ...rest
+}) {
+  return /*#__PURE__*/React.createElement("section", _extends({
+    style: {
+      padding: '44px 0 34px',
+      ...style
+    }
+  }, rest), pills.length ? /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      flexWrap: 'wrap',
+      gap: 8,
+      marginBottom: 18
+    }
+  }, pills.map(p => typeof p === 'string' ? /*#__PURE__*/React.createElement(__ds_scope.Pill, {
+    key: p
+  }, p) : /*#__PURE__*/React.createElement(__ds_scope.Pill, _extends({
+    key: p.label
+  }, p), p.label))) : null, /*#__PURE__*/React.createElement("h1", {
+    style: {
+      fontFamily: 'var(--font-display)',
+      fontWeight: 400,
+      fontSize: 'clamp(44px, 6.4vw, 76px)',
+      lineHeight: 1.02,
+      letterSpacing: 'var(--tracking-display)',
+      margin: '0 0 18px',
+      maxWidth: '20ch'
+    }
+  }, title), lede ? /*#__PURE__*/React.createElement("p", {
+    style: {
+      fontSize: 17,
+      lineHeight: 1.6,
+      color: 'var(--ink-soft)',
+      margin: '0 0 26px',
+      maxWidth: '46ch'
+    }
+  }, lede) : null, actions || note ? /*#__PURE__*/React.createElement("div", {
+    style: {
+      display: 'flex',
+      flexWrap: 'wrap',
+      alignItems: 'center',
+      gap: 14
+    }
+  }, actions, note ? /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: 'var(--font-mono)',
+      fontSize: 11,
+      letterSpacing: 'var(--tracking-nav)',
+      textTransform: 'uppercase',
+      color: 'var(--ink-faint)'
+    }
+  }, note) : null) : null, children);
+}
+Object.assign(__ds_scope, { Hero });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/patterns/Hero.jsx", error: String((e && e.message) || e) }); }
+
+// components/patterns/MetaRule.jsx
+try { (() => {
+function _extends() { return _extends = Object.assign ? Object.assign.bind() : function (n) { for (var e = 1; e < arguments.length; e++) { var t = arguments[e]; for (var r in t) ({}).hasOwnProperty.call(t, r) && (n[r] = t[r]); } return n; }, _extends.apply(null, arguments); }
+/* The mono line that closes a section under a hairline rule: an aside on the
+   left, links on the right, all in 11px uppercase mono. It is the footnote of
+   the page — never put anything essential here. */
+function MetaRule({
+  note,
+  children,
+  align = 'between',
+  style,
+  ...rest
+}) {
+  return /*#__PURE__*/React.createElement("div", _extends({
+    style: {
+      display: 'flex',
+      flexWrap: 'wrap',
+      alignItems: 'center',
+      gap: 16,
+      justifyContent: align === 'between' ? 'space-between' : align,
+      borderTop: 'var(--bw-hair) solid var(--ink-faint)',
+      padding: '12px 0 0',
+      marginTop: 18,
+      ...style
+    }
+  }, rest), note ? /*#__PURE__*/React.createElement("span", {
+    style: {
+      fontFamily: 'var(--font-mono)',
+      fontSize: 11,
+      letterSpacing: 'var(--tracking-nav)',
+      textTransform: 'uppercase',
+      color: 'var(--ink-faint)'
+    }
+  }, note) : null, children ? /*#__PURE__*/React.createElement("span", {
+    style: {
+      display: 'flex',
+      flexWrap: 'wrap',
+      alignItems: 'center',
+      gap: 16
+    }
+  }, children) : null);
+}
+Object.assign(__ds_scope, { MetaRule });
+})(); } catch (e) { __ds_ns.__errors.push({ path: "components/patterns/MetaRule.jsx", error: String((e && e.message) || e) }); }
 
 // components/patterns/Panel.jsx
 try { (() => {
@@ -2629,6 +2949,8 @@ __ds_ns.Byline = __ds_scope.Byline;
 
 __ds_ns.DataTable = __ds_scope.DataTable;
 
+__ds_ns.KeyList = __ds_scope.KeyList;
+
 __ds_ns.Note = __ds_scope.Note;
 
 __ds_ns.PullQuote = __ds_scope.PullQuote;
@@ -2642,6 +2964,8 @@ __ds_ns.Shot = __ds_scope.Shot;
 __ds_ns.StatGrid = __ds_scope.StatGrid;
 
 __ds_ns.Steps = __ds_scope.Steps;
+
+__ds_ns.ArrowLink = __ds_scope.ArrowLink;
 
 __ds_ns.Badge = __ds_scope.Badge;
 
@@ -2663,6 +2987,8 @@ __ds_ns.Pill = __ds_scope.Pill;
 
 __ds_ns.Sheet = __ds_scope.Sheet;
 
+__ds_ns.ThemeToggle = __ds_scope.ThemeToggle;
+
 __ds_ns.Crumbs = __ds_scope.Crumbs;
 
 __ds_ns.Footer = __ds_scope.Footer;
@@ -2679,9 +3005,17 @@ __ds_ns.Toc = __ds_scope.Toc;
 
 __ds_ns.Wordmark = __ds_scope.Wordmark;
 
+__ds_ns.CardGrid = __ds_scope.CardGrid;
+
+__ds_ns.Split = __ds_scope.Split;
+
 __ds_ns.Closer = __ds_scope.Closer;
 
 __ds_ns.Disclosure = __ds_scope.Disclosure;
+
+__ds_ns.Hero = __ds_scope.Hero;
+
+__ds_ns.MetaRule = __ds_scope.MetaRule;
 
 __ds_ns.Panel = __ds_scope.Panel;
 

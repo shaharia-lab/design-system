@@ -1,4 +1,4 @@
-<!-- @dsCard group="Components" viewport="700x330" name="Core" subtitle="Buttons, pills, badges, eyebrow, sheet, code" -->
+<!-- @dsCard group="Components" viewport="700x380" name="Core" subtitle="Buttons, theme toggle, pills, badges, arrow links, sheet, code" -->
 <!doctype html><html lang="en"><head><meta charset="utf-8"><link rel="stylesheet" href="../../styles.css">
 <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
@@ -7,7 +7,7 @@
 <style>body{padding:22px 24px}.grp{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-bottom:20px}.cap{margin:0 0 8px}</style>
 </head><body><div id="root"></div>
 <script type="text/babel">
-const { Button, NavButton, Pill, Badge, Eyebrow, Sheet, CodeBlock, CodeKey } = window.AgentoDesignSystem_36a6ee;
+const { Button, NavButton, ThemeToggle, ArrowLink, Pill, Badge, Eyebrow, Sheet, CodeBlock, CodeKey } = window.AgentoDesignSystem_36a6ee;
 function Demo() {
   return <>
     <div className="grp">
@@ -16,11 +16,17 @@ function Demo() {
       <Button>Star on GitHub</Button>
       <Button disabled>Unavailable</Button>
       <NavButton hoverTint="blue">★ Star</NavButton>
-      <NavButton style={{minWidth:66}}>Dark</NavButton>
+      <ThemeToggle defaultTheme="light" />
     </div>
     <div className="grp">
       <Pill>v1.2.0</Pill><Pill plain>macOS · Windows · Linux</Pill><Pill plain>MIT licensed</Pill>
       <Badge>dmg</Badge><Badge>docs</Badge><Badge>blog</Badge>
+    </div>
+    <div className="grp">
+      <ArrowLink href="#">Requirements</ArrowLink>
+      <ArrowLink href="#" tone="accent">Privacy</ArrowLink>
+      <ArrowLink href="#" arrow="in" size={12}>Full installation guide</ArrowLink>
+      <ArrowLink href="#" arrow="none">All documentation</ArrowLink>
     </div>
     <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:22,alignItems:'start'}}>
       <Sheet style={{padding:'var(--pad-panel)'}}>
