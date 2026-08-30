@@ -4,8 +4,8 @@ import * as React from 'react';
 export interface NavButtonProps {
   href?: string;
   onClick?: (e: React.MouseEvent) => void;
-  /** Hover ground: 'sunken' (default) or 'blue' for the star button. */
-  hoverTint?: 'sunken' | 'blue';
+  /** Hover ground: 'sunken' (default) or 'accent' for the star button. */
+  hoverTint?: 'sunken' | 'accent';
   style?: React.CSSProperties;
   children?: React.ReactNode;
 }

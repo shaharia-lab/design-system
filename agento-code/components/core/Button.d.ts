@@ -6,7 +6,7 @@ import * as React from 'react';
  *
  */
 export interface ButtonProps {
-  /** default = bone sheet, primary = electric blue, ink = solid near-black, ghost = transparent (inverted grounds only). */
+  /** default = bone sheet, primary = the accent fill, ink = solid near-black, ghost = transparent (inverted grounds only). */
   variant?: 'default' | 'primary' | 'ink' | 'ghost';
   /** Renders an <a> instead of a <button>. */
   href?: string;

@@ -18,6 +18,7 @@ a:hover { color: var(--accent-deep); }
 .split { display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap-split); }
 .split--media { align-items: start; }
 .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--gap-grid); }
+.grid2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--gap-grid); }
 
 /* --- text primitives ----------------------------------------------------- */
 .label { font-family: var(--font-mono); font-size: var(--text-label); font-weight: 500; letter-spacing: var(--tracking-label); text-transform: uppercase; color: var(--ink-soft); }
@@ -26,8 +27,31 @@ a:hover { color: var(--accent-deep); }
 .rule--dashed { height: 0; background: none; border-top: var(--bw) dashed var(--ink-faint); }
 .codeblock { background: var(--code-bg); color: var(--code-fg); border: var(--bw) solid var(--code-border); border-radius: var(--radius); font-family: var(--font-mono); font-size: var(--text-mono); line-height: 1.7; padding: 14px 16px; overflow-x: auto; margin: 0; }
 .codeblock .c { color: var(--code-comment); }
-.codeblock .s { color: var(--accent); }
+.codeblock .s { color: var(--code-accent); }
 .codeblock .k { color: var(--code-key); font-weight: 700; }
+
+/* --- disclosure ---------------------------------------------------------- */
+/* Native details/summary. Every state the browser owns stays in CSS here, so a
+   statically rendered accordion works with no JavaScript. */
+.disclosure { border-radius: var(--radius); background: var(--raised); overflow: hidden; }
+.disclosure > summary { display: flex; align-items: center; gap: 14px; cursor: pointer; list-style: none; font-family: var(--font-sub); font-weight: 600; }
+.disclosure > summary::-webkit-details-marker { display: none; }
+.disclosure > summary:hover { background: var(--sunken); }
+.disclosure__chev { font-family: var(--font-mono); color: var(--ink-faint); display: inline-block; transition: transform var(--dur-chev) var(--ease); }
+.disclosure[open] > summary .disclosure__chev { transform: rotate(90deg); }
+.disclosure__meta { margin-left: auto; font-family: var(--font-mono); font-size: var(--text-label); letter-spacing: var(--tracking-nav); text-transform: uppercase; color: var(--ink-soft); }
+.disclosure__flag { font-family: var(--font-mono); font-size: 10px; font-weight: 700; letter-spacing: var(--tracking-label); text-transform: uppercase; padding: 3px 9px; border: var(--bw) solid var(--ink); border-radius: var(--radius-pill); background: var(--accent-tint); color: var(--ink); }
+
+.disclosure--faq { border: var(--bw-hair) solid var(--ink-faint); }
+.disclosure--faq[open] { border-color: var(--ink); }
+.disclosure--faq > summary { align-items: baseline; gap: 12px; padding: 12px 15px; font-size: 16.5px; }
+.disclosure--faq .disclosure__body { padding: 0 15px 14px 39px; }
+
+.disclosure--panel { border: var(--bw) solid var(--ink); box-shadow: var(--offset); }
+.disclosure--panel > summary { padding: 15px 20px; font-size: 20px; }
+.disclosure--panel > summary .disclosure__chev { color: var(--ink-soft); }
+.disclosure--panel .disclosure__body { padding: 18px 20px 20px; border-top: var(--bw-hair) dashed var(--ink-faint); }
+.disclosure--rec { box-shadow: var(--offset-accent); }
 
 /* --- prose --------------------------------------------------------------- */
 .prose { max-width: var(--measure); }
@@ -39,5 +63,6 @@ a:hover { color: var(--accent-deep); }
 .prose code { font-family: var(--font-mono); font-size: 0.87em; background: var(--sunken); border: var(--bw-hair) solid var(--ink-faint); border-radius: var(--radius); padding: 1px 5px; }
 .prose a.link { color: var(--accent-deep); border-bottom: var(--bw) solid var(--accent); }
 
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; } }
 @media (max-width: 1000px) { .grid3 { grid-template-columns: repeat(2, 1fr); } }
-@media (max-width: 760px) { .split, .grid3 { grid-template-columns: 1fr; } }
+@media (max-width: 760px) { .split, .grid3, .grid2 { grid-template-columns: 1fr; } }

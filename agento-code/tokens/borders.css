@@ -10,7 +10,7 @@
 
   --offset: 8px 8px 0 var(--ink);
   --offset-sm: 5px 5px 0 var(--ink);
-  --offset-accent: 8px 8px 0 var(--blue);   /* recommended install card */
+  --offset-accent: 8px 8px 0 var(--accent);   /* recommended install card */
   --offset-invert: 4px 4px 0 var(--paper); /* buttons on the inverted closer */
 
   --radius: 2px;

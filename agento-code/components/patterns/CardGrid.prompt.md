@@ -1,9 +1,10 @@
-The two layout wrappers the landing page repeats: the wrapping card grid and the two-column split.
+The two layout wrappers the landing page repeats: the card grid and the two-column split.
 
 ```jsx
-<CardGrid min={260}>
+<CardGrid cols={3}>
   <Panel size="card" eyebrow="01 · Chats" title="Talk to your agents">…</Panel>
   <Panel size="card" eyebrow="02 · Agents" title="Build and version them">…</Panel>
+  <Panel size="card" eyebrow="03 · Tasks" title="Put them on a clock">…</Panel>
 </CardGrid>
 
 <Split>
@@ -12,7 +13,10 @@ The two layout wrappers the landing page repeats: the wrapping card grid and the
 </Split>
 ```
 
-`CardGrid` wraps on its own via `auto-fit`; pass `cols` only when a fixed count
-matters. In a `Split`, the dashed sheet goes second — the solid one leads. Use
-`ratio="1.25fr 1fr"` for the lopsided screenshot-plus-note pairing. Neither
-wrapper adds padding; the sheets inside carry it.
+Both render a class from `base.css` — `.grid3` / `.grid2` / `.split` — which is
+what makes them collapse to one column at 760px. Do **not** pass
+`style={{ gridTemplateColumns: … }}`: an inline style outranks the stylesheet and
+the media query cannot reach it, so the layout will stay wide on a phone. In a
+`Split` the dashed sheet goes second; the solid one leads. Use `media` for the
+lopsided screenshot-plus-note pairing. Neither wrapper adds padding — the sheets
+inside carry it.
